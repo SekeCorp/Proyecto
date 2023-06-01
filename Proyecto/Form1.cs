@@ -16,7 +16,7 @@ namespace Proyecto
         {
             InitializeComponent();
         }
-        //MEO POTO TEST 1das
+        //MEO POTO TEST 1das xdxdxdxd
 
 
         private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,6 +67,11 @@ namespace Proyecto
             cerrarSesionToolStripMenuItem.Enabled = false;
             equiposToolStripMenuItem.Enabled = false;
             horarioToolStripMenuItem.Enabled = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
