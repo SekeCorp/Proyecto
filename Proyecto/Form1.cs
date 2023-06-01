@@ -16,7 +16,7 @@ namespace Proyecto
         {
             InitializeComponent();
         }
-        //MEO POTO TEST 1
+        //MEO POTO TEST 1das
 
 
         private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
