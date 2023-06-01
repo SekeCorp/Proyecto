@@ -33,6 +33,9 @@
             this.horarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +67,10 @@
             // 
             // equiposToolStripMenuItem
             // 
+            this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prestamoToolStripMenuItem,
+            this.agregarEquipoToolStripMenuItem,
+            this.prestamoEquipoToolStripMenuItem});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.equiposToolStripMenuItem.Text = "Equipos";
@@ -76,6 +83,24 @@
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click_1);
+            // 
+            // prestamoToolStripMenuItem
+            // 
+            this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
+            // 
+            // agregarEquipoToolStripMenuItem
+            // 
+            this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
+            // 
+            // prestamoEquipoToolStripMenuItem
+            // 
+            this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             // 
             // Form1
             // 
@@ -102,6 +127,9 @@
         private System.Windows.Forms.ToolStripMenuItem horarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prestamoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prestamoEquipoToolStripMenuItem;
     }
 }
 
