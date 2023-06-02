@@ -16,7 +16,7 @@ namespace Proyecto
         {
             InitializeComponent();
         }
-        // AVISOS
+        // AVISOS avance 01/06 23.00
 
 
         private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
