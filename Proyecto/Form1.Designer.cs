@@ -31,11 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,9 +64,32 @@
             // 
             // horarioToolStripMenuItem
             // 
+            this.horarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ingresarToolStripMenuItem1,
+            this.modificarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
             this.horarioToolStripMenuItem.Name = "horarioToolStripMenuItem";
             this.horarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.horarioToolStripMenuItem.Text = "Horario";
+            // 
+            // ingresarToolStripMenuItem1
+            // 
+            this.ingresarToolStripMenuItem1.Name = "ingresarToolStripMenuItem1";
+            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ingresarToolStripMenuItem1.Text = "Ingresar";
+            this.ingresarToolStripMenuItem1.Click += new System.EventHandler(this.ingresarToolStripMenuItem1_Click);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Text = "Modificar";
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // equiposToolStripMenuItem
             // 
@@ -75,6 +101,24 @@
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.equiposToolStripMenuItem.Text = "Equipos";
             // 
+            // prestamoToolStripMenuItem
+            // 
+            this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
+            // 
+            // agregarEquipoToolStripMenuItem
+            // 
+            this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
+            // 
+            // prestamoEquipoToolStripMenuItem
+            // 
+            this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
+            // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -83,24 +127,6 @@
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click_1);
-            // 
-            // prestamoToolStripMenuItem
-            // 
-            this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
-            // 
-            // agregarEquipoToolStripMenuItem
-            // 
-            this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
-            // 
-            // prestamoEquipoToolStripMenuItem
-            // 
-            this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             // 
             // Form1
             // 
@@ -112,7 +138,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -130,6 +155,9 @@
         private System.Windows.Forms.ToolStripMenuItem prestamoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prestamoEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ingresarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
 

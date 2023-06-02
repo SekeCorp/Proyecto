@@ -16,7 +16,7 @@ namespace Proyecto
         {
             InitializeComponent();
         }
-        //MEO POTO TEST 1das xdxdxdxdxdWENAola
+        // AVISOS
 
 
         private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +72,16 @@ namespace Proyecto
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ingresarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f3.Show();
         }
     }
 }
