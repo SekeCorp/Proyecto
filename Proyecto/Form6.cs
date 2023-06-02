@@ -20,6 +20,7 @@ namespace Proyecto
         private void Form6_Load(object sender, EventArgs e)
         {
             //////sdfsadfsadf ASDGFASDGASDGASDGS
+            ////asdadadadddsadasdasdsadadadadadadadadadadadaadadadadadadadadadadadadadada
         }
     }
 }
