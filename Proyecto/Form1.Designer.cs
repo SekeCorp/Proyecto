@@ -68,6 +68,7 @@
             this.ingresarToolStripMenuItem1,
             this.modificarToolStripMenuItem,
             this.eliminarToolStripMenuItem});
+            this.horarioToolStripMenuItem.Enabled = false;
             this.horarioToolStripMenuItem.Name = "horarioToolStripMenuItem";
             this.horarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.horarioToolStripMenuItem.Text = "Horario";
@@ -98,6 +99,7 @@
             this.prestamoToolStripMenuItem,
             this.agregarEquipoToolStripMenuItem,
             this.prestamoEquipoToolStripMenuItem});
+            this.equiposToolStripMenuItem.Enabled = false;
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.equiposToolStripMenuItem.Text = "Equipos";
@@ -105,20 +107,20 @@
             // prestamoToolStripMenuItem
             // 
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
             // agregarEquipoToolStripMenuItem
             // 
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             // 
             // cerrarSesionToolStripMenuItem
