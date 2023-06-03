@@ -83,5 +83,12 @@ namespace Proyecto
 
             f3.Show();
         }
+
+        private void prestamoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form6 f6 = new Form6();
+            f6.MdiParent = this;
+            f6.Show();
+        }
     }
 }

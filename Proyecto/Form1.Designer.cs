@@ -75,20 +75,20 @@
             // ingresarToolStripMenuItem1
             // 
             this.ingresarToolStripMenuItem1.Name = "ingresarToolStripMenuItem1";
-            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.ingresarToolStripMenuItem1.Text = "Ingresar";
             this.ingresarToolStripMenuItem1.Click += new System.EventHandler(this.ingresarToolStripMenuItem1_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // equiposToolStripMenuItem
@@ -104,19 +104,20 @@
             // prestamoToolStripMenuItem
             // 
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
+            this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
             // agregarEquipoToolStripMenuItem
             // 
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             // 
             // cerrarSesionToolStripMenuItem
