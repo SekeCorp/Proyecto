@@ -101,5 +101,9 @@ namespace Proyecto
             f6.Show();
         }
 
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
