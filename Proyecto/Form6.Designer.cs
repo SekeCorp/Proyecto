@@ -28,20 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.id_txt = new System.Windows.Forms.TextBox();
             this.Buscar_btn = new System.Windows.Forms.Button();
+            this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
+            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroserieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enprestamoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(386, 12);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.numeroserieDataGridViewTextBoxColumn,
+            this.enprestamoDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.equiposBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(345, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(402, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 426);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -78,6 +95,45 @@
             this.Buscar_btn.TabIndex = 4;
             this.Buscar_btn.Text = "Buscar";
             this.Buscar_btn.UseVisualStyleBackColor = true;
+            this.Buscar_btn.Click += new System.EventHandler(this.Buscar_btn_Click);
+            // 
+            // proyectoDataSet3
+            // 
+            this.proyectoDataSet3.DataSetName = "ProyectoDataSet3";
+            this.proyectoDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // equiposBindingSource
+            // 
+            this.equiposBindingSource.DataMember = "Equipos";
+            this.equiposBindingSource.DataSource = this.proyectoDataSet3;
+            // 
+            // equiposTableAdapter
+            // 
+            this.equiposTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // numeroserieDataGridViewTextBoxColumn
+            // 
+            this.numeroserieDataGridViewTextBoxColumn.DataPropertyName = "numero_serie";
+            this.numeroserieDataGridViewTextBoxColumn.HeaderText = "numero_serie";
+            this.numeroserieDataGridViewTextBoxColumn.Name = "numeroserieDataGridViewTextBoxColumn";
+            // 
+            // enprestamoDataGridViewCheckBoxColumn
+            // 
+            this.enprestamoDataGridViewCheckBoxColumn.DataPropertyName = "en_prestamo";
+            this.enprestamoDataGridViewCheckBoxColumn.HeaderText = "en_prestamo";
+            this.enprestamoDataGridViewCheckBoxColumn.Name = "enprestamoDataGridViewCheckBoxColumn";
             // 
             // Form6
             // 
@@ -95,6 +151,8 @@
             this.Text = "|||";
             this.Load += new System.EventHandler(this.Form6_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +165,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.Button Buscar_btn;
+        private ProyectoDataSet3 proyectoDataSet3;
+        private System.Windows.Forms.BindingSource equiposBindingSource;
+        private ProyectoDataSet3TableAdapters.EquiposTableAdapter equiposTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroserieDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enprestamoDataGridViewCheckBoxColumn;
     }
 }

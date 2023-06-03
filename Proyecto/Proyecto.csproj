@@ -111,6 +111,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +181,17 @@
     </None>
     <None Include="ProyectoDataSet2.xss">
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet31.xsc">
+      <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet31.xss">
+      <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
