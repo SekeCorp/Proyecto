@@ -84,11 +84,22 @@ namespace Proyecto
             f3.Show();
         }
 
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            f4.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f4.Show();
+        }
+
         private void prestamoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 f6 = new Form6();
             f6.MdiParent = this;
             f6.Show();
         }
+
     }
 }
