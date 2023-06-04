@@ -30,7 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +38,7 @@
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,15 +61,6 @@
             this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
             this.ingresarToolStripMenuItem.Click += new System.EventHandler(this.ingresarToolStripMenuItem_Click);
-            // 
-            // cerrarSesionToolStripMenuItem
-            // 
-            this.cerrarSesionToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cerrarSesionToolStripMenuItem.Enabled = false;
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click_1);
             // 
             // horarioToolStripMenuItem
             // 
@@ -118,23 +109,35 @@
             // 
             // prestamoToolStripMenuItem
             // 
+            this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
             // agregarEquipoToolStripMenuItem
             // 
+            this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cerrarSesionToolStripMenuItem.Enabled = false;
+            this.cerrarSesionToolStripMenuItem.Image = global::Proyecto.Properties.Resources.cerrar_sesion__1_;
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click_1);
             // 
             // Form1
             // 
@@ -142,10 +145,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

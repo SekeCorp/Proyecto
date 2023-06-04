@@ -235,5 +235,17 @@
   <ItemGroup>
     <None Include="Resources\calendario.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ordenador-personal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anadir.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
