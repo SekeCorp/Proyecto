@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -15,7 +16,20 @@ namespace Proyecto
 
         private void Buscar_btn_Click(object sender, EventArgs e)
         {
-            string path, query, id;
+            if (string.IsNullOrWhiteSpace(id_txt.Text))
+            {
+                id_txt.BackColor = Color.LightPink;
+                id_txt.BorderStyle = BorderStyle.FixedSingle;
+                id_txt.Focus();
+                return;
+            }
+            else
+            {
+                id_txt.BackColor = Color.White;
+                id_txt.BorderStyle = BorderStyle.FixedSingle;
+                id_txt.Focus();
+
+                string path, query, id;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
             path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True"; //VIXO
@@ -55,6 +69,7 @@ namespace Proyecto
                         MessageBox.Show("No se encontró ningún item con el ID especificado.");
                     }
                 }
+            }  
             }
         }
 
