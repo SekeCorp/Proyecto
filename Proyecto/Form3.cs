@@ -21,6 +21,8 @@ namespace Proyecto
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'materiaDataSet.Materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter.Fill(this.materiaDataSet.Materias);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet1.Profesor' Puede moverla o quitarla según sea necesario.
             this.profesorTableAdapter.Fill(this.proyectoDataSet1.Profesor);
 
@@ -36,8 +38,8 @@ namespace Proyecto
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
                 rut = txtRut.Text;
                 nombre = txtNombreIngPro.Text;
-                materia = txtMateria.Text;
-                horas = txtHoras.Text;
+                materia = comboMateria.Text;
+                horas = numericUpDown1.Text;
 
                 using (SqlConnection con = new SqlConnection(path))
                 {
@@ -96,8 +98,6 @@ namespace Proyecto
             con.Close();
             txtRut.Clear();
             txtNombreIngPro.Clear();
-            txtMateria.Clear();
-            txtHoras.Clear();
         }
     }
 }

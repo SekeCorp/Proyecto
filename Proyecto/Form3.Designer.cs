@@ -45,12 +45,18 @@
             this.btnInsertar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.txtNombreIngPro = new System.Windows.Forms.TextBox();
-            this.txtMateria = new System.Windows.Forms.TextBox();
-            this.txtHoras = new System.Windows.Forms.TextBox();
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet1TableAdapters.ProfesorTableAdapter();
+            this.comboMateria = new System.Windows.Forms.ComboBox();
+            this.materiaDataSet = new Proyecto.MateriaDataSet();
+            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiasTableAdapter = new Proyecto.MateriaDataSetTableAdapters.MateriasTableAdapter();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRut
@@ -186,31 +192,64 @@
             this.txtNombreIngPro.Size = new System.Drawing.Size(134, 20);
             this.txtNombreIngPro.TabIndex = 9;
             // 
-            // txtMateria
-            // 
-            this.txtMateria.Location = new System.Drawing.Point(133, 238);
-            this.txtMateria.Name = "txtMateria";
-            this.txtMateria.Size = new System.Drawing.Size(134, 20);
-            this.txtMateria.TabIndex = 10;
-            // 
-            // txtHoras
-            // 
-            this.txtHoras.Location = new System.Drawing.Point(133, 285);
-            this.txtHoras.Name = "txtHoras";
-            this.txtHoras.Size = new System.Drawing.Size(50, 20);
-            this.txtHoras.TabIndex = 11;
-            // 
             // profesorTableAdapter
             // 
             this.profesorTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboMateria
+            // 
+            this.comboMateria.DataSource = this.materiasBindingSource;
+            this.comboMateria.DisplayMember = "Materia";
+            this.comboMateria.FormattingEnabled = true;
+            this.comboMateria.Location = new System.Drawing.Point(133, 243);
+            this.comboMateria.Name = "comboMateria";
+            this.comboMateria.Size = new System.Drawing.Size(134, 21);
+            this.comboMateria.TabIndex = 12;
+            this.comboMateria.ValueMember = "Materia";
+            // 
+            // materiaDataSet
+            // 
+            this.materiaDataSet.DataSetName = "MateriaDataSet";
+            this.materiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materiasBindingSource
+            // 
+            this.materiasBindingSource.DataMember = "Materias";
+            this.materiasBindingSource.DataSource = this.materiaDataSet;
+            // 
+            // materiasTableAdapter
+            // 
+            this.materiasTableAdapter.ClearBeforeFill = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(133, 288);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDown1.TabIndex = 13;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtHoras);
-            this.Controls.Add(this.txtMateria);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.comboMateria);
             this.Controls.Add(this.txtNombreIngPro);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnInsertar);
@@ -229,6 +268,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,8 +288,6 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.TextBox txtNombreIngPro;
-        private System.Windows.Forms.TextBox txtMateria;
-        private System.Windows.Forms.TextBox txtHoras;
         private ProyectoDataSet1 proyectoDataSet1;
         private System.Windows.Forms.BindingSource profesorBindingSource;
         private ProyectoDataSet1TableAdapters.ProfesorTableAdapter profesorTableAdapter;
@@ -255,5 +295,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboMateria;
+        private MateriaDataSet materiaDataSet;
+        private System.Windows.Forms.BindingSource materiasBindingSource;
+        private MateriaDataSetTableAdapters.MateriasTableAdapter materiasTableAdapter;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
