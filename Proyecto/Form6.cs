@@ -15,7 +15,7 @@ namespace Proyecto
 
         private void Buscar_btn_Click(object sender, EventArgs e)
         {
-
+            //hdfgrsgh
             string path, query, id;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
