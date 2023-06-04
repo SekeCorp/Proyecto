@@ -29,11 +29,162 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtRutElimin = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnConfirmarElim = new System.Windows.Forms.Button();
+            this.proyectoDataSet1 = new Proyecto.ProyectoDataSet1();
+            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorTableAdapter = new Proyecto.ProyectoDataSet1TableAdapters.ProfesorTableAdapter();
+            this.rutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(75, 302);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // txtRutElimin
+            // 
+            this.txtRutElimin.Location = new System.Drawing.Point(96, 201);
+            this.txtRutElimin.Name = "txtRutElimin";
+            this.txtRutElimin.Size = new System.Drawing.Size(100, 20);
+            this.txtRutElimin.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(110, 173);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "RUT Profesor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(71, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 24);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Eliminar Profesor";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rutDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.materiaDataGridViewTextBoxColumn,
+            this.horasDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.profesorBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(309, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(443, 370);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // btnConfirmarElim
+            // 
+            this.btnConfirmarElim.Location = new System.Drawing.Point(156, 302);
+            this.btnConfirmarElim.Name = "btnConfirmarElim";
+            this.btnConfirmarElim.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmarElim.TabIndex = 53;
+            this.btnConfirmarElim.Text = "Confirmar";
+            this.btnConfirmarElim.UseVisualStyleBackColor = true;
+            this.btnConfirmarElim.Click += new System.EventHandler(this.btnConfirmarElim_Click);
+            // 
+            // proyectoDataSet1
+            // 
+            this.proyectoDataSet1.DataSetName = "ProyectoDataSet1";
+            this.proyectoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // profesorBindingSource
+            // 
+            this.profesorBindingSource.DataMember = "Profesor";
+            this.profesorBindingSource.DataSource = this.proyectoDataSet1;
+            // 
+            // profesorTableAdapter
+            // 
+            this.profesorTableAdapter.ClearBeforeFill = true;
+            // 
+            // rutDataGridViewTextBoxColumn
+            // 
+            this.rutDataGridViewTextBoxColumn.DataPropertyName = "rut";
+            this.rutDataGridViewTextBoxColumn.HeaderText = "rut";
+            this.rutDataGridViewTextBoxColumn.Name = "rutDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // materiaDataGridViewTextBoxColumn
+            // 
+            this.materiaDataGridViewTextBoxColumn.DataPropertyName = "materia";
+            this.materiaDataGridViewTextBoxColumn.HeaderText = "materia";
+            this.materiaDataGridViewTextBoxColumn.Name = "materiaDataGridViewTextBoxColumn";
+            // 
+            // horasDataGridViewTextBoxColumn
+            // 
+            this.horasDataGridViewTextBoxColumn.DataPropertyName = "horas";
+            this.horasDataGridViewTextBoxColumn.HeaderText = "horas";
+            this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
+            // 
+            // Form5
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirmarElim);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.txtRutElimin);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Form5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.Form5_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtRutElimin;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnConfirmarElim;
+        private ProyectoDataSet1 proyectoDataSet1;
+        private System.Windows.Forms.BindingSource profesorBindingSource;
+        private ProyectoDataSet1TableAdapters.ProfesorTableAdapter profesorTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
     }
 }
