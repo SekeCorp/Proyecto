@@ -20,8 +20,7 @@ namespace Proyecto
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet1.Profesor' Puede moverla o quitarla según sea necesario.
-            this.profesorTableAdapter.Fill(this.proyectoDataSet1.Profesor);
+
 
         }
 

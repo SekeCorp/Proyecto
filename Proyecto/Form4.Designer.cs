@@ -36,23 +36,24 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtModRut = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proyectoDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proyectoDataSet1 = new Proyecto.ProyectoDataSet1();
             this.lblModificarProfesor = new System.Windows.Forms.Label();
             this.lblModHoras = new System.Windows.Forms.Label();
             this.lblModMateria = new System.Windows.Forms.Label();
             this.lblModNombre = new System.Windows.Forms.Label();
             this.lblModRut = new System.Windows.Forms.Label();
-            this.profesorTableAdapter = new Proyecto.ProyectoDataSet1TableAdapters.ProfesorTableAdapter();
+            this.txtApellidoProMod = new System.Windows.Forms.TextBox();
+            this.lblModApellido = new System.Windows.Forms.Label();
+            this.proyectoDataSet4 = new Proyecto.ProyectoDataSet4();
+            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
+            this.rutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtModHoras
@@ -71,7 +72,7 @@
             // 
             // txtNombreModPro
             // 
-            this.txtNombreModPro.Location = new System.Drawing.Point(142, 203);
+            this.txtNombreModPro.Location = new System.Drawing.Point(142, 165);
             this.txtNombreModPro.Name = "txtNombreModPro";
             this.txtNombreModPro.Size = new System.Drawing.Size(134, 20);
             this.txtNombreModPro.TabIndex = 21;
@@ -98,7 +99,7 @@
             // 
             // txtModRut
             // 
-            this.txtModRut.Location = new System.Drawing.Point(142, 159);
+            this.txtModRut.Location = new System.Drawing.Point(142, 121);
             this.txtModRut.Name = "txtModRut";
             this.txtModRut.Size = new System.Drawing.Size(134, 20);
             this.txtModRut.TabIndex = 18;
@@ -111,52 +112,14 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rutDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.profesorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(339, 67);
+            this.dataGridView1.Location = new System.Drawing.Point(282, 67);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(416, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(509, 316);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // rutDataGridViewTextBoxColumn
-            // 
-            this.rutDataGridViewTextBoxColumn.DataPropertyName = "rut";
-            this.rutDataGridViewTextBoxColumn.HeaderText = "rut";
-            this.rutDataGridViewTextBoxColumn.Name = "rutDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // materiaDataGridViewTextBoxColumn
-            // 
-            this.materiaDataGridViewTextBoxColumn.DataPropertyName = "materia";
-            this.materiaDataGridViewTextBoxColumn.HeaderText = "materia";
-            this.materiaDataGridViewTextBoxColumn.Name = "materiaDataGridViewTextBoxColumn";
-            // 
-            // horasDataGridViewTextBoxColumn
-            // 
-            this.horasDataGridViewTextBoxColumn.DataPropertyName = "horas";
-            this.horasDataGridViewTextBoxColumn.HeaderText = "horas";
-            this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
-            // 
-            // profesorBindingSource
-            // 
-            this.profesorBindingSource.DataMember = "Profesor";
-            this.profesorBindingSource.DataSource = this.proyectoDataSet1BindingSource;
-            // 
-            // proyectoDataSet1BindingSource
-            // 
-            this.proyectoDataSet1BindingSource.DataSource = this.proyectoDataSet1;
-            this.proyectoDataSet1BindingSource.Position = 0;
-            // 
-            // proyectoDataSet1
-            // 
-            this.proyectoDataSet1.DataSetName = "ProyectoDataSet1";
-            this.proyectoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblModificarProfesor
             // 
@@ -192,7 +155,7 @@
             // 
             this.lblModNombre.AutoSize = true;
             this.lblModNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblModNombre.Location = new System.Drawing.Point(46, 203);
+            this.lblModNombre.Location = new System.Drawing.Point(46, 165);
             this.lblModNombre.Name = "lblModNombre";
             this.lblModNombre.Size = new System.Drawing.Size(85, 24);
             this.lblModNombre.TabIndex = 13;
@@ -202,21 +165,82 @@
             // 
             this.lblModRut.AutoSize = true;
             this.lblModRut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModRut.Location = new System.Drawing.Point(46, 159);
+            this.lblModRut.Location = new System.Drawing.Point(46, 121);
             this.lblModRut.Name = "lblModRut";
             this.lblModRut.Size = new System.Drawing.Size(41, 24);
             this.lblModRut.TabIndex = 12;
             this.lblModRut.Text = "Rut";
             // 
+            // txtApellidoProMod
+            // 
+            this.txtApellidoProMod.Location = new System.Drawing.Point(142, 209);
+            this.txtApellidoProMod.Name = "txtApellidoProMod";
+            this.txtApellidoProMod.Size = new System.Drawing.Size(134, 20);
+            this.txtApellidoProMod.TabIndex = 25;
+            this.txtApellidoProMod.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblModApellido
+            // 
+            this.lblModApellido.AutoSize = true;
+            this.lblModApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblModApellido.Location = new System.Drawing.Point(47, 209);
+            this.lblModApellido.Name = "lblModApellido";
+            this.lblModApellido.Size = new System.Drawing.Size(87, 24);
+            this.lblModApellido.TabIndex = 24;
+            this.lblModApellido.Text = "Apellido";
+            this.lblModApellido.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // proyectoDataSet4
+            // 
+            this.proyectoDataSet4.DataSetName = "ProyectoDataSet4";
+            this.proyectoDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // profesorBindingSource
+            // 
+            this.profesorBindingSource.DataMember = "Profesor";
+            this.profesorBindingSource.DataSource = this.proyectoDataSet4;
+            // 
             // profesorTableAdapter
             // 
             this.profesorTableAdapter.ClearBeforeFill = true;
+            // 
+            // rutDataGridViewTextBoxColumn
+            // 
+            this.rutDataGridViewTextBoxColumn.DataPropertyName = "rut";
+            this.rutDataGridViewTextBoxColumn.HeaderText = "rut";
+            this.rutDataGridViewTextBoxColumn.Name = "rutDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            // 
+            // materiaDataGridViewTextBoxColumn
+            // 
+            this.materiaDataGridViewTextBoxColumn.DataPropertyName = "materia";
+            this.materiaDataGridViewTextBoxColumn.HeaderText = "materia";
+            this.materiaDataGridViewTextBoxColumn.Name = "materiaDataGridViewTextBoxColumn";
+            // 
+            // horasDataGridViewTextBoxColumn
+            // 
+            this.horasDataGridViewTextBoxColumn.DataPropertyName = "horas";
+            this.horasDataGridViewTextBoxColumn.HeaderText = "horas";
+            this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 421);
+            this.Controls.Add(this.txtApellidoProMod);
+            this.Controls.Add(this.lblModApellido);
             this.Controls.Add(this.txtModHoras);
             this.Controls.Add(this.txtModMateria);
             this.Controls.Add(this.txtNombreModPro);
@@ -235,9 +259,8 @@
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,12 +280,14 @@
         private System.Windows.Forms.Label lblModMateria;
         private System.Windows.Forms.Label lblModNombre;
         private System.Windows.Forms.Label lblModRut;
-        private System.Windows.Forms.BindingSource proyectoDataSet1BindingSource;
-        private ProyectoDataSet1 proyectoDataSet1;
+        private System.Windows.Forms.TextBox txtApellidoProMod;
+        private System.Windows.Forms.Label lblModApellido;
+        private ProyectoDataSet4 proyectoDataSet4;
         private System.Windows.Forms.BindingSource profesorBindingSource;
-        private ProyectoDataSet1TableAdapters.ProfesorTableAdapter profesorTableAdapter;
+        private ProyectoDataSet4TableAdapters.ProfesorTableAdapter profesorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn rutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
     }

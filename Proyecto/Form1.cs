@@ -120,5 +120,15 @@ namespace Proyecto
 
             f7.Show();
         }
+
+        private void prestamoEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form8 f8 = new Form8();
+            f8.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f8.Show();
+        }
     }
 }

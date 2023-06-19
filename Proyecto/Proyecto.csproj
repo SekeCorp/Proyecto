@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultaSolicitante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaSolicitante.Designer.cs">
+      <DependentUpon>ConsultaSolicitante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet42.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet42.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ConsultaSolicitante.resx">
+      <DependentUpon>ConsultaSolicitante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +238,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProyectoDataSet42.xsc">
+      <DependentUpon>ProyectoDataSet42.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet42.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet42.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet42.xss">
+      <DependentUpon>ProyectoDataSet42.xsd</DependentUpon>
+    </None>
     <None Include="Resources\guardar-el-archivo.png" />
   </ItemGroup>
   <ItemGroup>
