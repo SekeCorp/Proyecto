@@ -94,40 +94,40 @@ namespace Proyecto
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string path, query, equipo_id, profesor_rut;
-                DateTime fecha_p, fecha_d;
-                DataTable dt = new DataTable();
-                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                profesor_rut = textBox1.Text;
-                equipo_id = comboID_Equipos.Text;
-                fecha_p = dtp_Fecha_P.Value;
-                fecha_d = dtp_Fecha_D.Value;
+            ////try
+            ////{
+            ////    string path, query, equipo_id, profesor_rut;
+            ////    DateTime fecha_p, fecha_d;
+            ////    DataTable dt = new DataTable();
+            ////    path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+            ////    profesor_rut = textBox1.Text;
+            ////    equipo_id = comboID_Equipos.Text;
+            ////    fecha_p = dtp_Fecha_P.Value;
+            ////    fecha_d = dtp_Fecha_D.Value;
 
 
-                using (SqlConnection con = new SqlConnection(path))
-                {
-                    con.Open();
+            ////    using (SqlConnection con = new SqlConnection(path))
+            ////    {
+            ////        con.Open();
 
-                    query = "INSERT INTO Prestamos (equipo_id , profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut @fecha_prestamo, @fecha_devolucion)";
-                    using (SqlCommand cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@profesor_rut", profesor_rut);
-                        cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
-                        cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_p);
-                        cmd.Parameters.AddWithValue("@fecha_devolucion", fecha_d);
+            ////        query = "INSERT INTO Prestamos (equipo_id , profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut @fecha_prestamo, @fecha_devolucion)";
+            ////        using (SqlCommand cmd = new SqlCommand(query, con))
+            ////        {
+            ////            cmd.Parameters.AddWithValue("@profesor_rut", profesor_rut);
+            ////            cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
+            ////            cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_p);
+            ////            cmd.Parameters.AddWithValue("@fecha_devolucion", fecha_d);
 
-                        cmd.ExecuteNonQuery();
+            ////            cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Prestamo OK");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al agregar el registro: "+ ex);
-            }
+            ////            MessageBox.Show("Prestamo OK");
+            ////        }
+            ////    }
+            ////}
+            ////catch (Exception ex)
+            ////{
+            ////    MessageBox.Show("Error al agregar el registro: "+ ex);
+            ////}
 
         }
     }
