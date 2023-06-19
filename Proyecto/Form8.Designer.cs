@@ -48,14 +48,21 @@
             this.txtDias_P = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.comboID_Equipos = new System.Windows.Forms.ComboBox();
-            this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
-            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profesorTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.ProfesorTableAdapter();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.proyectoDataSet6 = new Proyecto.ProyectoDataSet6();
+            this.proyectoDataSet6BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamosTableAdapter = new Proyecto.ProyectoDataSet6TableAdapters.PrestamosTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorrutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaprestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechadevolucionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -173,7 +180,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.equipoidDataGridViewTextBoxColumn,
+            this.profesorrutDataGridViewTextBoxColumn,
+            this.fechaprestamoDataGridViewTextBoxColumn,
+            this.fechadevolucionDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.prestamosBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(63, 192);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(534, 217);
@@ -187,6 +202,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "Registrar Prestamo";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -221,20 +237,7 @@
             this.comboID_Equipos.Name = "comboID_Equipos";
             this.comboID_Equipos.Size = new System.Drawing.Size(121, 21);
             this.comboID_Equipos.TabIndex = 30;
-            // 
-            // proyectoDataSet3
-            // 
-            this.proyectoDataSet3.DataSetName = "ProyectoDataSet3";
-            this.proyectoDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // profesorBindingSource
-            // 
-            this.profesorBindingSource.DataMember = "Profesor";
-            this.profesorBindingSource.DataSource = this.proyectoDataSet3;
-            // 
-            // profesorTableAdapter
-            // 
-            this.profesorTableAdapter.ClearBeforeFill = true;
+            this.comboID_Equipos.Click += new System.EventHandler(this.comboID_Equipos_Click);
             // 
             // textBox3
             // 
@@ -251,6 +254,57 @@
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Apellido";
+            // 
+            // proyectoDataSet6
+            // 
+            this.proyectoDataSet6.DataSetName = "ProyectoDataSet6";
+            this.proyectoDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // proyectoDataSet6BindingSource
+            // 
+            this.proyectoDataSet6BindingSource.DataSource = this.proyectoDataSet6;
+            this.proyectoDataSet6BindingSource.Position = 0;
+            // 
+            // prestamosBindingSource
+            // 
+            this.prestamosBindingSource.DataMember = "Prestamos";
+            this.prestamosBindingSource.DataSource = this.proyectoDataSet6BindingSource;
+            // 
+            // prestamosTableAdapter
+            // 
+            this.prestamosTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // equipoidDataGridViewTextBoxColumn
+            // 
+            this.equipoidDataGridViewTextBoxColumn.DataPropertyName = "equipo_id";
+            this.equipoidDataGridViewTextBoxColumn.HeaderText = "equipo_id";
+            this.equipoidDataGridViewTextBoxColumn.Name = "equipoidDataGridViewTextBoxColumn";
+            // 
+            // profesorrutDataGridViewTextBoxColumn
+            // 
+            this.profesorrutDataGridViewTextBoxColumn.DataPropertyName = "profesor_rut";
+            this.profesorrutDataGridViewTextBoxColumn.HeaderText = "profesor_rut";
+            this.profesorrutDataGridViewTextBoxColumn.Name = "profesorrutDataGridViewTextBoxColumn";
+            // 
+            // fechaprestamoDataGridViewTextBoxColumn
+            // 
+            this.fechaprestamoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechaprestamoDataGridViewTextBoxColumn.DataPropertyName = "fecha_prestamo";
+            this.fechaprestamoDataGridViewTextBoxColumn.HeaderText = "fecha_prestamo";
+            this.fechaprestamoDataGridViewTextBoxColumn.Name = "fechaprestamoDataGridViewTextBoxColumn";
+            // 
+            // fechadevolucionDataGridViewTextBoxColumn
+            // 
+            this.fechadevolucionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechadevolucionDataGridViewTextBoxColumn.DataPropertyName = "fecha_devolucion";
+            this.fechadevolucionDataGridViewTextBoxColumn.HeaderText = "fecha_devolucion";
+            this.fechadevolucionDataGridViewTextBoxColumn.Name = "fechadevolucionDataGridViewTextBoxColumn";
             // 
             // Form8
             // 
@@ -284,8 +338,9 @@
             this.Text = "|";
             this.Load += new System.EventHandler(this.Form8_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,10 +366,16 @@
         private System.Windows.Forms.TextBox txtDias_P;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox comboID_Equipos;
-        private ProyectoDataSet3 proyectoDataSet3;
-        private System.Windows.Forms.BindingSource profesorBindingSource;
-        private ProyectoDataSet3TableAdapters.ProfesorTableAdapter profesorTableAdapter;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource proyectoDataSet6BindingSource;
+        private ProyectoDataSet6 proyectoDataSet6;
+        private System.Windows.Forms.BindingSource prestamosBindingSource;
+        private ProyectoDataSet6TableAdapters.PrestamosTableAdapter prestamosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipoidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profesorrutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaprestamoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechadevolucionDataGridViewTextBoxColumn;
     }
 }

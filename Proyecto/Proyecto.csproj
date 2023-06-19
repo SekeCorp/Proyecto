@@ -132,6 +132,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet42.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet6.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ConsultaSolicitante.resx">
       <DependentUpon>ConsultaSolicitante.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +258,28 @@
     </None>
     <None Include="ProyectoDataSet42.xss">
       <DependentUpon>ProyectoDataSet42.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet5.xsc">
+      <DependentUpon>ProyectoDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet5.xss">
+      <DependentUpon>ProyectoDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet6.xsc">
+      <DependentUpon>ProyectoDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet6.xss">
+      <DependentUpon>ProyectoDataSet6.xsd</DependentUpon>
     </None>
     <None Include="Resources\guardar-el-archivo.png" />
   </ItemGroup>
