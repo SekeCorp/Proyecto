@@ -103,6 +103,7 @@
             this.generarToolStripMenuItem.Name = "generarToolStripMenuItem";
             this.generarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.generarToolStripMenuItem.Text = "Generar";
+            this.generarToolStripMenuItem.Click += new System.EventHandler(this.generarToolStripMenuItem_Click);
             // 
             // equiposToolStripMenuItem
             // 
@@ -120,7 +121,7 @@
             // 
             this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
@@ -128,14 +129,14 @@
             // 
             this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             this.prestamoEquipoToolStripMenuItem.Click += new System.EventHandler(this.prestamoEquipoToolStripMenuItem_Click);
             // 

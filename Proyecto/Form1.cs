@@ -130,5 +130,15 @@ namespace Proyecto
 
             f8.Show();
         }
+
+        private void generarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form9 f9 = new Form9();
+            f9.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f9.Show();
+        }
     }
 }

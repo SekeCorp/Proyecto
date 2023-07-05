@@ -32,7 +32,7 @@ namespace Proyecto
                 string path, query, id;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
-            path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True"; //VIXO
+            //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True"; //VIXO
             id = id_txt.Text;
             using (SqlConnection con = new SqlConnection(path))
             {
@@ -76,7 +76,6 @@ namespace Proyecto
         private void Form6_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet3.Equipos' Puede moverla o quitarla según sea necesario.
-            this.equiposTableAdapter.Fill(this.proyectoDataSet3.Equipos);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet4.Equipos' Puede moverla o quitarla según sea necesario.
             //this.equiposTableAdapter.Fill(this.proyectoDataSet4.Equipos);
         }

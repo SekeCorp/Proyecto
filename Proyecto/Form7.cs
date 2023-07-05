@@ -20,8 +20,7 @@ namespace Proyecto
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet3.Equipos' Puede moverla o quitarla según sea necesario.
-            this.equiposTableAdapter.Fill(this.proyectoDataSet3.Equipos);
+
 
         }
 
@@ -32,8 +31,8 @@ namespace Proyecto
             {
                 string path, query, id, nombre, serie;
                 DataTable dt = new DataTable();
-                //path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
                 id = id_txt.Text;
                 nombre = nomEquipo_txt.Text;
                 serie = numSerie_txt.Text;
@@ -67,8 +66,8 @@ namespace Proyecto
         {
             String path, query;
             DataTable dt = new DataTable();
-            //path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+            path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+            //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
             SqlDataReader dr;
             SqlConnection con = new SqlConnection(path);
             query = "Select*from Equipos";
