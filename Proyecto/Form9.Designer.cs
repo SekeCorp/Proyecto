@@ -36,37 +36,37 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.btn_GenerarHorario = new System.Windows.Forms.Button();
+            this.combo_Materia = new System.Windows.Forms.ComboBox();
+            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet6 = new Proyecto.ProyectoDataSet6();
+            this.combo_Rut = new System.Windows.Forms.ComboBox();
+            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.combo_Curso = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker10 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.proyectoDataSet6 = new Proyecto.ProyectoDataSet6();
+            this.dTInicioL = new System.Windows.Forms.DateTimePicker();
+            this.dTFinL = new System.Windows.Forms.DateTimePicker();
+            this.dTFinM = new System.Windows.Forms.DateTimePicker();
+            this.dTInicioM = new System.Windows.Forms.DateTimePicker();
+            this.dTFinX = new System.Windows.Forms.DateTimePicker();
+            this.dTInicioX = new System.Windows.Forms.DateTimePicker();
+            this.dTFinJ = new System.Windows.Forms.DateTimePicker();
+            this.dTInicioJ = new System.Windows.Forms.DateTimePicker();
+            this.dTFinV = new System.Windows.Forms.DateTimePicker();
+            this.dTInicioV = new System.Windows.Forms.DateTimePicker();
+            this.btn_IngresarHorario = new System.Windows.Forms.Button();
             this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materiasTableAdapter = new Proyecto.ProyectoDataSet6TableAdapters.MateriasTableAdapter();
-            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet6TableAdapters.ProfesorTableAdapter();
-            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,44 +131,59 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 108);
             this.dataGridView1.TabIndex = 6;
             // 
-            // button1
+            // btn_GenerarHorario
             // 
-            this.button1.Location = new System.Drawing.Point(353, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Generar Horario";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_GenerarHorario.Location = new System.Drawing.Point(353, 415);
+            this.btn_GenerarHorario.Name = "btn_GenerarHorario";
+            this.btn_GenerarHorario.Size = new System.Drawing.Size(75, 23);
+            this.btn_GenerarHorario.TabIndex = 7;
+            this.btn_GenerarHorario.Text = "Generar Horario";
+            this.btn_GenerarHorario.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // combo_Materia
             // 
-            this.comboBox1.DataSource = this.profesorBindingSource;
-            this.comboBox1.DisplayMember = "materia";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(121, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.ValueMember = "materia";
+            this.combo_Materia.DataSource = this.profesorBindingSource;
+            this.combo_Materia.DisplayMember = "materia";
+            this.combo_Materia.FormattingEnabled = true;
+            this.combo_Materia.Location = new System.Drawing.Point(121, 85);
+            this.combo_Materia.Name = "combo_Materia";
+            this.combo_Materia.Size = new System.Drawing.Size(121, 21);
+            this.combo_Materia.TabIndex = 8;
+            this.combo_Materia.ValueMember = "materia";
             // 
-            // comboBox2
+            // profesorBindingSource
             // 
-            this.comboBox2.DataSource = this.profesorBindingSource1;
-            this.comboBox2.DisplayMember = "rut";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(366, 85);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.ValueMember = "rut";
+            this.profesorBindingSource.DataMember = "Profesor";
+            this.profesorBindingSource.DataSource = this.proyectoDataSet6;
             // 
-            // comboBox3
+            // proyectoDataSet6
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(560, 85);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 10;
+            this.proyectoDataSet6.DataSetName = "ProyectoDataSet6";
+            this.proyectoDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // combo_Rut
+            // 
+            this.combo_Rut.DataSource = this.profesorBindingSource1;
+            this.combo_Rut.DisplayMember = "rut";
+            this.combo_Rut.FormattingEnabled = true;
+            this.combo_Rut.Location = new System.Drawing.Point(366, 85);
+            this.combo_Rut.Name = "combo_Rut";
+            this.combo_Rut.Size = new System.Drawing.Size(121, 21);
+            this.combo_Rut.TabIndex = 9;
+            this.combo_Rut.ValueMember = "rut";
+            // 
+            // profesorBindingSource1
+            // 
+            this.profesorBindingSource1.DataMember = "Profesor";
+            this.profesorBindingSource1.DataSource = this.proyectoDataSet6;
+            // 
+            // combo_Curso
+            // 
+            this.combo_Curso.FormattingEnabled = true;
+            this.combo_Curso.Location = new System.Drawing.Point(560, 85);
+            this.combo_Curso.Name = "combo_Curso";
+            this.combo_Curso.Size = new System.Drawing.Size(121, 21);
+            this.combo_Curso.TabIndex = 10;
             // 
             // label7
             // 
@@ -215,99 +230,95 @@
             this.label11.TabIndex = 15;
             this.label11.Text = "VIERNES";
             // 
-            // dateTimePicker1
+            // dTInicioL
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(158, 165);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker1.TabIndex = 17;
+            this.dTInicioL.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTInicioL.Location = new System.Drawing.Point(158, 165);
+            this.dTInicioL.Name = "dTInicioL";
+            this.dTInicioL.Size = new System.Drawing.Size(70, 20);
+            this.dTInicioL.TabIndex = 17;
             // 
-            // dateTimePicker2
+            // dTFinL
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(158, 202);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker2.TabIndex = 18;
+            this.dTFinL.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTFinL.Location = new System.Drawing.Point(158, 202);
+            this.dTFinL.Name = "dTFinL";
+            this.dTFinL.Size = new System.Drawing.Size(70, 20);
+            this.dTFinL.TabIndex = 18;
             // 
-            // dateTimePicker3
+            // dTFinM
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker3.Location = new System.Drawing.Point(250, 202);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker3.TabIndex = 20;
+            this.dTFinM.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTFinM.Location = new System.Drawing.Point(250, 202);
+            this.dTFinM.Name = "dTFinM";
+            this.dTFinM.Size = new System.Drawing.Size(70, 20);
+            this.dTFinM.TabIndex = 20;
             // 
-            // dateTimePicker4
+            // dTInicioM
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker4.Location = new System.Drawing.Point(250, 165);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker4.TabIndex = 19;
+            this.dTInicioM.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTInicioM.Location = new System.Drawing.Point(250, 165);
+            this.dTInicioM.Name = "dTInicioM";
+            this.dTInicioM.Size = new System.Drawing.Size(70, 20);
+            this.dTInicioM.TabIndex = 19;
             // 
-            // dateTimePicker5
+            // dTFinX
             // 
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker5.Location = new System.Drawing.Point(341, 202);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker5.TabIndex = 22;
+            this.dTFinX.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTFinX.Location = new System.Drawing.Point(341, 202);
+            this.dTFinX.Name = "dTFinX";
+            this.dTFinX.Size = new System.Drawing.Size(70, 20);
+            this.dTFinX.TabIndex = 22;
             // 
-            // dateTimePicker6
+            // dTInicioX
             // 
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker6.Location = new System.Drawing.Point(341, 165);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker6.TabIndex = 21;
+            this.dTInicioX.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTInicioX.Location = new System.Drawing.Point(341, 165);
+            this.dTInicioX.Name = "dTInicioX";
+            this.dTInicioX.Size = new System.Drawing.Size(70, 20);
+            this.dTInicioX.TabIndex = 21;
             // 
-            // dateTimePicker7
+            // dTFinJ
             // 
-            this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker7.Location = new System.Drawing.Point(431, 201);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker7.TabIndex = 24;
+            this.dTFinJ.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTFinJ.Location = new System.Drawing.Point(431, 201);
+            this.dTFinJ.Name = "dTFinJ";
+            this.dTFinJ.Size = new System.Drawing.Size(70, 20);
+            this.dTFinJ.TabIndex = 24;
             // 
-            // dateTimePicker8
+            // dTInicioJ
             // 
-            this.dateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker8.Location = new System.Drawing.Point(431, 164);
-            this.dateTimePicker8.Name = "dateTimePicker8";
-            this.dateTimePicker8.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker8.TabIndex = 23;
+            this.dTInicioJ.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTInicioJ.Location = new System.Drawing.Point(431, 164);
+            this.dTInicioJ.Name = "dTInicioJ";
+            this.dTInicioJ.Size = new System.Drawing.Size(70, 20);
+            this.dTInicioJ.TabIndex = 23;
             // 
-            // dateTimePicker9
+            // dTFinV
             // 
-            this.dateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker9.Location = new System.Drawing.Point(523, 201);
-            this.dateTimePicker9.Name = "dateTimePicker9";
-            this.dateTimePicker9.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker9.TabIndex = 26;
+            this.dTFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTFinV.Location = new System.Drawing.Point(523, 201);
+            this.dTFinV.Name = "dTFinV";
+            this.dTFinV.Size = new System.Drawing.Size(70, 20);
+            this.dTFinV.TabIndex = 26;
             // 
-            // dateTimePicker10
+            // dTInicioV
             // 
-            this.dateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker10.Location = new System.Drawing.Point(523, 164);
-            this.dateTimePicker10.Name = "dateTimePicker10";
-            this.dateTimePicker10.Size = new System.Drawing.Size(70, 20);
-            this.dateTimePicker10.TabIndex = 25;
+            this.dTInicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dTInicioV.Location = new System.Drawing.Point(523, 164);
+            this.dTInicioV.Name = "dTInicioV";
+            this.dTInicioV.Size = new System.Drawing.Size(70, 20);
+            this.dTInicioV.TabIndex = 25;
             // 
-            // button2
+            // btn_IngresarHorario
             // 
-            this.button2.Location = new System.Drawing.Point(341, 272);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 23);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Ingresar Horario";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // proyectoDataSet6
-            // 
-            this.proyectoDataSet6.DataSetName = "ProyectoDataSet6";
-            this.proyectoDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.btn_IngresarHorario.Location = new System.Drawing.Point(341, 272);
+            this.btn_IngresarHorario.Name = "btn_IngresarHorario";
+            this.btn_IngresarHorario.Size = new System.Drawing.Size(109, 23);
+            this.btn_IngresarHorario.TabIndex = 27;
+            this.btn_IngresarHorario.Text = "Ingresar Horario";
+            this.btn_IngresarHorario.UseVisualStyleBackColor = true;
+            this.btn_IngresarHorario.Click += new System.EventHandler(this.button2_Click);
             // 
             // materiasBindingSource
             // 
@@ -318,45 +329,35 @@
             // 
             this.materiasTableAdapter.ClearBeforeFill = true;
             // 
-            // profesorBindingSource
-            // 
-            this.profesorBindingSource.DataMember = "Profesor";
-            this.profesorBindingSource.DataSource = this.proyectoDataSet6;
-            // 
             // profesorTableAdapter
             // 
             this.profesorTableAdapter.ClearBeforeFill = true;
-            // 
-            // profesorBindingSource1
-            // 
-            this.profesorBindingSource1.DataMember = "Profesor";
-            this.profesorBindingSource1.DataSource = this.proyectoDataSet6;
             // 
             // Form9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dateTimePicker9);
-            this.Controls.Add(this.dateTimePicker10);
-            this.Controls.Add(this.dateTimePicker7);
-            this.Controls.Add(this.dateTimePicker8);
-            this.Controls.Add(this.dateTimePicker5);
-            this.Controls.Add(this.dateTimePicker6);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.dateTimePicker4);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btn_IngresarHorario);
+            this.Controls.Add(this.dTFinV);
+            this.Controls.Add(this.dTInicioV);
+            this.Controls.Add(this.dTFinJ);
+            this.Controls.Add(this.dTInicioJ);
+            this.Controls.Add(this.dTFinX);
+            this.Controls.Add(this.dTInicioX);
+            this.Controls.Add(this.dTFinM);
+            this.Controls.Add(this.dTInicioM);
+            this.Controls.Add(this.dTFinL);
+            this.Controls.Add(this.dTInicioL);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.combo_Curso);
+            this.Controls.Add(this.combo_Rut);
+            this.Controls.Add(this.combo_Materia);
+            this.Controls.Add(this.btn_GenerarHorario);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -369,10 +370,10 @@
             this.Text = "Form9";
             this.Load += new System.EventHandler(this.Form9_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,26 +388,26 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button btn_GenerarHorario;
+        private System.Windows.Forms.ComboBox combo_Materia;
+        private System.Windows.Forms.ComboBox combo_Rut;
+        private System.Windows.Forms.ComboBox combo_Curso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dTInicioL;
+        private System.Windows.Forms.DateTimePicker dTFinL;
+        private System.Windows.Forms.DateTimePicker dTFinM;
+        private System.Windows.Forms.DateTimePicker dTInicioM;
+        private System.Windows.Forms.DateTimePicker dTFinX;
+        private System.Windows.Forms.DateTimePicker dTInicioX;
+        private System.Windows.Forms.DateTimePicker dTFinJ;
+        private System.Windows.Forms.DateTimePicker dTInicioJ;
+        private System.Windows.Forms.DateTimePicker dTFinV;
+        private System.Windows.Forms.DateTimePicker dTInicioV;
+        private System.Windows.Forms.Button btn_IngresarHorario;
         private ProyectoDataSet6 proyectoDataSet6;
         private System.Windows.Forms.BindingSource materiasBindingSource;
         private ProyectoDataSet6TableAdapters.MateriasTableAdapter materiasTableAdapter;
