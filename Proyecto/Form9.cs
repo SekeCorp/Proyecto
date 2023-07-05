@@ -22,7 +22,6 @@ namespace Proyecto
         {
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Profesor' Puede moverla o quitarla según sea necesario.
             this.profesorTableAdapter.Fill(this.proyectoDataSet6.Profesor);
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Materias' Puede moverla o quitarla según sea necesario.
 
         }
 
