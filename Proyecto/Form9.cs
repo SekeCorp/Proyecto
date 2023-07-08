@@ -42,7 +42,7 @@ namespace Proyecto
             dataGridView1.Columns.Add(chk2);
             dataGridView1.Columns.Add(chk3);
             dataGridView1.Columns.Add(chk4);
-            chk.Selected = false;
+
             string[] 
             row = new string[] { "1", "08:30 - 9:15" };
             dataGridView1.Rows.Add(row);
@@ -60,8 +60,10 @@ namespace Proyecto
             dataGridView1.Rows.Add(row);
             row = new string[] { "8", "15:05 - 15:50" };
             dataGridView1.Rows.Add(row);
+
+
             //int ck = Convert.ToInt32(chk);
-            //if(ck == 1)
+            //if (ck == 0)
             //{
             //    ck = 45;
             //}
