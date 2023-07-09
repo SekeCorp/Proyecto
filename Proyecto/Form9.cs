@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,38 +12,43 @@ namespace Proyecto
 {
     public partial class Form9 : Form
     {
+        private int valorNumerico = 45; // Valor numérico que deseas asignar
+        private int maxSumaPorDia = 450; // Valor máximo de suma por día
+        private int maxSumaSemanal = 2400; // Valor máximo de suma semanal
+        private List<List<bool>> valoresCheckbox; // Lista para almacenar los valores de las casillas de verificación
+
         public Form9()
         {
             InitializeComponent();
         }
-
         private void Form9_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Profesor' Puede moverla o quitarla según sea necesario.
-            this.profesorTableAdapter.Fill(this.proyectoDataSet6.Profesor);
-
 
             dataGridView1.ColumnCount = 2;
             dataGridView1.Columns[0].Name = "PERIODO";
             dataGridView1.Columns[1].Name = "HORA";
+
             DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-            DataGridViewCheckBoxColumn chk1 = new DataGridViewCheckBoxColumn();
-            DataGridViewCheckBoxColumn chk2 = new DataGridViewCheckBoxColumn();
-            DataGridViewCheckBoxColumn chk3 = new DataGridViewCheckBoxColumn();
-            DataGridViewCheckBoxColumn chk4 = new DataGridViewCheckBoxColumn();
             chk.Name = "Lunes";
-            chk1.Name = "Martes";
-            chk2.Name = "Miercoles";
-            chk3.Name = "Jueves";
-            chk4.Name = "Viernes";
             dataGridView1.Columns.Add(chk);
+
+            DataGridViewCheckBoxColumn chk1 = new DataGridViewCheckBoxColumn();
+            chk1.Name = "Martes";
             dataGridView1.Columns.Add(chk1);
+
+            DataGridViewCheckBoxColumn chk2 = new DataGridViewCheckBoxColumn();
+            chk2.Name = "Miércoles";
             dataGridView1.Columns.Add(chk2);
+
+            DataGridViewCheckBoxColumn chk3 = new DataGridViewCheckBoxColumn();
+            chk3.Name = "Jueves";
             dataGridView1.Columns.Add(chk3);
+
+            DataGridViewCheckBoxColumn chk4 = new DataGridViewCheckBoxColumn();
+            chk4.Name = "Viernes";
             dataGridView1.Columns.Add(chk4);
 
-            string[] 
-            row = new string[] { "1", "08:30 - 9:15" };
+            string[] row = new string[] { "1", "08:30 - 9:15" };
             dataGridView1.Rows.Add(row);
             row = new string[] { "2", "09:15 - 10:00" };
             dataGridView1.Rows.Add(row);
@@ -60,56 +64,122 @@ namespace Proyecto
             dataGridView1.Rows.Add(row);
             row = new string[] { "8", "15:05 - 15:50" };
             dataGridView1.Rows.Add(row);
+            row = new string[] { "9", "15:50 - 16:35" };
+            dataGridView1.Rows.Add(row);
+            row = new string[] { "10", "16:35 - 17:20" };
+            dataGridView1.Rows.Add(row);
+            row = new string[] { "11", "17:20 - 18:05" };
+            dataGridView1.Rows.Add(row);
+            valoresCheckbox = new List<List<bool>>();
 
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                List<bool> filaValores = new List<bool>();
 
-            //int ck = Convert.ToInt32(chk);
-            //if (ck == 0)
-            //{
-            //    ck = 45;
-            //}
+                for (int j = 2; j < dataGridView1.Columns.Count; j++)
+                {
+                    filaValores.Add(false);
+                }
 
+                valoresCheckbox.Add(filaValores);
+            }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    string path, query, equipo_id, profesor_rut;
-            //    DateTime fecha_p, fecha_d;
-            //    DataTable dt = new DataTable();
-            //    path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            //    profesor_rut = comboBox_RUT.Text;
-            //    equipo_id = comboID_Equipos.Text;
-            //    fecha_p = dtp_Fecha_P.Value;
-            //    fecha_d = dtp_Fecha_D.Value;
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 2) // Verificar si se hizo clic en una celda de las columnas de verificación
+            {
+                dataGridView1.EndEdit(); // Forzar la validación de la celda
 
+                int columnaInicial = 2; // Índice de la primera columna de verificación
+                int diaSeleccionado = e.ColumnIndex - columnaInicial; // Obtener el índice del día seleccionado
 
-            //    using (SqlConnection con = new SqlConnection(path))
-            //    {
-            //        con.Open();
+                bool isChecked = (bool)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
-            //        query = "INSERT INTO Prestamos (equipo_id , profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut, @fecha_prestamo, @fecha_devolucion)";
-            //        using (SqlCommand cmd = new SqlCommand(query, con))
-            //        {
-            //            cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
-            //            cmd.Parameters.AddWithValue("@profesor_rut", profesor_rut);
-            //            cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_p);
-            //            cmd.Parameters.AddWithValue("@fecha_devolucion", fecha_d);
+                // Verificar límite semanal antes de actualizar el valor de la casilla de verificación
+                if (isChecked && VerificarLimiteSemanal())
+                {
+                    MessageBox.Show("Se ha alcanzado el límite semanal de " + maxSumaSemanal + " horas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false; // Desmarcar la casilla de verificación
+                    return;
+                }
 
-            //            cmd.ExecuteNonQuery();
+                // Actualizar el valor de la casilla de verificación en la lista valoresCheckbox
+                valoresCheckbox[e.RowIndex][diaSeleccionado] = isChecked;
 
-            //            MessageBox.Show("Prestamo OK");
-            //        }
-            //    }
+                // Actualizar el contador de horas
+                int contadorHoras = CalcularHorasSeleccionadas();
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error al agregar el registro: " + ex);
-            //}
+                labelContadorHoras.Text = "Horas seleccionadas: " + contadorHoras;
+            }
         }
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 2) // Verificar si se cambió el valor de una celda de las columnas de verificación
+            {
+                bool isChecked = (bool)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
-        
+                // Verificar límite semanal antes de actualizar el valor de la casilla de verificación
+                if (isChecked && VerificarLimiteSemanal())
+                {
+                    MessageBox.Show("Se ha alcanzado el límite semanal de " + maxSumaSemanal + " horas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false; // Desmarcar la casilla de verificación
+                    return;
+                }
 
+                // Actualizar el valor de la casilla de verificación en la lista valoresCheckbox
+                valoresCheckbox[e.RowIndex][e.ColumnIndex - 2] = isChecked;
+
+                // Actualizar el contador de horas
+                int contadorHoras = CalcularHorasSeleccionadas();
+
+                labelContadorHoras.Text = "Horas seleccionadas: " + contadorHoras;
+            }
+        }
+        private int CalcularHorasSeleccionadas()
+        {
+            int contadorHoras = 0;
+            int sumaSemanal = 0;
+
+            for (int i = 0; i < valoresCheckbox.Count; i++)
+            {
+                int sumaPorDia = valoresCheckbox[i].Count(isChecked => isChecked) * valorNumerico; // Calcular la suma por día
+                sumaSemanal += sumaPorDia; // Acumular la suma por día en la suma semanal
+
+                // Verificar límite por día
+                if (sumaPorDia > maxSumaPorDia)
+                {
+                    // Desmarcar todas las casillas de verificación del día seleccionado
+                    for (int j = 2; j < dataGridView1.Columns.Count; j++)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Value = false;
+                        valoresCheckbox[i][j - 2] = false;
+                    }
+
+                    // Restar el valor excedido
+                    sumaSemanal -= sumaPorDia - maxSumaPorDia;
+
+                    MessageBox.Show("La suma ha superado los " + maxSumaPorDia + " para el día seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            // Verificar límite semanal
+            if (sumaSemanal > maxSumaSemanal)
+            {
+                // Restar el valor excedido
+                contadorHoras -= sumaSemanal - maxSumaSemanal;
+
+                MessageBox.Show("La suma semanal ha superado los " + maxSumaSemanal, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            contadorHoras = sumaSemanal;
+
+            return contadorHoras;
+        }
+        private bool VerificarLimiteSemanal()
+        {
+            int sumaSemanal = valoresCheckbox.Sum(row => row.Count(isChecked => isChecked) * valorNumerico); // Calcular la suma semanal
+
+            return sumaSemanal >= maxSumaSemanal;
+        }
     }
 }

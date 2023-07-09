@@ -42,7 +42,7 @@ namespace Proyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string path, query;
+            string path;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
             SqlConnection con = new SqlConnection(path);
@@ -66,14 +66,14 @@ namespace Proyecto
             this.profesorTableAdapter.Fill(this.proyectoDataSet6.Profesor);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Prestamos' Puede moverla o quitarla según sea necesario.
             this.prestamosTableAdapter.Fill(this.proyectoDataSet6.Prestamos);
-            string path, query;
+            string path;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
             SqlConnection con = new SqlConnection(path);
             con.Open();
             String Consulta = "select id from Equipos"; 
             SqlCommand comando = new SqlCommand(Consulta, con);
-            SqlDataReader reg, leer;
+            SqlDataReader reg;
             reg = comando.ExecuteReader();
             while (reg.Read())
             {
