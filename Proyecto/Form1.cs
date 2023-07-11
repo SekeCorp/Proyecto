@@ -151,5 +151,15 @@ namespace Proyecto
 
             f9.Show();
         }
+
+        private void generarCodigoBarraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BarraQr f11 = new BarraQr();
+            f11.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f11.Show();
+        }
     }
 }

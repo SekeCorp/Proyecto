@@ -21,6 +21,8 @@ namespace Proyecto
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter.Fill(this.proyectoDataSet7.Materias);
 
 
         }
@@ -30,12 +32,11 @@ namespace Proyecto
             //Data Source = LAPTOP - HP6EH3TV\SQLEXPRESS01; Initial Catalog = Proyecto; Integrated Security = True
             try
             {
-                string path, query, nombre, materia, horas, rut, apellido;
+                string path, query, nombre, horas, rut, apellido;
                 DataTable dt = new DataTable();
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
                 rut = txtRut.Text;
                 nombre = txtNombreIngPro.Text;
-                materia = txtMateriaIng.Text;
                 horas = numericUpDown1.Text;
                 apellido = txtApellidoPro.Text;
 
@@ -48,7 +49,6 @@ namespace Proyecto
                     {
                         cmd.Parameters.AddWithValue("@rut", rut);
                         cmd.Parameters.AddWithValue("@nombre", nombre);
-                        cmd.Parameters.AddWithValue("@materia", materia);
                         cmd.Parameters.AddWithValue("@horas", horas);
                         cmd.Parameters.AddWithValue("@apellido", apellido);
 
@@ -100,7 +100,6 @@ namespace Proyecto
             txtRut.Clear();
             txtNombreIngPro.Clear();
             txtApellidoPro.Clear();
-            txtMateriaIng.Clear();
 
         }
     }

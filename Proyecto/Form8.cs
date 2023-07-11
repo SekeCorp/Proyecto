@@ -82,18 +82,6 @@ namespace Proyecto
             }
         }
 
-        private void comboID_Equipos_Click(object sender, EventArgs e)
-        {
-            //String path, query;
-            //DataTable dt = new DataTable();
-            //path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            ////path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
-            //SqlConnection con = new SqlConnection(path);
-            //query = "Select * from Equipos";
-            //dt.Columns.Add("id");
-
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

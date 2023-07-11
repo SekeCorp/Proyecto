@@ -41,6 +41,7 @@
             this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCodigoBarraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +113,8 @@
             this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prestamoToolStripMenuItem,
             this.agregarEquipoToolStripMenuItem,
-            this.prestamoEquipoToolStripMenuItem});
+            this.prestamoEquipoToolStripMenuItem,
+            this.generarCodigoBarraToolStripMenuItem});
             this.equiposToolStripMenuItem.Enabled = false;
             this.equiposToolStripMenuItem.Image = global::Proyecto.Properties.Resources.ordenador_personal;
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
@@ -123,7 +125,7 @@
             // 
             this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
@@ -131,14 +133,14 @@
             // 
             this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             this.prestamoEquipoToolStripMenuItem.Click += new System.EventHandler(this.prestamoEquipoToolStripMenuItem_Click);
             // 
@@ -160,6 +162,13 @@
             this.controlToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.controlToolStripMenuItem.Text = "Control";
             this.controlToolStripMenuItem.Click += new System.EventHandler(this.controlToolStripMenuItem_Click);
+            // 
+            // generarCodigoBarraToolStripMenuItem
+            // 
+            this.generarCodigoBarraToolStripMenuItem.Name = "generarCodigoBarraToolStripMenuItem";
+            this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.generarCodigoBarraToolStripMenuItem.Text = "Generar Codigo Barra";
+            this.generarCodigoBarraToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoBarraToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -193,6 +202,7 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generarCodigoBarraToolStripMenuItem;
     }
 }
 

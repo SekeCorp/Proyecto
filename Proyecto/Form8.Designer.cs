@@ -281,7 +281,6 @@
             this.comboID_Equipos.Name = "comboID_Equipos";
             this.comboID_Equipos.Size = new System.Drawing.Size(121, 21);
             this.comboID_Equipos.TabIndex = 30;
-            this.comboID_Equipos.Click += new System.EventHandler(this.comboID_Equipos_Click);
             // 
             // textBox3
             // 

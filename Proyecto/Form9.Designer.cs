@@ -28,17 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelContadorHoras = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet7BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet7 = new Proyecto.ProyectoDataSet7();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.lblMateria = new System.Windows.Forms.Label();
+            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.salasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiasTableAdapter = new Proyecto.ProyectoDataSet7TableAdapters.MateriasTableAdapter();
+            this.salasTableAdapter = new Proyecto.ProyectoDataSet7TableAdapters.SalasTableAdapter();
+            this.profesorTableAdapter = new Proyecto.ProyectoDataSet7TableAdapters.ProfesorTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -59,41 +69,39 @@
             this.labelContadorHoras.ForeColor = System.Drawing.Color.Black;
             this.labelContadorHoras.Location = new System.Drawing.Point(62, 502);
             this.labelContadorHoras.Name = "labelContadorHoras";
-            this.labelContadorHoras.Size = new System.Drawing.Size(297, 24);
+            this.labelContadorHoras.Size = new System.Drawing.Size(183, 24);
             this.labelContadorHoras.TabIndex = 1;
             // 
-            // comboBox1
+            // materiasBindingSource
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 103);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.materiasBindingSource.DataMember = "Materias";
+            this.materiasBindingSource.DataSource = this.proyectoDataSet7BindingSource;
+            // 
+            // proyectoDataSet7BindingSource
+            // 
+            this.proyectoDataSet7BindingSource.DataSource = this.proyectoDataSet7;
+            this.proyectoDataSet7BindingSource.Position = 0;
+            // 
+            // proyectoDataSet7
+            // 
+            this.proyectoDataSet7.DataSetName = "ProyectoDataSet7";
+            this.proyectoDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.profesorBindingSource;
+            this.comboBox2.DisplayMember = "rut";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(302, 103);
+            this.comboBox2.Location = new System.Drawing.Point(408, 84);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.ValueMember = "rut";
             // 
-            // comboBox3
+            // profesorBindingSource
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(479, 103);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 4;
-            // 
-            // lblMateria
-            // 
-            this.lblMateria.AutoSize = true;
-            this.lblMateria.Location = new System.Drawing.Point(169, 87);
-            this.lblMateria.Name = "lblMateria";
-            this.lblMateria.Size = new System.Drawing.Size(42, 13);
-            this.lblMateria.TabIndex = 5;
-            this.lblMateria.Text = "Materia";
+            this.profesorBindingSource.DataMember = "Profesor";
+            this.profesorBindingSource.DataSource = this.proyectoDataSet7BindingSource;
             // 
             // label2
             // 
@@ -104,45 +112,51 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "RUT Profesor";
             // 
-            // label3
+            // salasBindingSource
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(525, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Curso";
+            this.salasBindingSource.DataMember = "Salas";
+            this.salasBindingSource.DataSource = this.proyectoDataSet7BindingSource;
             // 
-            // comboBox4
+            // materiasTableAdapter
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(658, 103);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 8;
+            this.materiasTableAdapter.ClearBeforeFill = true;
+            // 
+            // salasTableAdapter
+            // 
+            this.salasTableAdapter.ClearBeforeFill = true;
+            // 
+            // profesorTableAdapter
+            // 
+            this.profesorTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(698, 84);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(328, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Sala";
+            this.label1.Size = new System.Drawing.Size(241, 23);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Designar Disponibilidad";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(408, 503);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Designar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // Form9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 550);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblMateria);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelContadorHoras);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -150,6 +164,11 @@
             this.Text = "Form9";
             this.Load += new System.EventHandler(this.Form9_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,13 +178,17 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelContadorHoras;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.BindingSource proyectoDataSet7BindingSource;
+        private ProyectoDataSet7 proyectoDataSet7;
+        private System.Windows.Forms.BindingSource materiasBindingSource;
+        private ProyectoDataSet7TableAdapters.MateriasTableAdapter materiasTableAdapter;
+        private System.Windows.Forms.BindingSource salasBindingSource;
+        private ProyectoDataSet7TableAdapters.SalasTableAdapter salasTableAdapter;
+        private System.Windows.Forms.BindingSource profesorBindingSource;
+        private ProyectoDataSet7TableAdapters.ProfesorTableAdapter profesorTableAdapter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
