@@ -39,6 +39,8 @@ namespace Proyecto
         }
         private void SaveDisponibilidadHoras(System.Windows.Forms.ComboBox comboBox)
         {
+            string[] nombresDias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
+
             using (SqlConnection con = new SqlConnection(path))
             {
                 con.Open();
@@ -54,23 +56,32 @@ namespace Proyecto
                 }
 
                 // Insertar los nuevos registros
-                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, dia, disponibilidad) VALUES (@rut, @dia, @disponibilidad)", con))
+                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, periodo, dias) VALUES (@rut, @periodo, @dias)", con))
                 {
-
-                    for (int i = 0; i < dataGridView1.Columns.Count - 2; i++)
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        string dia = dataGridView1.Columns[i + 2].Name;
-                        bool disponible = valoresCheckbox[i].Any(isChecked => isChecked);
+                        for (int j = 2; j < dataGridView1.Columns.Count; j++)
+                        {
+                            bool isChecked = (bool)dataGridView1.Rows[i].Cells[j].Value;
 
-                        command.Parameters.Clear();
-                        command.Parameters.AddWithValue("@rut", rut);
-                        command.Parameters.AddWithValue("@dia", dia);
-                        command.Parameters.AddWithValue("@disponibilidad", disponible);
-                        command.ExecuteNonQuery();
+                            if (isChecked)
+                            {
+                                string periodo = dataGridView1.Rows[i].Cells[0].Value.ToString(); // Obtener el número de período
+                                string dia = nombresDias[j - 2]; // Obtener el nombre del día
+
+                                command.Parameters.Clear();
+                                command.Parameters.AddWithValue("@rut", rut);
+                                command.Parameters.AddWithValue("@periodo", periodo);
+                                command.Parameters.AddWithValue("@dias", dia);
+                                command.ExecuteNonQuery();
+                            }
+                        }
                     }
                 }
             }
         }
+
+
         private void Form9_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Profesor' Puede moverla o quitarla según sea necesario.

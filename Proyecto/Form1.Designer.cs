@@ -39,9 +39,10 @@
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCodigoBarraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generarCodigoBarraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disponibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@
             this.ingresarToolStripMenuItem1,
             this.modificarToolStripMenuItem,
             this.eliminarToolStripMenuItem,
-            this.generarToolStripMenuItem});
+            this.generarToolStripMenuItem,
+            this.disponibilidadToolStripMenuItem});
             this.horarioToolStripMenuItem.Enabled = false;
             this.horarioToolStripMenuItem.Image = global::Proyecto.Properties.Resources.calendario;
             this.horarioToolStripMenuItem.Name = "horarioToolStripMenuItem";
@@ -83,28 +85,28 @@
             // ingresarToolStripMenuItem1
             // 
             this.ingresarToolStripMenuItem1.Name = "ingresarToolStripMenuItem1";
-            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ingresarToolStripMenuItem1.Text = "Ingresar";
             this.ingresarToolStripMenuItem1.Click += new System.EventHandler(this.ingresarToolStripMenuItem1_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // generarToolStripMenuItem
             // 
             this.generarToolStripMenuItem.Name = "generarToolStripMenuItem";
-            this.generarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.generarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.generarToolStripMenuItem.Text = "Generar";
             this.generarToolStripMenuItem.Click += new System.EventHandler(this.generarToolStripMenuItem_Click);
             // 
@@ -125,7 +127,7 @@
             // 
             this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
@@ -133,16 +135,23 @@
             // 
             this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             this.prestamoEquipoToolStripMenuItem.Click += new System.EventHandler(this.prestamoEquipoToolStripMenuItem_Click);
+            // 
+            // generarCodigoBarraToolStripMenuItem
+            // 
+            this.generarCodigoBarraToolStripMenuItem.Name = "generarCodigoBarraToolStripMenuItem";
+            this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.generarCodigoBarraToolStripMenuItem.Text = "Generar Codigo Barra";
+            this.generarCodigoBarraToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoBarraToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -163,12 +172,12 @@
             this.controlToolStripMenuItem.Text = "Control";
             this.controlToolStripMenuItem.Click += new System.EventHandler(this.controlToolStripMenuItem_Click);
             // 
-            // generarCodigoBarraToolStripMenuItem
+            // disponibilidadToolStripMenuItem
             // 
-            this.generarCodigoBarraToolStripMenuItem.Name = "generarCodigoBarraToolStripMenuItem";
-            this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
-            this.generarCodigoBarraToolStripMenuItem.Text = "Generar Codigo Barra";
-            this.generarCodigoBarraToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoBarraToolStripMenuItem_Click);
+            this.disponibilidadToolStripMenuItem.Name = "disponibilidadToolStripMenuItem";
+            this.disponibilidadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.disponibilidadToolStripMenuItem.Text = "Disponibilidad";
+            this.disponibilidadToolStripMenuItem.Click += new System.EventHandler(this.disponibilidadToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -203,6 +212,7 @@
         private System.Windows.Forms.ToolStripMenuItem generarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarCodigoBarraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disponibilidadToolStripMenuItem;
     }
 }
 

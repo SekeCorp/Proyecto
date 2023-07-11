@@ -161,5 +161,15 @@ namespace Proyecto
 
             f11.Show();
         }
+
+        private void disponibilidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form11 f11 = new Form11();
+            f11.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f11.Show();
+        }
     }
 }
