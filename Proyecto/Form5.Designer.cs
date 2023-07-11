@@ -34,18 +34,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnConfirmarElim = new System.Windows.Forms.Button();
-            this.proyectoDataSet4 = new Proyecto.ProyectoDataSet4();
-            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
             this.rutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet4 = new Proyecto.ProyectoDataSet4();
+            this.btnConfirmarElim = new System.Windows.Forms.Button();
+            this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -102,30 +102,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(537, 370);
             this.dataGridView1.TabIndex = 5;
             // 
-            // btnConfirmarElim
-            // 
-            this.btnConfirmarElim.Location = new System.Drawing.Point(156, 302);
-            this.btnConfirmarElim.Name = "btnConfirmarElim";
-            this.btnConfirmarElim.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmarElim.TabIndex = 53;
-            this.btnConfirmarElim.Text = "Confirmar";
-            this.btnConfirmarElim.UseVisualStyleBackColor = true;
-            this.btnConfirmarElim.Click += new System.EventHandler(this.btnConfirmarElim_Click);
-            // 
-            // proyectoDataSet4
-            // 
-            this.proyectoDataSet4.DataSetName = "ProyectoDataSet4";
-            this.proyectoDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // profesorBindingSource
-            // 
-            this.profesorBindingSource.DataMember = "Profesor";
-            this.profesorBindingSource.DataSource = this.proyectoDataSet4;
-            // 
-            // profesorTableAdapter
-            // 
-            this.profesorTableAdapter.ClearBeforeFill = true;
-            // 
             // rutDataGridViewTextBoxColumn
             // 
             this.rutDataGridViewTextBoxColumn.DataPropertyName = "rut";
@@ -156,6 +132,30 @@
             this.horasDataGridViewTextBoxColumn.HeaderText = "horas";
             this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
             // 
+            // profesorBindingSource
+            // 
+            this.profesorBindingSource.DataMember = "Profesor";
+            this.profesorBindingSource.DataSource = this.proyectoDataSet4;
+            // 
+            // proyectoDataSet4
+            // 
+            this.proyectoDataSet4.DataSetName = "ProyectoDataSet4";
+            this.proyectoDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnConfirmarElim
+            // 
+            this.btnConfirmarElim.Location = new System.Drawing.Point(156, 302);
+            this.btnConfirmarElim.Name = "btnConfirmarElim";
+            this.btnConfirmarElim.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmarElim.TabIndex = 53;
+            this.btnConfirmarElim.Text = "Confirmar";
+            this.btnConfirmarElim.UseVisualStyleBackColor = true;
+            this.btnConfirmarElim.Click += new System.EventHandler(this.btnConfirmarElim_Click);
+            // 
+            // profesorTableAdapter
+            // 
+            this.profesorTableAdapter.ClearBeforeFill = true;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,8 +173,8 @@
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

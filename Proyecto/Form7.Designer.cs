@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
-            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroserieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enprestamoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
+            this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.id_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@
             this.Agregar_btn = new System.Windows.Forms.Button();
             this.Actualizar_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,20 +78,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(450, 327);
             this.dataGridView1.TabIndex = 2;
             // 
-            // proyectoDataSet3
-            // 
-            this.proyectoDataSet3.DataSetName = "ProyectoDataSet3";
-            this.proyectoDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // equiposBindingSource
-            // 
-            this.equiposBindingSource.DataMember = "Equipos";
-            this.equiposBindingSource.DataSource = this.proyectoDataSet3;
-            // 
-            // equiposTableAdapter
-            // 
-            this.equiposTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -115,6 +101,20 @@
             this.enprestamoDataGridViewCheckBoxColumn.DataPropertyName = "en_prestamo";
             this.enprestamoDataGridViewCheckBoxColumn.HeaderText = "en_prestamo";
             this.enprestamoDataGridViewCheckBoxColumn.Name = "enprestamoDataGridViewCheckBoxColumn";
+            // 
+            // equiposBindingSource
+            // 
+            this.equiposBindingSource.DataMember = "Equipos";
+            this.equiposBindingSource.DataSource = this.proyectoDataSet3;
+            // 
+            // proyectoDataSet3
+            // 
+            this.proyectoDataSet3.DataSetName = "ProyectoDataSet3";
+            this.proyectoDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // equiposTableAdapter
+            // 
+            this.equiposTableAdapter.ClearBeforeFill = true;
             // 
             // label2
             // 
@@ -206,8 +206,8 @@
             this.Text = "Form7";
             this.Load += new System.EventHandler(this.Form7_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

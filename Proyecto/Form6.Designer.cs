@@ -57,7 +57,7 @@
             this.numeroserieDataGridViewTextBoxColumn,
             this.enprestamoDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.equiposBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(345, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(326, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(443, 397);
             this.dataGridView1.TabIndex = 0;

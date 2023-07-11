@@ -56,7 +56,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(62, 150);
+            this.dataGridView1.Location = new System.Drawing.Point(66, 111);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(766, 349);
             this.dataGridView1.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.labelContadorHoras.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelContadorHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContadorHoras.ForeColor = System.Drawing.Color.Black;
-            this.labelContadorHoras.Location = new System.Drawing.Point(62, 502);
+            this.labelContadorHoras.Location = new System.Drawing.Point(370, 463);
             this.labelContadorHoras.Name = "labelContadorHoras";
             this.labelContadorHoras.Size = new System.Drawing.Size(183, 24);
             this.labelContadorHoras.TabIndex = 1;
@@ -140,7 +140,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(408, 503);
+            this.btnGuardar.Location = new System.Drawing.Point(423, 490);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 8;
@@ -161,6 +161,7 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form9";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form9";
             this.Load += new System.EventHandler(this.Form9_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

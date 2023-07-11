@@ -259,16 +259,16 @@
             // 
             // txtDias_P
             // 
-            this.txtDias_P.Location = new System.Drawing.Point(603, 159);
+            this.txtDias_P.Location = new System.Drawing.Point(631, 154);
             this.txtDias_P.Name = "txtDias_P";
             this.txtDias_P.Size = new System.Drawing.Size(54, 20);
             this.txtDias_P.TabIndex = 28;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(517, 150);
+            this.button5.Location = new System.Drawing.Point(516, 150);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 36);
+            this.button5.Size = new System.Drawing.Size(81, 27);
             this.button5.TabIndex = 29;
             this.button5.Text = "Calcular Dias";
             this.button5.UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@
             this.comboID_Equipos.FormattingEnabled = true;
             this.comboID_Equipos.Location = new System.Drawing.Point(517, 64);
             this.comboID_Equipos.Name = "comboID_Equipos";
-            this.comboID_Equipos.Size = new System.Drawing.Size(121, 21);
+            this.comboID_Equipos.Size = new System.Drawing.Size(200, 21);
             this.comboID_Equipos.TabIndex = 30;
             // 
             // textBox3

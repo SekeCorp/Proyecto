@@ -52,16 +52,16 @@
             this.proyectoDataSet4BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.proyectoDataSet7 = new Proyecto.ProyectoDataSet7();
             this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet7 = new Proyecto.ProyectoDataSet7();
             this.materiasTableAdapter = new Proyecto.ProyectoDataSet7TableAdapters.MateriasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHoras
@@ -96,9 +96,9 @@
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.profesorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(273, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(260, 53);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(518, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 316);
             this.dataGridView1.TabIndex = 5;
             // 
             // rutDataGridViewTextBoxColumn
@@ -143,7 +143,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(108, 346);
+            this.btnInsertar.Location = new System.Drawing.Point(73, 331);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 7;
@@ -153,7 +153,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(192, 346);
+            this.btnConfirmar.Location = new System.Drawing.Point(158, 331);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 8;
@@ -163,7 +163,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(133, 288);
+            this.numericUpDown1.Location = new System.Drawing.Point(133, 289);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             40,
             0,
@@ -175,8 +175,9 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(121, 20);
             this.numericUpDown1.TabIndex = 13;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
             2,
             0,
@@ -187,7 +188,7 @@
             // 
             this.txtApellidoPro.Location = new System.Drawing.Point(133, 206);
             this.txtApellidoPro.Name = "txtApellidoPro";
-            this.txtApellidoPro.Size = new System.Drawing.Size(134, 20);
+            this.txtApellidoPro.Size = new System.Drawing.Size(121, 20);
             this.txtApellidoPro.TabIndex = 33;
             // 
             // lblModApellido
@@ -204,14 +205,14 @@
             // 
             this.txtNombreIngPro.Location = new System.Drawing.Point(133, 162);
             this.txtNombreIngPro.Name = "txtNombreIngPro";
-            this.txtNombreIngPro.Size = new System.Drawing.Size(134, 20);
+            this.txtNombreIngPro.Size = new System.Drawing.Size(121, 20);
             this.txtNombreIngPro.TabIndex = 30;
             // 
             // txtRut
             // 
             this.txtRut.Location = new System.Drawing.Point(133, 118);
             this.txtRut.Name = "txtRut";
-            this.txtRut.Size = new System.Drawing.Size(134, 20);
+            this.txtRut.Size = new System.Drawing.Size(121, 20);
             this.txtRut.TabIndex = 29;
             // 
             // lblModMateria
@@ -264,15 +265,15 @@
             this.comboBox1.TabIndex = 34;
             this.comboBox1.ValueMember = "nombre";
             // 
-            // proyectoDataSet7
-            // 
-            this.proyectoDataSet7.DataSetName = "ProyectoDataSet7";
-            this.proyectoDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // materiasBindingSource
             // 
             this.materiasBindingSource.DataMember = "Materias";
             this.materiasBindingSource.DataSource = this.proyectoDataSet7;
+            // 
+            // proyectoDataSet7
+            // 
+            this.proyectoDataSet7.DataSetName = "ProyectoDataSet7";
+            this.proyectoDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // materiasTableAdapter
             // 
@@ -307,8 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
