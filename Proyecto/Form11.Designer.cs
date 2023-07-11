@@ -50,15 +50,15 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 58);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 140);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(252, 539);
+            this.dataGridView1.Size = new System.Drawing.Size(252, 329);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 29);
+            this.label1.Location = new System.Drawing.Point(22, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 1;
@@ -67,14 +67,14 @@
             // comboBoxRut
             // 
             this.comboBoxRut.FormattingEnabled = true;
-            this.comboBoxRut.Location = new System.Drawing.Point(100, 29);
+            this.comboBoxRut.Location = new System.Drawing.Point(100, 79);
             this.comboBoxRut.Name = "comboBoxRut";
             this.comboBoxRut.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRut.TabIndex = 2;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(227, 29);
+            this.btnBuscar.Location = new System.Drawing.Point(227, 77);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 23);
             this.btnBuscar.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Location = new System.Drawing.Point(283, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 539);
+            this.groupBox1.Size = new System.Drawing.Size(670, 478);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -151,16 +151,16 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 204);
+            this.dataGridView2.Location = new System.Drawing.Point(20, 82);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(529, 329);
+            this.dataGridView2.Size = new System.Drawing.Size(631, 329);
             this.dataGridView2.TabIndex = 0;
             // 
             // Form11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 609);
+            this.ClientSize = new System.Drawing.Size(965, 590);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.comboBoxRut);

@@ -30,6 +30,7 @@ namespace Proyecto
             String path, query;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+            path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
             SqlDataReader dr;
             SqlConnection con = new SqlConnection(path);
             query = "Select*from Profesor";

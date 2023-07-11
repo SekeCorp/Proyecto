@@ -35,6 +35,7 @@ namespace Proyecto
                 string path, query, nombre, horas, rut, apellido;
                 DataTable dt = new DataTable();
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
                 rut = txtRut.Text;
                 nombre = txtNombreIngPro.Text;
                 horas = numericUpDown1.Text;

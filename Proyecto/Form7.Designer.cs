@@ -177,7 +177,7 @@
             // 
             // Actualizar_btn
             // 
-            this.Actualizar_btn.Location = new System.Drawing.Point(531, 345);
+            this.Actualizar_btn.Location = new System.Drawing.Point(608, 489);
             this.Actualizar_btn.Name = "Actualizar_btn";
             this.Actualizar_btn.Size = new System.Drawing.Size(75, 23);
             this.Actualizar_btn.TabIndex = 10;
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 421);
+            this.ClientSize = new System.Drawing.Size(965, 590);
             this.Controls.Add(this.Actualizar_btn);
             this.Controls.Add(this.Agregar_btn);
             this.Controls.Add(this.numSerie_txt);

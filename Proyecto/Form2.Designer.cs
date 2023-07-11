@@ -42,7 +42,7 @@
             // Cancelar_btn
             // 
             this.Cancelar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar_btn.Location = new System.Drawing.Point(347, 303);
+            this.Cancelar_btn.Location = new System.Drawing.Point(447, 383);
             this.Cancelar_btn.Name = "Cancelar_btn";
             this.Cancelar_btn.Size = new System.Drawing.Size(51, 20);
             this.Cancelar_btn.TabIndex = 29;
@@ -54,7 +54,7 @@
             // 
             this.Validar_btn.Enabled = false;
             this.Validar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Validar_btn.Location = new System.Drawing.Point(333, 268);
+            this.Validar_btn.Location = new System.Drawing.Point(433, 348);
             this.Validar_btn.Name = "Validar_btn";
             this.Validar_btn.Size = new System.Drawing.Size(81, 29);
             this.Validar_btn.TabIndex = 28;
@@ -65,7 +65,7 @@
             // Clave_txt
             // 
             this.Clave_txt.Enabled = false;
-            this.Clave_txt.Location = new System.Drawing.Point(361, 204);
+            this.Clave_txt.Location = new System.Drawing.Point(461, 284);
             this.Clave_txt.Name = "Clave_txt";
             this.Clave_txt.PasswordChar = '*';
             this.Clave_txt.Size = new System.Drawing.Size(100, 20);
@@ -74,7 +74,7 @@
             // 
             // Usuario_txt
             // 
-            this.Usuario_txt.Location = new System.Drawing.Point(361, 143);
+            this.Usuario_txt.Location = new System.Drawing.Point(461, 223);
             this.Usuario_txt.Name = "Usuario_txt";
             this.Usuario_txt.Size = new System.Drawing.Size(100, 20);
             this.Usuario_txt.TabIndex = 26;
@@ -83,7 +83,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(279, 211);
+            this.label2.Location = new System.Drawing.Point(379, 291);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 25;
@@ -92,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(279, 146);
+            this.label1.Location = new System.Drawing.Point(379, 226);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 24;
@@ -102,7 +102,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Uighur", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(309, 75);
+            this.label3.Location = new System.Drawing.Point(409, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 36);
             this.label3.TabIndex = 30;
@@ -111,7 +111,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proyecto.Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(685, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(833, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(98, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(795, 421);
+            this.ClientSize = new System.Drawing.Size(965, 590);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Cancelar_btn);

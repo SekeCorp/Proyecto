@@ -68,7 +68,7 @@
             // 
             this.lblHoras.AutoSize = true;
             this.lblHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblHoras.Location = new System.Drawing.Point(37, 285);
+            this.lblHoras.Location = new System.Drawing.Point(81, 338);
             this.lblHoras.Name = "lblHoras";
             this.lblHoras.Size = new System.Drawing.Size(65, 24);
             this.lblHoras.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             this.lblIngresoProfesor.AutoSize = true;
             this.lblIngresoProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblIngresoProfesor.Location = new System.Drawing.Point(37, 53);
+            this.lblIngresoProfesor.Location = new System.Drawing.Point(81, 106);
             this.lblIngresoProfesor.Name = "lblIngresoProfesor";
             this.lblIngresoProfesor.Size = new System.Drawing.Size(196, 26);
             this.lblIngresoProfesor.TabIndex = 4;
@@ -96,9 +96,9 @@
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.profesorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(260, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(362, 73);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(533, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 378);
             this.dataGridView1.TabIndex = 5;
             // 
             // rutDataGridViewTextBoxColumn
@@ -143,7 +143,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(73, 331);
+            this.btnInsertar.Location = new System.Drawing.Point(117, 384);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 7;
@@ -153,7 +153,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(158, 331);
+            this.btnConfirmar.Location = new System.Drawing.Point(202, 384);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 8;
@@ -163,7 +163,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(133, 289);
+            this.numericUpDown1.Location = new System.Drawing.Point(177, 342);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             40,
             0,
@@ -186,7 +186,7 @@
             // 
             // txtApellidoPro
             // 
-            this.txtApellidoPro.Location = new System.Drawing.Point(133, 206);
+            this.txtApellidoPro.Location = new System.Drawing.Point(177, 259);
             this.txtApellidoPro.Name = "txtApellidoPro";
             this.txtApellidoPro.Size = new System.Drawing.Size(121, 20);
             this.txtApellidoPro.TabIndex = 33;
@@ -195,7 +195,7 @@
             // 
             this.lblModApellido.AutoSize = true;
             this.lblModApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblModApellido.Location = new System.Drawing.Point(38, 206);
+            this.lblModApellido.Location = new System.Drawing.Point(82, 259);
             this.lblModApellido.Name = "lblModApellido";
             this.lblModApellido.Size = new System.Drawing.Size(87, 24);
             this.lblModApellido.TabIndex = 32;
@@ -203,14 +203,14 @@
             // 
             // txtNombreIngPro
             // 
-            this.txtNombreIngPro.Location = new System.Drawing.Point(133, 162);
+            this.txtNombreIngPro.Location = new System.Drawing.Point(177, 215);
             this.txtNombreIngPro.Name = "txtNombreIngPro";
             this.txtNombreIngPro.Size = new System.Drawing.Size(121, 20);
             this.txtNombreIngPro.TabIndex = 30;
             // 
             // txtRut
             // 
-            this.txtRut.Location = new System.Drawing.Point(133, 118);
+            this.txtRut.Location = new System.Drawing.Point(177, 171);
             this.txtRut.Name = "txtRut";
             this.txtRut.Size = new System.Drawing.Size(121, 20);
             this.txtRut.TabIndex = 29;
@@ -219,7 +219,7 @@
             // 
             this.lblModMateria.AutoSize = true;
             this.lblModMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblModMateria.Location = new System.Drawing.Point(37, 249);
+            this.lblModMateria.Location = new System.Drawing.Point(81, 302);
             this.lblModMateria.Name = "lblModMateria";
             this.lblModMateria.Size = new System.Drawing.Size(78, 24);
             this.lblModMateria.TabIndex = 28;
@@ -229,7 +229,7 @@
             // 
             this.lblModNombre.AutoSize = true;
             this.lblModNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblModNombre.Location = new System.Drawing.Point(37, 162);
+            this.lblModNombre.Location = new System.Drawing.Point(81, 215);
             this.lblModNombre.Name = "lblModNombre";
             this.lblModNombre.Size = new System.Drawing.Size(85, 24);
             this.lblModNombre.TabIndex = 27;
@@ -239,7 +239,7 @@
             // 
             this.lblModRut.AutoSize = true;
             this.lblModRut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModRut.Location = new System.Drawing.Point(37, 118);
+            this.lblModRut.Location = new System.Drawing.Point(81, 171);
             this.lblModRut.Name = "lblModRut";
             this.lblModRut.Size = new System.Drawing.Size(41, 24);
             this.lblModRut.TabIndex = 26;
@@ -259,7 +259,7 @@
             this.comboBox1.DataSource = this.materiasBindingSource;
             this.comboBox1.DisplayMember = "nombre";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 251);
+            this.comboBox1.Location = new System.Drawing.Point(177, 304);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 34;
@@ -283,7 +283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 421);
+            this.ClientSize = new System.Drawing.Size(965, 590);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtApellidoPro);
             this.Controls.Add(this.lblModApellido);

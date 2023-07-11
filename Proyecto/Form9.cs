@@ -22,7 +22,8 @@ namespace Proyecto
         private List<List<bool>> valoresCheckbox; // Lista para almacenar los valores de las casillas de verificación
         //private string connectionString = "Data Source = LAPTOP - HP6EH3TV\\SQLEXPRESS01;Initial Catalog = Proyecto; Integrated Security = True"; // Cadena de conexión a la base de datos SQL Server
 
-        private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+        //private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; el webas
+        private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
   
         public Form9()
         {

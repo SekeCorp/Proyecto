@@ -43,5 +43,10 @@ namespace Proyecto
                 varbmp.Save(varing, ImageFormat.Jpeg);
             }
         }
+
+        private void BarraQr_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
