@@ -84,7 +84,7 @@ namespace Proyecto
 
         private void Form9_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Profesor' Puede moverla o quitarla según sea necesario.
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Profesor' Puede moverla o quitarla según sea necesario.asdasdasd
             this.profesorTableAdapter.Fill(this.proyectoDataSet7.Profesor);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Salas' Puede moverla o quitarla según sea necesario.
             this.salasTableAdapter.Fill(this.proyectoDataSet7.Salas);
