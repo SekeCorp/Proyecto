@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
@@ -15,9 +16,11 @@ namespace Proyecto
 {
     public partial class Form8 : Form
     {
+        private string path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
         public Form8()
         {
             InitializeComponent();
+            Load += Form8_Load;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -64,8 +67,7 @@ namespace Proyecto
         {
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Profesor' Puede moverla o quitarla según sea necesario.
             this.profesorTableAdapter.Fill(this.proyectoDataSet6.Profesor);
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Prestamos' Puede moverla o quitarla según sea necesario.
-            this.prestamosTableAdapter.Fill(this.proyectoDataSet6.Prestamos);
+
             string path;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
@@ -82,28 +84,32 @@ namespace Proyecto
 
             }
         }
-
-
+        List<string> idsPrestados = new List<string>();
         private void button2_Click(object sender, EventArgs e)
         {
-            
-                try
+            try
+            {
+                string path, query, profesor_rut;
+                string equipo_id = comboID_Equipos.Text;
+                DateTime fecha_p, fecha_d;
+                DataTable dt = new DataTable();
+                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                profesor_rut = comboBox_RUT.Text;
+                equipo_id = comboID_Equipos.Text;
+                fecha_p = dtp_Fecha_P.Value;
+                fecha_d = dtp_Fecha_D.Value;
+
+                if (idsPrestados.Contains(equipo_id))
                 {
-                    string path, query, equipo_id, profesor_rut;
-                    DateTime fecha_p, fecha_d;
-                    DataTable dt = new DataTable();
-                    path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                    profesor_rut = comboBox_RUT.Text;
-                    equipo_id = comboID_Equipos.Text;
-                    fecha_p = dtp_Fecha_P.Value;
-                    fecha_d = dtp_Fecha_D.Value;
-
-
+                    MessageBox.Show("El Equipo ya ha sido prestado.");
+                }
+                else
+                {
                     using (SqlConnection con = new SqlConnection(path))
                     {
                         con.Open();
 
-                        query = "INSERT INTO Prestamos (equipo_id , profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut, @fecha_prestamo, @fecha_devolucion)";
+                        query = "INSERT INTO Prestamos (equipo_id, profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut, @fecha_prestamo, @fecha_devolucion)";
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
@@ -113,51 +119,165 @@ namespace Proyecto
 
                             cmd.ExecuteNonQuery();
 
+                            idsPrestados.Add(equipo_id); // Agregar el ID prestado a la lista
+
                             MessageBox.Show("Prestamo OK");
                         }
                     }
-
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al agregar el registro: " + ex);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el registro: " + ex);
+            }
         }
+
+
+
+
+
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String path, query;
-            DataTable dt = new DataTable();
-            path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
-            SqlDataReader dr;
-            SqlConnection con = new SqlConnection(path);
-            query = "Select*from Prestamos";
-            SqlCommand cmd = new SqlCommand(query, con);
-            dt.Columns.Add("ID");
-            dt.Columns.Add("equipo_id");
-            dt.Columns.Add("profesor_rut");
-            dt.Columns.Add("fecha_prestamo");
-            dt.Columns.Add("fecha_devolucion");
-            con.Open();
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
+                string path, query;
+                DataTable dt = new DataTable();
+                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+                SqlDataReader dr;
+                SqlConnection con = new SqlConnection(path);
+                query = "Select*from Prestamos";
+                SqlCommand cmd = new SqlCommand(query, con);
+                dt.Columns.Add("ID");
+                dt.Columns.Add("equipo_id");
+                dt.Columns.Add("profesor_rut");
+                dt.Columns.Add("fecha_prestamo");
+                dt.Columns.Add("fecha_devolucion");
+                con.Open();
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    DataRow row = dt.NewRow();
+                    row["ID"] = dr["ID"];
+                    row["equipo_id"] = dr["equipo_id"];
+                    row["profesor_rut"] = dr["profesor_rut"];
+                    row["fecha_prestamo"] = dr["fecha_prestamo"];
+                    row["fecha_devolucion"] = dr["fecha_devolucion"];
+                    dt.Rows.Add(row);
+                }
+                dataGridView1.DataSource = dt;
 
-                DataRow row = dt.NewRow();
-                row["ID"] = dr["ID"];
-                row["equipo_id"] = dr["equipo_id"];
-                row["profesor_rut"] = dr["profesor_rut"];
-                row["fecha_prestamo"] = dr["fecha_prestamo"];
-                row["fecha_devolucion"] = dr["fecha_devolucion"];
-                dt.Rows.Add(row);
-                //String fila;
-                //fila = dr.GetString(1).ToString();
-                //MessageBox.Show(fila);
+                con.Close();
+
+                // Cargar los IDs de equipos prestados en el comboBoxDevolucion
+                DataTable dtEquiposPrestados = new DataTable();
+                query = "SELECT DISTINCT equipo_id FROM Prestamos";
+                SqlCommand cmdEquipos = new SqlCommand(query, con);
+                con.Open();
+                dtEquiposPrestados.Load(cmdEquipos.ExecuteReader());
+                comboBoxDevolucion.DataSource = dtEquiposPrestados;
+                comboBoxDevolucion.DisplayMember = "equipo_id";
+                con.Close();
             }
-            dataGridView1.DataSource = dt;
-            con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los registros: " + ex.Message);
+            }
         }
 
+        private void btnDevolucion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBoxDevolucion.SelectedItem != null)
+                {
+                    DataRowView selectedRow = (DataRowView)comboBoxDevolucion.SelectedItem;
+                    string equipo_id = selectedRow["equipo_id"].ToString();
+                    string query = "DELETE FROM Prestamos WHERE equipo_id = @equipo_id";
+                    using (SqlConnection con = new SqlConnection(path))
+                    {
+                        con.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Devolución realizada con éxito.");
+
+                            // Obtener los datos del equipo devuelto
+                            string queryEquipo = "SELECT id, nombre, numero_serie FROM Equipos WHERE id = @equipo_id";
+                            using (SqlCommand cmdEquipo = new SqlCommand(queryEquipo, con))
+                            {
+                                cmdEquipo.Parameters.AddWithValue("@equipo_id", equipo_id);
+                                SqlDataReader reader = cmdEquipo.ExecuteReader();
+                                if (reader.Read())
+                                {
+                                    string id = reader["ID"].ToString();
+                                    string nombre = reader["nombre"].ToString();
+                                    string numero_serie = reader["numero_serie"].ToString();
+
+                                    // Agregar una nueva fila con los datos del equipo devuelto al dataGridView2
+                                    DataTable dt = (DataTable)dataGridView2.DataSource;
+                                    if (dt == null)
+                                    {
+                                        dt = new DataTable(); // Inicializar el DataTable si es nulo
+                                        dt.Columns.Add("ID");
+                                        dt.Columns.Add("nombre");
+                                        dt.Columns.Add("numero_serie");
+                                        dataGridView2.DataSource = dt;
+                                    }
+                                    DataRow newRow = dt.NewRow();
+                                    newRow["ID"] = id;
+                                    newRow["nombre"] = nombre;
+                                    newRow["numero_serie"] = numero_serie;
+                                    dt.Rows.Add(newRow);
+                                }
+                                reader.Close();
+                            }
+                        }
+                    }
+
+                    // Actualizar visualmente el dataGridView1
+                    ActualizarDataGridView1();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ningún equipo para devolver.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar la devolución: " + ex.Message);
+            }
+        }
+
+
+
+
+        private void ActualizarDataGridView1()
+        {
+            string query = "SELECT * FROM Prestamos";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, path);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void ActualizarDataGridView2()
+        {
+            string query = "SELECT * FROM Equipos";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, path);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void btnActualizarDevo_Click(object sender, EventArgs e)
+        {
+
+            
+        }
     }
 }

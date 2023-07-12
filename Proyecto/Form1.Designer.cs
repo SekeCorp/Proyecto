@@ -158,7 +158,7 @@
             this.generarCodigoBarraToolStripMenuItem.Name = "generarCodigoBarraToolStripMenuItem";
             this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.generarCodigoBarraToolStripMenuItem.Text = "Generar Codigo Barra";
-            this.generarCodigoBarraToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoBarraToolStripMenuItem_Click);
+           
             // 
             // cerrarSesionToolStripMenuItem
             // 

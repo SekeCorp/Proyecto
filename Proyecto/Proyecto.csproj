@@ -52,12 +52,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarraQr.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BarraQr.Designer.cs">
-      <DependentUpon>BarraQr.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataGridViewPrinter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -177,9 +171,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet8.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BarraQr.resx">
-      <DependentUpon>BarraQr.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

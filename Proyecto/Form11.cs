@@ -195,8 +195,59 @@ namespace Proyecto
             LoadSalas(selectedMateria);
         }
 
+
+        private Dictionary<string, List<PeriodoUtilizado>> cursosPeriodosUtilizados = new Dictionary<string, List<PeriodoUtilizado>>();
+
+        private class PeriodoUtilizado
+        {
+            public string Periodo { get; set; }
+            public string Dia { get; set; }
+        }
+
         private void btnAñadir_Click(object sender, EventArgs e)
         {
+            // Obtener los valores seleccionados de los ComboBox
+            string selectedRut = comboBoxRut.SelectedItem?.ToString() ?? "";
+            string materia = comboBoxMateria.SelectedItem?.ToString() ?? "";
+            string sala = comboBoxSala.SelectedItem?.ToString() ?? "";
+            string periodo = comboBoxPeriodo.SelectedItem?.ToString() ?? "";
+            string dia = comboBoxDia.SelectedItem?.ToString() ?? "";
+            string curso = comboBoxCurso.SelectedItem?.ToString() ?? "";
+
+            // Verificar si los valores son válidos
+            if (string.IsNullOrEmpty(selectedRut) || string.IsNullOrEmpty(materia) || string.IsNullOrEmpty(sala) || string.IsNullOrEmpty(periodo) || string.IsNullOrEmpty(dia) || string.IsNullOrEmpty(curso))
+            {
+                MessageBox.Show("Por favor, seleccione todos los campos necesarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verificar si el período ya se utilizó para algún curso
+            foreach (var cursosPeriodos in cursosPeriodosUtilizados)
+            {
+                string cursoExistente = cursosPeriodos.Key;
+                List<PeriodoUtilizado> periodosUtilizados = cursosPeriodos.Value;
+
+                foreach (var periodoUtilizado in periodosUtilizados)
+                {
+                    if (periodoUtilizado.Periodo == periodo && periodoUtilizado.Dia == dia)
+                    {
+                        MessageBox.Show($"El período {periodo} del día {dia} ya se ha utilizado para el curso {cursoExistente}. Por favor, seleccione otro período.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            // Agregar el período utilizado al curso actual
+            if (cursosPeriodosUtilizados.ContainsKey(curso))
+            {
+                List<PeriodoUtilizado> periodosUtilizados = cursosPeriodosUtilizados[curso];
+                periodosUtilizados.Add(new PeriodoUtilizado { Periodo = periodo, Dia = dia });
+            }
+            else
+            {
+                cursosPeriodosUtilizados[curso] = new List<PeriodoUtilizado> { new PeriodoUtilizado { Periodo = periodo, Dia = dia } };
+            }
+
             // Verificar si las columnas ya existen en el DataGridView
             if (dataGridView2.Columns.Count == 0)
             {
@@ -209,22 +260,12 @@ namespace Proyecto
                 dataGridView2.Columns.Add("Curso", "Curso");
             }
 
-            // Obtener los valores seleccionados de los ComboBox
-            selectedRut = comboBoxRut.SelectedItem?.ToString() ?? "";
-            string materia = comboBoxMateria.SelectedItem?.ToString() ?? "";
-            string sala = comboBoxSala.SelectedItem?.ToString() ?? "";
-            string periodo = comboBoxPeriodo.SelectedItem?.ToString() ?? "";
-            string curso = comboBoxCurso.SelectedItem?.ToString() ?? "";
-
-            // Obtener el día seleccionado en el comboBoxDia
-            string dia = comboBoxDia.SelectedItem?.ToString() ?? "";
-
-            // Obtener el Nombre y Apellido asociados al RUT seleccionado
-            selectedNombreApellido = GetNombreApellido(selectedRut);
-
             // Agregar una nueva fila al DataGridView con los valores seleccionados
             dataGridView2.Rows.Add(selectedRut, materia, sala, periodo, dia, curso);
         }
+
+
+
 
         private List<string> GetDiasDisponibles(string rut)
         {

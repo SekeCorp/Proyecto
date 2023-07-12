@@ -30,46 +30,36 @@ namespace Proyecto
                 id_txt.Focus();
 
                 string path, query, id;
-            DataTable dt = new DataTable();
+                DataTable dt = new DataTable();
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
                 //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True"; //VIXO
-            id = id_txt.Text;
-            using (SqlConnection con = new SqlConnection(path))
-            {
-                con.Open();
-
-                query = "SELECT * FROM Equipos WHERE id = @id";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                id = id_txt.Text;
+                using (SqlConnection con = new SqlConnection(path))
                 {
-                    SqlCommand command = new SqlCommand(query, con);
-                    command.Parameters.AddWithValue("@id", id);
+                    con.Open();
 
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.Read())
+                    query = "SELECT * FROM Equipos WHERE id = @id";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        string nombre = reader.GetString(1);
-                        string numeroSerie = reader.GetString(2);
-                        bool enPrestamo = reader.GetBoolean(3);
-                        String _enprestamo;
+                        SqlCommand command = new SqlCommand(query, con);
+                        command.Parameters.AddWithValue("@id", id);
 
-                        if (enPrestamo == true)
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
                         {
-                            _enprestamo = "Prestado";
+                            string nombre = reader.GetString(1);
+                            string numeroSerie = reader.GetString(2);
+                           
+
+                            MessageBox.Show($"Item encontrado: Nombre: {nombre}, Número de serie: {numeroSerie}");
                         }
                         else
                         {
-                            _enprestamo = "Disponible";
+                            MessageBox.Show("No se encontró ningún item con el ID especificado.");
                         }
-
-                        MessageBox.Show($"Item encontrado: Nombre: {nombre}, Número de serie: {numeroSerie}, Estado: {_enprestamo}");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontró ningún item con el ID especificado.");
                     }
                 }
-            }  
             }
         }
 

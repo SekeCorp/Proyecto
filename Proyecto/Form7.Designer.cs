@@ -34,7 +34,6 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroserieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enprestamoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
             this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
@@ -44,11 +43,15 @@
             this.nomEquipo_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.numSerie_txt = new System.Windows.Forms.TextBox();
-            this.Agregar_btn = new System.Windows.Forms.Button();
             this.Actualizar_btn = new System.Windows.Forms.Button();
+            this.imgBarra = new System.Windows.Forms.PictureBox();
+            this.btnGuardarQr = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,12 +73,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.numeroserieDataGridViewTextBoxColumn,
-            this.enprestamoDataGridViewCheckBoxColumn});
+            this.numeroserieDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.equiposBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(333, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(332, 40);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(450, 327);
+            this.dataGridView1.Size = new System.Drawing.Size(451, 266);
             this.dataGridView1.TabIndex = 2;
             // 
             // idDataGridViewTextBoxColumn
@@ -95,12 +97,6 @@
             this.numeroserieDataGridViewTextBoxColumn.DataPropertyName = "numero_serie";
             this.numeroserieDataGridViewTextBoxColumn.HeaderText = "numero_serie";
             this.numeroserieDataGridViewTextBoxColumn.Name = "numeroserieDataGridViewTextBoxColumn";
-            // 
-            // enprestamoDataGridViewCheckBoxColumn
-            // 
-            this.enprestamoDataGridViewCheckBoxColumn.DataPropertyName = "en_prestamo";
-            this.enprestamoDataGridViewCheckBoxColumn.HeaderText = "en_prestamo";
-            this.enprestamoDataGridViewCheckBoxColumn.Name = "enprestamoDataGridViewCheckBoxColumn";
             // 
             // equiposBindingSource
             // 
@@ -165,19 +161,9 @@
             this.numSerie_txt.Size = new System.Drawing.Size(100, 20);
             this.numSerie_txt.TabIndex = 8;
             // 
-            // Agregar_btn
-            // 
-            this.Agregar_btn.Location = new System.Drawing.Point(114, 345);
-            this.Agregar_btn.Name = "Agregar_btn";
-            this.Agregar_btn.Size = new System.Drawing.Size(83, 23);
-            this.Agregar_btn.TabIndex = 9;
-            this.Agregar_btn.Text = "Agregar";
-            this.Agregar_btn.UseVisualStyleBackColor = true;
-            this.Agregar_btn.Click += new System.EventHandler(this.Agregar_btn_Click);
-            // 
             // Actualizar_btn
             // 
-            this.Actualizar_btn.Location = new System.Drawing.Point(608, 489);
+            this.Actualizar_btn.Location = new System.Drawing.Point(532, 312);
             this.Actualizar_btn.Name = "Actualizar_btn";
             this.Actualizar_btn.Size = new System.Drawing.Size(75, 23);
             this.Actualizar_btn.TabIndex = 10;
@@ -185,13 +171,45 @@
             this.Actualizar_btn.UseVisualStyleBackColor = true;
             this.Actualizar_btn.Click += new System.EventHandler(this.Actualizar_btn_Click);
             // 
+            // imgBarra
+            // 
+            this.imgBarra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.imgBarra.Location = new System.Drawing.Point(332, 375);
+            this.imgBarra.Name = "imgBarra";
+            this.imgBarra.Size = new System.Drawing.Size(451, 134);
+            this.imgBarra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBarra.TabIndex = 3;
+            this.imgBarra.TabStop = false;
+            // 
+            // btnGuardarQr
+            // 
+            this.btnGuardarQr.Location = new System.Drawing.Point(171, 425);
+            this.btnGuardarQr.Name = "btnGuardarQr";
+            this.btnGuardarQr.Size = new System.Drawing.Size(100, 23);
+            this.btnGuardarQr.TabIndex = 2;
+            this.btnGuardarQr.Text = "Guardar Barra";
+            this.btnGuardarQr.UseVisualStyleBackColor = true;
+            this.btnGuardarQr.Click += new System.EventHandler(this.btnGuardarQr_Click_1);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(171, 296);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 39);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Text = "Agregar y Generar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 590);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.imgBarra);
+            this.Controls.Add(this.btnGuardarQr);
             this.Controls.Add(this.Actualizar_btn);
-            this.Controls.Add(this.Agregar_btn);
             this.Controls.Add(this.numSerie_txt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nomEquipo_txt);
@@ -208,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,17 +239,19 @@
         private ProyectoDataSet3 proyectoDataSet3;
         private System.Windows.Forms.BindingSource equiposBindingSource;
         private ProyectoDataSet3TableAdapters.EquiposTableAdapter equiposTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroserieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn enprestamoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nomEquipo_txt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox numSerie_txt;
-        private System.Windows.Forms.Button Agregar_btn;
         private System.Windows.Forms.Button Actualizar_btn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroserieDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox imgBarra;
+        private System.Windows.Forms.Button btnGuardarQr;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
