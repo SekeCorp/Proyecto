@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,14 +33,15 @@ namespace Proyecto
             //Data Source = LAPTOP - HP6EH3TV\SQLEXPRESS01; Initial Catalog = Proyecto; Integrated Security = True
             try
             {
-                string path, query, nombre, horas, rut, apellido;
+                string path, query, nombre, horas, rut, apellido, materia;
                 DataTable dt = new DataTable();
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+                //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
                 rut = txtRut.Text;
                 nombre = txtNombreIngPro.Text;
                 horas = numericUpDown1.Text;
                 apellido = txtApellidoPro.Text;
+                materia = comboBox1.Text;
 
                 using (SqlConnection con = new SqlConnection(path))
                 {
@@ -50,6 +52,7 @@ namespace Proyecto
                     {
                         cmd.Parameters.AddWithValue("@rut", rut);
                         cmd.Parameters.AddWithValue("@nombre", nombre);
+                        cmd.Parameters.AddWithValue("@materia", materia);
                         cmd.Parameters.AddWithValue("@horas", horas);
                         cmd.Parameters.AddWithValue("@apellido", apellido);
 
@@ -59,9 +62,9 @@ namespace Proyecto
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar el registro: ");
+                MessageBox.Show("Error al agregar el registro: " + ex.Message);
             }
 
         }
@@ -92,9 +95,6 @@ namespace Proyecto
                 row["horas"] = dr["horas"];
                 row["apellido"] = dr["apellido"];
                 dt.Rows.Add(row);
-                //String fila;
-                //fila = dr.GetString(1).ToString();
-                //MessageBox.Show(fila);
             }
             dataGridView1.DataSource = dt;
             con.Close();

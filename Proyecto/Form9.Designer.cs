@@ -67,9 +67,9 @@
             this.labelContadorHoras.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.labelContadorHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContadorHoras.ForeColor = System.Drawing.Color.Black;
-            this.labelContadorHoras.Location = new System.Drawing.Point(370, 463);
+            this.labelContadorHoras.Location = new System.Drawing.Point(329, 463);
             this.labelContadorHoras.Name = "labelContadorHoras";
-            this.labelContadorHoras.Size = new System.Drawing.Size(183, 24);
+            this.labelContadorHoras.Size = new System.Drawing.Size(271, 24);
             this.labelContadorHoras.TabIndex = 1;
             // 
             // materiasBindingSource

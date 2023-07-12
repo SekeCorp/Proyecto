@@ -20,11 +20,11 @@ namespace Proyecto
         private int maxSumaPorDia = 450; // Valor máximo de suma por día
         private int maxSumaSemanal = 2400; // Valor máximo de suma semanal
         private List<List<bool>> valoresCheckbox; // Lista para almacenar los valores de las casillas de verificación
-        //private string connectionString = "Data Source = LAPTOP - HP6EH3TV\\SQLEXPRESS01;Initial Catalog = Proyecto; Integrated Security = True"; // Cadena de conexión a la base de datos SQL Server
+        private string connectionString = "Data Source = LAPTOP - HP6EH3TV\\SQLEXPRESS01;Initial Catalog = Proyecto; Integrated Security = True"; // Cadena de conexión a la base de datos SQL Server
 
-        //private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; el webas
-        private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
-  
+        private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; 
+        // private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+
         public Form9()
         {
             InitializeComponent();
@@ -50,14 +50,14 @@ namespace Proyecto
                 string rut = comboBox.SelectedValue.ToString();
 
                 // Borrar los registros existentes para el RUT
-                using (SqlCommand command = new SqlCommand("DELETE FROM Disponibilidad WHERE profesor_rut = @rut", con))
+                using (SqlCommand command = new SqlCommand("DELETE FROM Disponible WHERE profesor_rut = @rut", con))
                 {
                     command.Parameters.AddWithValue("@rut", rut);
                     command.ExecuteNonQuery();
                 }
 
                 // Insertar los nuevos registros
-                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, periodo, dias) VALUES (@rut, @periodo, @dias)", con))
+                using (SqlCommand command = new SqlCommand("INSERT INTO Disponible (profesor_rut, periodo, dias) VALUES (@rut, @periodo, @dias)", con))
                 {
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {

@@ -28,18 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxRut = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxDia = new System.Windows.Forms.ComboBox();
+            this.btnAñadir = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCurso = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPeriodo = new System.Windows.Forms.ComboBox();
+            this.comboBoxSala = new System.Windows.Forms.ComboBox();
+            this.comboBoxMateria = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -71,6 +80,7 @@
             this.comboBoxRut.Name = "comboBoxRut";
             this.comboBoxRut.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRut.TabIndex = 2;
+            this.comboBoxRut.SelectedIndexChanged += new System.EventHandler(this.comboBoxRut_SelectedIndexChanged_1);
             // 
             // btnBuscar
             // 
@@ -84,12 +94,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnImprimir);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.comboBoxDia);
+            this.groupBox1.Controls.Add(this.btnAñadir);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.comboBoxCurso);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxPeriodo);
+            this.groupBox1.Controls.Add(this.comboBoxSala);
+            this.groupBox1.Controls.Add(this.comboBoxMateria);
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Location = new System.Drawing.Point(283, 58);
             this.groupBox1.Name = "groupBox1";
@@ -97,19 +113,76 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(250, 427);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(214, 33);
+            this.btnImprimir.TabIndex = 12;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(247, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Dia";
+            // 
+            // comboBoxDia
+            // 
+            this.comboBoxDia.FormattingEnabled = true;
+            this.comboBoxDia.Location = new System.Drawing.Point(296, 51);
+            this.comboBoxDia.Name = "comboBoxDia";
+            this.comboBoxDia.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxDia.TabIndex = 10;
+            this.comboBoxDia.SelectedIndexChanged += new System.EventHandler(this.comboBoxDia_SelectedIndexChanged);
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Location = new System.Drawing.Point(535, 18);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(116, 49);
+            this.btnAñadir.TabIndex = 9;
+            this.btnAñadir.Text = "Añadir";
+            this.btnAñadir.UseVisualStyleBackColor = true;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(392, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Curso";
+            // 
+            // comboBoxCurso
+            // 
+            this.comboBoxCurso.DisplayMember = "nombresalas";
+            this.comboBoxCurso.FormattingEnabled = true;
+            this.comboBoxCurso.Location = new System.Drawing.Point(432, 33);
+            this.comboBoxCurso.Name = "comboBoxCurso";
+            this.comboBoxCurso.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxCurso.TabIndex = 7;
+            this.comboBoxCurso.ValueMember = "nombresalas";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(216, 37);
+            this.label4.Location = new System.Drawing.Point(72, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Curso";
+            this.label4.Text = "Sala";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(332, 37);
+            this.label3.Location = new System.Drawing.Point(247, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 5;
@@ -118,35 +191,40 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 37);
+            this.label2.Location = new System.Drawing.Point(72, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Materia";
             // 
-            // comboBox3
+            // comboBoxPeriodo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(381, 29);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 3;
+            this.comboBoxPeriodo.FormattingEnabled = true;
+            this.comboBoxPeriodo.Location = new System.Drawing.Point(296, 19);
+            this.comboBoxPeriodo.Name = "comboBoxPeriodo";
+            this.comboBoxPeriodo.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxPeriodo.TabIndex = 3;
             // 
-            // comboBox2
+            // comboBoxSala
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(256, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(54, 21);
-            this.comboBox2.TabIndex = 2;
+            this.comboBoxSala.DisplayMember = "nombresalas";
+            this.comboBoxSala.FormattingEnabled = true;
+            this.comboBoxSala.Location = new System.Drawing.Point(120, 46);
+            this.comboBoxSala.Name = "comboBoxSala";
+            this.comboBoxSala.Size = new System.Drawing.Size(99, 21);
+            this.comboBoxSala.TabIndex = 2;
+            this.comboBoxSala.ValueMember = "nombresalas";
             // 
-            // comboBox1
+            // comboBoxMateria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(76, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxMateria.DisplayMember = "rut";
+            this.comboBoxMateria.FormattingEnabled = true;
+            this.comboBoxMateria.Location = new System.Drawing.Point(120, 19);
+            this.comboBoxMateria.Name = "comboBoxMateria";
+            this.comboBoxMateria.Size = new System.Drawing.Size(99, 21);
+            this.comboBoxMateria.TabIndex = 1;
+            this.comboBoxMateria.ValueMember = "rut";
+            this.comboBoxMateria.SelectedIndexChanged += new System.EventHandler(this.comboBoxMateria_SelectedIndexChanged);
             // 
             // dataGridView2
             // 
@@ -155,6 +233,16 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(631, 329);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // Form11
             // 
@@ -187,12 +275,20 @@
         private System.Windows.Forms.ComboBox comboBoxRut;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxPeriodo;
+        private System.Windows.Forms.ComboBox comboBoxSala;
+        private System.Windows.Forms.ComboBox comboBoxMateria;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxCurso;
+        private System.Windows.Forms.Button btnAñadir;
+        private System.Windows.Forms.ComboBox comboBoxDia;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

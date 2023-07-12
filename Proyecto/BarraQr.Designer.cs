@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imgBarra = new System.Windows.Forms.PictureBox();
             this.btnGuardarQr = new System.Windows.Forms.Button();
             this.btnBarra = new System.Windows.Forms.Button();
             this.txtBarra = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.imgQr = new System.Windows.Forms.PictureBox();
             this.txtQr = new System.Windows.Forms.TextBox();
             this.btnGqR = new System.Windows.Forms.Button();
             this.btnQr = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.imgQr = new System.Windows.Forms.PictureBox();
-            this.imgBarra = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -52,12 +52,21 @@
             this.groupBox1.Controls.Add(this.btnGuardarQr);
             this.groupBox1.Controls.Add(this.btnBarra);
             this.groupBox1.Controls.Add(this.txtBarra);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(88, 88);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(371, 410);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Codigo Barras";
+            // 
+            // imgBarra
+            // 
+            this.imgBarra.Location = new System.Drawing.Point(17, 219);
+            this.imgBarra.Name = "imgBarra";
+            this.imgBarra.Size = new System.Drawing.Size(328, 134);
+            this.imgBarra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBarra.TabIndex = 3;
+            this.imgBarra.TabStop = false;
             // 
             // btnGuardarQr
             // 
@@ -92,12 +101,21 @@
             this.groupBox2.Controls.Add(this.txtQr);
             this.groupBox2.Controls.Add(this.btnGqR);
             this.groupBox2.Controls.Add(this.btnQr);
-            this.groupBox2.Location = new System.Drawing.Point(409, 12);
+            this.groupBox2.Location = new System.Drawing.Point(485, 88);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(379, 410);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Codigo QR";
+            // 
+            // imgQr
+            // 
+            this.imgQr.Location = new System.Drawing.Point(114, 206);
+            this.imgQr.Name = "imgQr";
+            this.imgQr.Size = new System.Drawing.Size(156, 156);
+            this.imgQr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgQr.TabIndex = 7;
+            this.imgQr.TabStop = false;
             // 
             // txtQr
             // 
@@ -125,29 +143,11 @@
             this.btnQr.UseVisualStyleBackColor = true;
             this.btnQr.Click += new System.EventHandler(this.btnQr_Click);
             // 
-            // imgQr
-            // 
-            this.imgQr.Location = new System.Drawing.Point(114, 206);
-            this.imgQr.Name = "imgQr";
-            this.imgQr.Size = new System.Drawing.Size(156, 156);
-            this.imgQr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgQr.TabIndex = 7;
-            this.imgQr.TabStop = false;
-            // 
-            // imgBarra
-            // 
-            this.imgBarra.Location = new System.Drawing.Point(17, 219);
-            this.imgBarra.Name = "imgBarra";
-            this.imgBarra.Size = new System.Drawing.Size(328, 134);
-            this.imgBarra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgBarra.TabIndex = 3;
-            this.imgBarra.TabStop = false;
-            // 
             // BarraQr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(965, 590);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -157,10 +157,10 @@
             this.Load += new System.EventHandler(this.BarraQr_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBarra)).EndInit();
             this.ResumeLayout(false);
 
         }

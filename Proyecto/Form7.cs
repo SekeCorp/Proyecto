@@ -31,8 +31,8 @@ namespace Proyecto
             {
                 string path, query, id, nombre, serie;
                 DataTable dt = new DataTable();
-                //path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                // path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
                 id = id_txt.Text;
                 nombre = nomEquipo_txt.Text;
                 serie = numSerie_txt.Text;
