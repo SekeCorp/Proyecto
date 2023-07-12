@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Cancelar_btn = new System.Windows.Forms.Button();
             this.Validar_btn = new System.Windows.Forms.Button();
             this.Clave_txt = new System.Windows.Forms.TextBox();
             this.Usuario_txt = new System.Windows.Forms.TextBox();
@@ -36,29 +35,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Cancelar_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Cancelar_btn
-            // 
-            this.Cancelar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar_btn.Location = new System.Drawing.Point(447, 383);
-            this.Cancelar_btn.Name = "Cancelar_btn";
-            this.Cancelar_btn.Size = new System.Drawing.Size(51, 20);
-            this.Cancelar_btn.TabIndex = 29;
-            this.Cancelar_btn.Text = "Cancelar";
-            this.Cancelar_btn.UseVisualStyleBackColor = true;
-            this.Cancelar_btn.Click += new System.EventHandler(this.Cancelar_btn_Click_1);
             // 
             // Validar_btn
             // 
             this.Validar_btn.Enabled = false;
-            this.Validar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Validar_btn.Location = new System.Drawing.Point(433, 348);
+            this.Validar_btn.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Validar_btn.Location = new System.Drawing.Point(436, 344);
             this.Validar_btn.Name = "Validar_btn";
-            this.Validar_btn.Size = new System.Drawing.Size(81, 29);
+            this.Validar_btn.Size = new System.Drawing.Size(89, 33);
             this.Validar_btn.TabIndex = 28;
-            this.Validar_btn.Text = "Validar";
+            this.Validar_btn.Text = "Ingresar";
             this.Validar_btn.UseVisualStyleBackColor = true;
             this.Validar_btn.Click += new System.EventHandler(this.Validar_btn_Click_1);
             // 
@@ -110,6 +99,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = global::Proyecto.Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
             this.pictureBox1.Location = new System.Drawing.Point(833, 32);
             this.pictureBox1.Name = "pictureBox1";
@@ -118,12 +109,25 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // Cancelar_btn
+            // 
+            this.Cancelar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelar_btn.Image = global::Proyecto.Properties.Resources.borrar;
+            this.Cancelar_btn.Location = new System.Drawing.Point(447, 383);
+            this.Cancelar_btn.Name = "Cancelar_btn";
+            this.Cancelar_btn.Size = new System.Drawing.Size(67, 26);
+            this.Cancelar_btn.TabIndex = 29;
+            this.Cancelar_btn.Text = "Cancelar";
+            this.Cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Cancelar_btn.UseVisualStyleBackColor = true;
+            this.Cancelar_btn.Click += new System.EventHandler(this.Cancelar_btn_Click_1);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(965, 590);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(967, 593);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Cancelar_btn);

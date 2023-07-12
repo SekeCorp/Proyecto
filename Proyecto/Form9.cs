@@ -22,8 +22,8 @@ namespace Proyecto
         private List<List<bool>> valoresCheckbox; // Lista para almacenar los valores de las casillas de verificación
         private string connectionString = "Data Source = LAPTOP - HP6EH3TV\\SQLEXPRESS01;Initial Catalog = Proyecto; Integrated Security = True"; // Cadena de conexión a la base de datos SQL Server
 
-        private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; 
-        // private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+        //private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; 
+        private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
 
         public Form9()
         {
@@ -85,12 +85,7 @@ namespace Proyecto
 
         private void Form9_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Profesor' Puede moverla o quitarla según sea necesario.asdasdasd
-            this.profesorTableAdapter.Fill(this.proyectoDataSet7.Profesor);
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Salas' Puede moverla o quitarla según sea necesario.
-            this.salasTableAdapter.Fill(this.proyectoDataSet7.Salas);
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Materias' Puede moverla o quitarla según sea necesario.
-            this.materiasTableAdapter.Fill(this.proyectoDataSet7.Materias);
+
 
             dataGridView1.ColumnCount = 7;
             dataGridView1.Columns[0].Name = "PERIODO";

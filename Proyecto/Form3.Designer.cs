@@ -55,6 +55,7 @@
             this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet7 = new Proyecto.ProyectoDataSet7();
             this.materiasTableAdapter = new Proyecto.ProyectoDataSet7TableAdapters.MateriasTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
@@ -62,15 +63,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHoras
             // 
             this.lblHoras.AutoSize = true;
-            this.lblHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblHoras.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoras.Location = new System.Drawing.Point(81, 338);
             this.lblHoras.Name = "lblHoras";
-            this.lblHoras.Size = new System.Drawing.Size(65, 24);
+            this.lblHoras.Size = new System.Drawing.Size(50, 18);
             this.lblHoras.TabIndex = 3;
             this.lblHoras.Text = "Horas";
             // 
@@ -96,7 +98,8 @@
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.profesorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(362, 73);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView1.Location = new System.Drawing.Point(361, 106);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(544, 378);
             this.dataGridView1.TabIndex = 5;
@@ -147,23 +150,25 @@
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 7;
-            this.btnInsertar.Text = "Insertar";
+            this.btnInsertar.Text = "Ingresar";
             this.btnInsertar.UseVisualStyleBackColor = true;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.Image = global::Proyecto.Properties.Resources.boton_actualizar;
             this.btnConfirmar.Location = new System.Drawing.Point(202, 384);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(87, 23);
             this.btnConfirmar.TabIndex = 8;
-            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.Text = "Actualizar";
+            this.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(177, 342);
+            this.numericUpDown1.Location = new System.Drawing.Point(177, 336);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             40,
             0,
@@ -186,7 +191,7 @@
             // 
             // txtApellidoPro
             // 
-            this.txtApellidoPro.Location = new System.Drawing.Point(177, 259);
+            this.txtApellidoPro.Location = new System.Drawing.Point(177, 257);
             this.txtApellidoPro.Name = "txtApellidoPro";
             this.txtApellidoPro.Size = new System.Drawing.Size(121, 20);
             this.txtApellidoPro.TabIndex = 33;
@@ -194,16 +199,16 @@
             // lblModApellido
             // 
             this.lblModApellido.AutoSize = true;
-            this.lblModApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblModApellido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModApellido.Location = new System.Drawing.Point(82, 259);
             this.lblModApellido.Name = "lblModApellido";
-            this.lblModApellido.Size = new System.Drawing.Size(87, 24);
+            this.lblModApellido.Size = new System.Drawing.Size(65, 18);
             this.lblModApellido.TabIndex = 32;
             this.lblModApellido.Text = "Apellido";
             // 
             // txtNombreIngPro
             // 
-            this.txtNombreIngPro.Location = new System.Drawing.Point(177, 215);
+            this.txtNombreIngPro.Location = new System.Drawing.Point(177, 213);
             this.txtNombreIngPro.Name = "txtNombreIngPro";
             this.txtNombreIngPro.Size = new System.Drawing.Size(121, 20);
             this.txtNombreIngPro.TabIndex = 30;
@@ -218,30 +223,30 @@
             // lblModMateria
             // 
             this.lblModMateria.AutoSize = true;
-            this.lblModMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblModMateria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModMateria.Location = new System.Drawing.Point(81, 302);
             this.lblModMateria.Name = "lblModMateria";
-            this.lblModMateria.Size = new System.Drawing.Size(78, 24);
+            this.lblModMateria.Size = new System.Drawing.Size(61, 18);
             this.lblModMateria.TabIndex = 28;
             this.lblModMateria.Text = "Materia";
             // 
             // lblModNombre
             // 
             this.lblModNombre.AutoSize = true;
-            this.lblModNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblModNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModNombre.Location = new System.Drawing.Point(81, 215);
             this.lblModNombre.Name = "lblModNombre";
-            this.lblModNombre.Size = new System.Drawing.Size(85, 24);
+            this.lblModNombre.Size = new System.Drawing.Size(64, 18);
             this.lblModNombre.TabIndex = 27;
             this.lblModNombre.Text = "Nombre";
             // 
             // lblModRut
             // 
             this.lblModRut.AutoSize = true;
-            this.lblModRut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModRut.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModRut.Location = new System.Drawing.Point(81, 171);
             this.lblModRut.Name = "lblModRut";
-            this.lblModRut.Size = new System.Drawing.Size(41, 24);
+            this.lblModRut.Size = new System.Drawing.Size(31, 18);
             this.lblModRut.TabIndex = 26;
             this.lblModRut.Text = "Rut";
             // 
@@ -259,7 +264,7 @@
             this.comboBox1.DataSource = this.materiasBindingSource;
             this.comboBox1.DisplayMember = "nombre";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(177, 304);
+            this.comboBox1.Location = new System.Drawing.Point(177, 299);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 34;
@@ -279,11 +284,25 @@
             // 
             this.materiasTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::Proyecto.Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(871, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 590);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtApellidoPro);
             this.Controls.Add(this.lblModApellido);
@@ -310,6 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,5 +362,6 @@
         private ProyectoDataSet7 proyectoDataSet7;
         private System.Windows.Forms.BindingSource materiasBindingSource;
         private ProyectoDataSet7TableAdapters.MateriasTableAdapter materiasTableAdapter;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

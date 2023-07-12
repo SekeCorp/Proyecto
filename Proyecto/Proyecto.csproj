@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DGV2Printer">
-      <HintPath>..\..\..\..\..\OneDrive\Documentos\DGV2Printer-master\DGV2Printer-master\build\AnyCpu\NET45\DGV2Printer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\NET45\DGV2Printer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -364,6 +364,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2c6cw75.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprobar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salvar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1550324.png" />
+    <Content Include="Resources\descargar.jpg" />
+    <None Include="Resources\obtener-dinero.png" />
+    <None Include="Resources\descargar1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

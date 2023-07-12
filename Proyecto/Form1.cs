@@ -69,11 +69,6 @@ namespace Proyecto
             horarioToolStripMenuItem.Enabled = false;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ingresarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form3 f3 = new Form3();
@@ -162,5 +157,25 @@ namespace Proyecto
 
             f11.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MdiClient ctlMDI;
+            foreach (Control ctl in this.Controls)
+            {
+                try
+                {
+                    ctlMDI = (MdiClient)ctl;
+                    ctlMDI.BackgroundImage = Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
+                    menuStrip1.Enabled = true;
+
+                }
+                catch (InvalidCastException exc)
+                {
+
+                }
+            }
+        }
+
     }
 }

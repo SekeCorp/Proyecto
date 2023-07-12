@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtRutElimin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,24 +42,17 @@
             this.proyectoDataSet4 = new Proyecto.ProyectoDataSet4();
             this.btnConfirmarElim = new System.Windows.Forms.Button();
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(75, 302);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtRutElimin
             // 
-            this.txtRutElimin.Location = new System.Drawing.Point(96, 201);
+            this.txtRutElimin.Location = new System.Drawing.Point(125, 258);
             this.txtRutElimin.Name = "txtRutElimin";
             this.txtRutElimin.Size = new System.Drawing.Size(100, 20);
             this.txtRutElimin.TabIndex = 8;
@@ -68,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(110, 173);
+            this.label2.Location = new System.Drawing.Point(139, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 7;
@@ -77,11 +69,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(71, 29);
+            this.label1.Location = new System.Drawing.Point(99, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 24);
+            this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 6;
             this.label1.Text = "Eliminar Profesor";
             // 
@@ -97,9 +89,9 @@
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.profesorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(246, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(350, 121);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(537, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 316);
             this.dataGridView1.TabIndex = 5;
             // 
             // rutDataGridViewTextBoxColumn
@@ -144,7 +136,7 @@
             // 
             // btnConfirmarElim
             // 
-            this.btnConfirmarElim.Location = new System.Drawing.Point(156, 302);
+            this.btnConfirmarElim.Location = new System.Drawing.Point(136, 366);
             this.btnConfirmarElim.Name = "btnConfirmarElim";
             this.btnConfirmarElim.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmarElim.TabIndex = 53;
@@ -156,11 +148,37 @@
             // 
             this.profesorTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::Proyecto.Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(871, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 54;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Proyecto.Properties.Resources.borrar;
+            this.btnEliminar.Location = new System.Drawing.Point(125, 327);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(100, 33);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 590);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConfirmarElim);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtRutElimin);
@@ -175,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

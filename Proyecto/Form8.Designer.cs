@@ -66,19 +66,21 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnActualizarDevo = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(413, 9);
+            this.label1.Location = new System.Drawing.Point(392, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 25);
             this.label1.TabIndex = 1;
@@ -103,10 +105,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(113, 34);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(135, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 15);
+            this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Solicitantes";
             // 
@@ -122,10 +124,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(681, 37);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(722, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 15);
+            this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 12;
             this.label6.Text = "Equipo";
             // 
@@ -149,11 +151,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(251, 64);
+            this.button1.Image = global::Proyecto.Properties.Resources.lupa;
+            this.button1.Location = new System.Drawing.Point(138, 143);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 21);
+            this.button1.Size = new System.Drawing.Size(66, 27);
             this.button1.TabIndex = 18;
             this.button1.Text = "Buscar";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -245,38 +249,45 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(380, 172);
+            this.button2.Image = global::Proyecto.Properties.Resources.agregar;
+            this.button2.Location = new System.Drawing.Point(374, 172);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 23);
+            this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 25;
             this.button2.Text = "Registrar Prestamo";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.Image = global::Proyecto.Properties.Resources.boton_actualizar;
             this.button3.Location = new System.Drawing.Point(500, 172);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 23);
+            this.button3.Size = new System.Drawing.Size(77, 23);
             this.button3.TabIndex = 26;
             this.button3.Text = "Actualizar";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtDias_P
             // 
-            this.txtDias_P.Location = new System.Drawing.Point(865, 124);
+            this.txtDias_P.Location = new System.Drawing.Point(646, 159);
             this.txtDias_P.Name = "txtDias_P";
-            this.txtDias_P.Size = new System.Drawing.Size(54, 20);
+            this.txtDias_P.Size = new System.Drawing.Size(115, 20);
             this.txtDias_P.TabIndex = 28;
+            this.txtDias_P.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDias_P.TextChanged += new System.EventHandler(this.txtDias_P_TextChanged);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(852, 98);
+            this.button5.Location = new System.Drawing.Point(767, 155);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 20);
+            this.button5.Size = new System.Drawing.Size(79, 27);
             this.button5.TabIndex = 29;
             this.button5.Text = "Calcular Dias";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -330,7 +341,7 @@
             // 
             // btnDevolucion
             // 
-            this.btnDevolucion.Location = new System.Drawing.Point(533, 415);
+            this.btnDevolucion.Location = new System.Drawing.Point(489, 413);
             this.btnDevolucion.Name = "btnDevolucion";
             this.btnDevolucion.Size = new System.Drawing.Size(75, 23);
             this.btnDevolucion.TabIndex = 33;
@@ -341,7 +352,7 @@
             // comboBoxDevolucion
             // 
             this.comboBoxDevolucion.FormattingEnabled = true;
-            this.comboBoxDevolucion.Location = new System.Drawing.Point(428, 417);
+            this.comboBoxDevolucion.Location = new System.Drawing.Point(384, 415);
             this.comboBoxDevolucion.Name = "comboBoxDevolucion";
             this.comboBoxDevolucion.Size = new System.Drawing.Size(99, 21);
             this.comboBoxDevolucion.TabIndex = 34;
@@ -349,7 +360,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(404, 420);
+            this.label7.Location = new System.Drawing.Point(360, 418);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 35;
@@ -361,26 +372,42 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(63, 444);
+            this.dataGridView2.Location = new System.Drawing.Point(352, 442);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(856, 101);
+            this.dataGridView2.Size = new System.Drawing.Size(317, 101);
             this.dataGridView2.TabIndex = 36;
             // 
             // btnActualizarDevo
             // 
-            this.btnActualizarDevo.Location = new System.Drawing.Point(614, 415);
+            this.btnActualizarDevo.Image = global::Proyecto.Properties.Resources.boton_actualizar;
+            this.btnActualizarDevo.Location = new System.Drawing.Point(570, 413);
             this.btnActualizarDevo.Name = "btnActualizarDevo";
-            this.btnActualizarDevo.Size = new System.Drawing.Size(71, 23);
+            this.btnActualizarDevo.Size = new System.Drawing.Size(79, 23);
             this.btnActualizarDevo.TabIndex = 37;
             this.btnActualizarDevo.Text = "Actualizar";
+            this.btnActualizarDevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnActualizarDevo.UseVisualStyleBackColor = true;
             this.btnActualizarDevo.Click += new System.EventHandler(this.btnActualizarDevo_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::Proyecto.Properties.Resources.Logo_Marca_Personal_Masculino_con_Iniciales_y_Nombre_Profesional_Blanco_y_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(871, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
             // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 590);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnActualizarDevo);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label7);
@@ -418,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,5 +489,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnActualizarDevo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -48,6 +48,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Window;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresarToolStripMenuItem,
@@ -63,8 +64,9 @@
             // 
             // ingresarToolStripMenuItem
             // 
+            this.ingresarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.usuario;
             this.ingresarToolStripMenuItem.Name = "ingresarToolStripMenuItem";
-            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
+            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
             this.ingresarToolStripMenuItem.Click += new System.EventHandler(this.ingresarToolStripMenuItem_Click);
             // 
@@ -84,36 +86,41 @@
             // 
             // ingresarToolStripMenuItem1
             // 
+            this.ingresarToolStripMenuItem1.Image = global::Proyecto.Properties.Resources.anadir;
             this.ingresarToolStripMenuItem1.Name = "ingresarToolStripMenuItem1";
-            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
             this.ingresarToolStripMenuItem1.Text = "Ingresar";
             this.ingresarToolStripMenuItem1.Click += new System.EventHandler(this.ingresarToolStripMenuItem1_Click);
             // 
             // modificarToolStripMenuItem
             // 
+            this.modificarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.boton_actualizar;
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
+            this.eliminarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.borrar;
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // generarToolStripMenuItem
             // 
+            this.generarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.calendario;
             this.generarToolStripMenuItem.Name = "generarToolStripMenuItem";
-            this.generarToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.generarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.generarToolStripMenuItem.Text = "Generar";
             this.generarToolStripMenuItem.Click += new System.EventHandler(this.generarToolStripMenuItem_Click);
             // 
             // disponibilidadToolStripMenuItem
             // 
+            this.disponibilidadToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.disponibilidadToolStripMenuItem.Name = "disponibilidadToolStripMenuItem";
-            this.disponibilidadToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.disponibilidadToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.disponibilidadToolStripMenuItem.Text = "Disponibilidad";
             this.disponibilidadToolStripMenuItem.Click += new System.EventHandler(this.disponibilidadToolStripMenuItem_Click);
             // 
@@ -134,7 +141,7 @@
             // 
             this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
@@ -142,23 +149,24 @@
             // 
             this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
+            this.prestamoEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.obtener_dinero;
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             this.prestamoEquipoToolStripMenuItem.Click += new System.EventHandler(this.prestamoEquipoToolStripMenuItem_Click);
             // 
             // generarCodigoBarraToolStripMenuItem
             // 
+            this.generarCodigoBarraToolStripMenuItem.Image = global::Proyecto.Properties.Resources._1550324;
             this.generarCodigoBarraToolStripMenuItem.Name = "generarCodigoBarraToolStripMenuItem";
-            this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.generarCodigoBarraToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.generarCodigoBarraToolStripMenuItem.Text = "Generar Codigo Barra";
-           
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -189,6 +197,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.Text = "Gestor de Horario y Equipos";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

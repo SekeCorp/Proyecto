@@ -18,13 +18,6 @@ namespace Proyecto
             InitializeComponent();
         }
 
-        private void Form4_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
-
         private void btnModConfirmar_Click(object sender, EventArgs e)
         {
             String path, query;
@@ -61,7 +54,7 @@ namespace Proyecto
             txtModRut.Clear();
             txtNombreModPro.Clear();
             txtModMateria.Clear();
-            txtModHoras.Clear();
+            //txtModHoras.Clear();
             txtApellidoProMod.Clear();
         }
 
@@ -76,7 +69,7 @@ namespace Proyecto
                 rut = txtModRut.Text;
                 nombre = txtNombreModPro.Text;
                 materia = txtModMateria.Text;
-                horas = txtModHoras.Text;
+                horas = HorasNup.Text;
                 apellido = txtApellidoProMod.Text;
 
                 using (SqlConnection con = new SqlConnection(path))
@@ -117,6 +110,11 @@ namespace Proyecto
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtModHoras_TextChanged(object sender, EventArgs e)
         {
 
         }

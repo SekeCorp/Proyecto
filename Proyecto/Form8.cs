@@ -279,5 +279,10 @@ namespace Proyecto
 
             
         }
+
+        private void txtDias_P_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
