@@ -172,15 +172,15 @@ namespace Proyecto
 
                 con.Close();
 
-                // Cargar los IDs de equipos prestados en el comboBoxDevolucion
-                DataTable dtEquiposPrestados = new DataTable();
-                query = "SELECT DISTINCT equipo_id FROM Prestamos";
-                SqlCommand cmdEquipos = new SqlCommand(query, con);
-                con.Open();
-                dtEquiposPrestados.Load(cmdEquipos.ExecuteReader());
-                comboBoxDevolucion.DataSource = dtEquiposPrestados;
-                comboBoxDevolucion.DisplayMember = "equipo_id";
-                con.Close();
+                //// Cargar los IDs de equipos prestados en el comboBoxDevolucion
+                //DataTable dtEquiposPrestados = new DataTable();
+                //query = "SELECT DISTINCT equipo_id FROM Prestamos";
+                //SqlCommand cmdEquipos = new SqlCommand(query, con);
+                //con.Open();
+                //dtEquiposPrestados.Load(cmdEquipos.ExecuteReader());
+                //comboBoxDevolucion.DataSource = dtEquiposPrestados;
+                //comboBoxDevolucion.DisplayMember = "equipo_id";
+                //con.Close();
             }
             catch (Exception ex)
             {
@@ -188,73 +188,7 @@ namespace Proyecto
             }
         }
 
-        private void btnDevolucion_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (comboBoxDevolucion.SelectedItem != null)
-                {
-                    DataRowView selectedRow = (DataRowView)comboBoxDevolucion.SelectedItem;
-                    string equipo_id = selectedRow["equipo_id"].ToString();
-                    string query = "DELETE FROM Prestamos WHERE equipo_id = @equipo_id";
-                    using (SqlConnection con = new SqlConnection(path))
-                    {
-                        con.Open();
-                        using (SqlCommand cmd = new SqlCommand(query, con))
-                        {
-                            cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
-                            cmd.ExecuteNonQuery();
-                            MessageBox.Show("Devolución realizada con éxito.");
-
-                            // Obtener los datos del equipo devuelto
-                            string queryEquipo = "SELECT id, nombre, numero_serie FROM Equipos WHERE id = @equipo_id";
-                            using (SqlCommand cmdEquipo = new SqlCommand(queryEquipo, con))
-                            {
-                                cmdEquipo.Parameters.AddWithValue("@equipo_id", equipo_id);
-                                SqlDataReader reader = cmdEquipo.ExecuteReader();
-                                if (reader.Read())
-                                {
-                                    string id = reader["ID"].ToString();
-                                    string nombre = reader["nombre"].ToString();
-                                    string numero_serie = reader["numero_serie"].ToString();
-
-                                    // Agregar una nueva fila con los datos del equipo devuelto al dataGridView2
-                                    DataTable dt = (DataTable)dataGridView2.DataSource;
-                                    if (dt == null)
-                                    {
-                                        dt = new DataTable(); // Inicializar el DataTable si es nulo
-                                        dt.Columns.Add("ID");
-                                        dt.Columns.Add("nombre");
-                                        dt.Columns.Add("numero_serie");
-                                        dataGridView2.DataSource = dt;
-                                    }
-                                    DataRow newRow = dt.NewRow();
-                                    newRow["ID"] = id;
-                                    newRow["nombre"] = nombre;
-                                    newRow["numero_serie"] = numero_serie;
-                                    dt.Rows.Add(newRow);
-                                }
-                                reader.Close();
-                            }
-                        }
-                    }
-
-                    // Actualizar visualmente el dataGridView1
-                    ActualizarDataGridView1();
-                }
-                else
-                {
-                    MessageBox.Show("No se ha seleccionado ningún equipo para devolver.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al realizar la devolución: " + ex.Message);
-            }
-        }
-
-
-
+       
 
         private void ActualizarDataGridView1()
         {
@@ -265,24 +199,8 @@ namespace Proyecto
             dataGridView1.DataSource = dt;
         }
 
-        private void ActualizarDataGridView2()
-        {
-            string query = "SELECT * FROM Equipos";
-            SqlDataAdapter adapter = new SqlDataAdapter(query, path);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView2.DataSource = dt;
-        }
 
-        private void btnActualizarDevo_Click(object sender, EventArgs e)
-        {
 
-            
-        }
 
-        private void txtDias_P_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

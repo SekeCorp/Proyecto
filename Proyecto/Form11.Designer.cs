@@ -33,8 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxRut = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDia = new System.Windows.Forms.ComboBox();
+            this.btnAñadir = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxCurso = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnAñadir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -107,6 +107,18 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Proyecto.Properties.Resources.impresora;
+            this.btnImprimir.Location = new System.Drawing.Point(304, 417);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(98, 33);
+            this.btnImprimir.TabIndex = 12;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -124,6 +136,18 @@
             this.comboBoxDia.Size = new System.Drawing.Size(75, 21);
             this.comboBoxDia.TabIndex = 10;
             this.comboBoxDia.SelectedIndexChanged += new System.EventHandler(this.comboBoxDia_SelectedIndexChanged);
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Image = global::Proyecto.Properties.Resources.agregar;
+            this.btnAñadir.Location = new System.Drawing.Point(504, 27);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(61, 31);
+            this.btnAñadir.TabIndex = 9;
+            this.btnAñadir.Text = "Añadir";
+            this.btnAñadir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAñadir.UseVisualStyleBackColor = true;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // label5
             // 
@@ -198,7 +222,7 @@
             this.comboBoxMateria.Size = new System.Drawing.Size(99, 21);
             this.comboBoxMateria.TabIndex = 1;
             this.comboBoxMateria.ValueMember = "rut";
-            this.comboBoxMateria.SelectedIndexChanged += new System.EventHandler(this.comboBoxMateria_SelectedIndexChanged);
+            this.comboBoxMateria.SelectedIndexChanged += new System.EventHandler(this.comboBoxMateria_SelectedIndexChanged_1);
             // 
             // dataGridView2
             // 
@@ -241,30 +265,6 @@
             this.pictureBox1.TabIndex = 36;
             this.pictureBox1.TabStop = false;
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Image = global::Proyecto.Properties.Resources.impresora;
-            this.btnImprimir.Location = new System.Drawing.Point(304, 417);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(98, 33);
-            this.btnImprimir.TabIndex = 12;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
-            // 
-            // btnAñadir
-            // 
-            this.btnAñadir.Image = global::Proyecto.Properties.Resources.agregar;
-            this.btnAñadir.Location = new System.Drawing.Point(504, 27);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(61, 31);
-            this.btnAñadir.TabIndex = 9;
-            this.btnAñadir.Text = "Añadir";
-            this.btnAñadir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAñadir.UseVisualStyleBackColor = true;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::Proyecto.Properties.Resources.lupa;
@@ -275,7 +275,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Form11
             // 

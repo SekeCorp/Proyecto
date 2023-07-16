@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -22,8 +20,8 @@ namespace Proyecto
         private List<List<bool>> valoresCheckbox; // Lista para almacenar los valores de las casillas de verificación
         private string connectionString = "Data Source = LAPTOP - HP6EH3TV\\SQLEXPRESS01;Initial Catalog = Proyecto; Integrated Security = True"; // Cadena de conexión a la base de datos SQL Server
 
-        //private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; 
-        private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+        private string  path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; 
+        //private string  path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
 
         public Form9()
         {
@@ -85,6 +83,8 @@ namespace Proyecto
 
         private void Form9_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet8.Profesor' Puede moverla o quitarla según sea necesario.
+            this.profesorTableAdapter1.Fill(this.proyectoDataSet8.Profesor);
 
 
             dataGridView1.ColumnCount = 7;
@@ -258,6 +258,8 @@ namespace Proyecto
             SaveDisponibilidadHoras(comboBox2);
             MessageBox.Show("La información ha sido guardada correctamente.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
     }
 }
 

@@ -61,18 +61,12 @@
             this.comboBox_RUT = new System.Windows.Forms.ComboBox();
             this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet6TableAdapters.ProfesorTableAdapter();
-            this.btnDevolucion = new System.Windows.Forms.Button();
-            this.comboBoxDevolucion = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnActualizarDevo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,7 +191,7 @@
             this.dataGridView1.DataSource = this.prestamosBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(63, 201);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(856, 181);
+            this.dataGridView1.Size = new System.Drawing.Size(856, 347);
             this.dataGridView1.TabIndex = 24;
             // 
             // iDDataGridViewTextBoxColumn
@@ -278,7 +272,6 @@
             this.txtDias_P.Size = new System.Drawing.Size(115, 20);
             this.txtDias_P.TabIndex = 28;
             this.txtDias_P.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDias_P.TextChanged += new System.EventHandler(this.txtDias_P_TextChanged);
             // 
             // button5
             // 
@@ -339,56 +332,6 @@
             // 
             this.profesorTableAdapter.ClearBeforeFill = true;
             // 
-            // btnDevolucion
-            // 
-            this.btnDevolucion.Location = new System.Drawing.Point(489, 413);
-            this.btnDevolucion.Name = "btnDevolucion";
-            this.btnDevolucion.Size = new System.Drawing.Size(75, 23);
-            this.btnDevolucion.TabIndex = 33;
-            this.btnDevolucion.Text = "Devolucion";
-            this.btnDevolucion.UseVisualStyleBackColor = true;
-            this.btnDevolucion.Click += new System.EventHandler(this.btnDevolucion_Click);
-            // 
-            // comboBoxDevolucion
-            // 
-            this.comboBoxDevolucion.FormattingEnabled = true;
-            this.comboBoxDevolucion.Location = new System.Drawing.Point(384, 415);
-            this.comboBoxDevolucion.Name = "comboBoxDevolucion";
-            this.comboBoxDevolucion.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxDevolucion.TabIndex = 34;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(360, 418);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 13);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "ID";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(352, 442);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(317, 101);
-            this.dataGridView2.TabIndex = 36;
-            // 
-            // btnActualizarDevo
-            // 
-            this.btnActualizarDevo.Image = global::Proyecto.Properties.Resources.boton_actualizar;
-            this.btnActualizarDevo.Location = new System.Drawing.Point(570, 413);
-            this.btnActualizarDevo.Name = "btnActualizarDevo";
-            this.btnActualizarDevo.Size = new System.Drawing.Size(79, 23);
-            this.btnActualizarDevo.TabIndex = 37;
-            this.btnActualizarDevo.Text = "Actualizar";
-            this.btnActualizarDevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnActualizarDevo.UseVisualStyleBackColor = true;
-            this.btnActualizarDevo.Click += new System.EventHandler(this.btnActualizarDevo_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
@@ -408,11 +351,6 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnActualizarDevo);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBoxDevolucion);
-            this.Controls.Add(this.btnDevolucion);
             this.Controls.Add(this.comboBox_RUT);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.comboID_Equipos);
@@ -444,7 +382,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -484,11 +421,6 @@
         private System.Windows.Forms.ComboBox comboBox_RUT;
         private System.Windows.Forms.BindingSource profesorBindingSource;
         private ProyectoDataSet6TableAdapters.ProfesorTableAdapter profesorTableAdapter;
-        private System.Windows.Forms.Button btnDevolucion;
-        private System.Windows.Forms.ComboBox comboBoxDevolucion;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button btnActualizarDevo;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

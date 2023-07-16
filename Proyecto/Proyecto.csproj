@@ -71,6 +71,18 @@
     <Compile Include="Form11.Designer.cs">
       <DependentUpon>Form11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form12.Designer.cs">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13.Designer.cs">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +193,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet8.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet9.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form11.resx">
       <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form12.resx">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -256,6 +289,28 @@
     </None>
     <None Include="ProyectoDataSet1.xss">
       <DependentUpon>ProyectoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet10.xsc">
+      <DependentUpon>ProyectoDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet10.xss">
+      <DependentUpon>ProyectoDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet11.xsc">
+      <DependentUpon>ProyectoDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet11.xss">
+      <DependentUpon>ProyectoDataSet11.xsd</DependentUpon>
     </None>
     <None Include="ProyectoDataSet2.xsc">
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
@@ -338,6 +393,17 @@
     </None>
     <None Include="ProyectoDataSet8.xss">
       <DependentUpon>ProyectoDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet9.xsc">
+      <DependentUpon>ProyectoDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet9.xss">
+      <DependentUpon>ProyectoDataSet9.xsd</DependentUpon>
     </None>
     <None Include="Resources\guardar-el-archivo.png" />
   </ItemGroup>

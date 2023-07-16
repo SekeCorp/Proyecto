@@ -177,5 +177,24 @@ namespace Proyecto
             }
         }
 
+        private void horariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form12 f12 = new Form12();
+            f12.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f12.Show();
+        }
+
+        private void devolucionEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form13 f13 = new Form13();
+            f13.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f13.Show();
+        }
     }
 }

@@ -44,6 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.proyectoDataSet8 = new Proyecto.ProyectoDataSet8();
+            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorTableAdapter1 = new Proyecto.ProyectoDataSet8TableAdapters.ProfesorTableAdapter();
+            this.profesorBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet8BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet7BindingSource)).BeginInit();
@@ -51,6 +57,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet8BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -92,7 +103,8 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.profesorBindingSource;
+            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.profesorBindingSource1, "rut", true));
+            this.comboBox2.DataSource = this.profesorBindingSource3;
             this.comboBox2.DisplayMember = "rut";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(467, 80);
@@ -163,6 +175,35 @@
             this.pictureBox1.TabIndex = 36;
             this.pictureBox1.TabStop = false;
             // 
+            // proyectoDataSet8
+            // 
+            this.proyectoDataSet8.DataSetName = "ProyectoDataSet8";
+            this.proyectoDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // profesorBindingSource1
+            // 
+            this.profesorBindingSource1.DataMember = "Profesor";
+            this.profesorBindingSource1.DataSource = this.proyectoDataSet8;
+            // 
+            // profesorTableAdapter1
+            // 
+            this.profesorTableAdapter1.ClearBeforeFill = true;
+            // 
+            // profesorBindingSource2
+            // 
+            this.profesorBindingSource2.DataMember = "Profesor";
+            this.profesorBindingSource2.DataSource = this.proyectoDataSet7BindingSource;
+            // 
+            // proyectoDataSet8BindingSource
+            // 
+            this.proyectoDataSet8BindingSource.DataSource = this.proyectoDataSet8;
+            this.proyectoDataSet8BindingSource.Position = 0;
+            // 
+            // profesorBindingSource3
+            // 
+            this.profesorBindingSource3.DataMember = "Profesor";
+            this.profesorBindingSource3.DataSource = this.proyectoDataSet8BindingSource;
+            // 
             // Form9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +229,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet8BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +256,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ProyectoDataSet8 proyectoDataSet8;
+        private System.Windows.Forms.BindingSource profesorBindingSource1;
+        private ProyectoDataSet8TableAdapters.ProfesorTableAdapter profesorTableAdapter1;
+        private System.Windows.Forms.BindingSource profesorBindingSource2;
+        private System.Windows.Forms.BindingSource profesorBindingSource3;
+        private System.Windows.Forms.BindingSource proyectoDataSet8BindingSource;
     }
 }

@@ -30,7 +30,6 @@ namespace Proyecto
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            //Data Source = LAPTOP - HP6EH3TV\SQLEXPRESS01; Initial Catalog = Proyecto; Integrated Security = True
             try
             {
                 string path, query, nombre, horas, rut, apellido, materia;

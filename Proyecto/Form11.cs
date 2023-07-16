@@ -16,8 +16,8 @@ namespace Proyecto
 {
     public partial class Form11 : Form
     {
-        //private string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-        private string connectionString = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
+        private string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+        //private string connectionString = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
 
         public Form11()
         {
@@ -52,12 +52,17 @@ namespace Proyecto
         private void comboBoxRut_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
-            LoadDisponibilidad(selectedRut);
-            LoadMaterias(selectedRut);
+            LoadDisponibilidad(selectedRut); // Aquí se pasa el valor del rut al método
+            LoadMaterias(selectedRut); // Aquí se pasa el valor del rut al método
         }
 
         private void LoadDisponibilidad(string rut)
         {
+            if (string.IsNullOrEmpty(rut))
+            {
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -92,6 +97,11 @@ namespace Proyecto
 
         private void LoadMaterias(string rut)
         {
+            if (string.IsNullOrEmpty(rut))
+            {
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -103,6 +113,7 @@ namespace Proyecto
                 SqlDataReader reader = command.ExecuteReader();
 
                 comboBoxMateria.Items.Clear(); // Limpiar ComboBoxMateria antes de agregar nuevos elementos
+                comboBoxMateria.DropDownStyle = ComboBoxStyle.DropDownList; // Establecer el estilo DropDownList
 
                 while (reader.Read())
                 {
@@ -113,6 +124,7 @@ namespace Proyecto
                 reader.Close();
             }
         }
+
         private void LoadPeriodos(string rut)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -136,13 +148,18 @@ namespace Proyecto
                 reader.Close();
             }
         }
+        public class Sala
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+        }
         private void LoadSalas(string materia)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
 
-                string query = "SELECT s.nombresalas FROM Materias m INNER JOIN Salas s ON m.sala_id = s.idsalas WHERE m.nombre = @materia";
+                string query = "SELECT s.nombresalas AS Sala FROM Materias m INNER JOIN Salas s ON m.sala_id = s.idsalas WHERE m.nombre = @materia";
                 SqlCommand command = new SqlCommand(query, con);
                 command.Parameters.AddWithValue("@materia", materia);
 
@@ -152,13 +169,15 @@ namespace Proyecto
 
                 while (reader.Read())
                 {
-                    string sala = reader["nombresalas"].ToString();
+                    string sala = reader["Sala"].ToString();
                     comboBoxSala.Items.Add(sala);
                 }
 
                 reader.Close();
             }
         }
+
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
@@ -189,12 +208,6 @@ namespace Proyecto
             }
         }
 
-        private void comboBoxMateria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedMateria = comboBoxMateria.SelectedItem.ToString();
-            LoadSalas(selectedMateria);
-        }
-
 
         private Dictionary<string, List<PeriodoUtilizado>> cursosPeriodosUtilizados = new Dictionary<string, List<PeriodoUtilizado>>();
 
@@ -215,11 +228,13 @@ namespace Proyecto
             string curso = comboBoxCurso.SelectedItem?.ToString() ?? "";
 
             // Verificar si los valores son válidos
+            // Verificar si los valores son válidos
             if (string.IsNullOrEmpty(selectedRut) || string.IsNullOrEmpty(materia) || string.IsNullOrEmpty(sala) || string.IsNullOrEmpty(periodo) || string.IsNullOrEmpty(dia) || string.IsNullOrEmpty(curso))
             {
-                MessageBox.Show("Por favor, seleccione todos los campos necesarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, seleccione todos los campos antes de añadir los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
             // Verificar si el período ya se utilizó para algún curso
             foreach (var cursosPeriodos in cursosPeriodosUtilizados)
@@ -259,6 +274,32 @@ namespace Proyecto
                 dataGridView2.Columns.Add("Días", "Días");
                 dataGridView2.Columns.Add("Curso", "Curso");
             }
+            // Insertar los datos en la base de datos
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                string insertQuery = "INSERT INTO HorarioClases (RUT, Materia, Sala, Periodo, Dias, Curso) VALUES (@rut, @materia, @sala, @periodo, @dia, @curso)";
+                SqlCommand command = new SqlCommand(insertQuery, con);
+                command.Parameters.AddWithValue("@rut", selectedRut);
+                command.Parameters.AddWithValue("@materia", materia);
+                command.Parameters.AddWithValue("@sala", sala);
+                command.Parameters.AddWithValue("@periodo", periodo);
+                command.Parameters.AddWithValue("@dia", dia);
+                command.Parameters.AddWithValue("@curso", curso);
+
+                command.ExecuteNonQuery();
+            }
+            // Limpiar los campos seleccionados
+            comboBoxRut.SelectedIndex = -1;
+            comboBoxMateria.SelectedIndex = -1;
+            comboBoxSala.SelectedIndex = -1;
+            comboBoxPeriodo.SelectedIndex = -1;
+            comboBoxDia.SelectedIndex = -1;
+            comboBoxCurso.SelectedIndex = -1;
+
+            // Mostrar un mensaje de éxito
+            MessageBox.Show("Los datos se han guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Agregar una nueva fila al DataGridView con los valores seleccionados
             dataGridView2.Rows.Add(selectedRut, materia, sala, periodo, dia, curso);
@@ -301,6 +342,12 @@ namespace Proyecto
         }
         private void LoadPeriodos(string dia, string rut)
         {
+            if (string.IsNullOrEmpty(rut))
+            {
+                // Mostrar un mensaje de error o realizar alguna acción apropiada
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -327,13 +374,20 @@ namespace Proyecto
         private void comboBoxRut_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
+            selectedNombreApellido = GetNombreApellido(selectedRut); // Aquí se obtendrá el valor del nombre y apellido
             LoadDisponibilidad(selectedRut);
             LoadMaterias(selectedRut);
             string selectedMateria = GetSelectedMateria();
-            LoadDiasDisponibles(selectedRut); 
+            LoadDiasDisponibles(selectedRut);
         }
         private void LoadDiasDisponibles(string rut)
         {
+            if (string.IsNullOrEmpty(rut))
+            {
+                // Mostrar un mensaje de error o realizar alguna acción apropiada
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -379,6 +433,11 @@ namespace Proyecto
         }
         private string GetNombreApellido(string rut)
         {
+            if (string.IsNullOrEmpty(rut))
+            {
+                return string.Empty;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -403,8 +462,19 @@ namespace Proyecto
                 }
             }
         }
+
         private string selectedRut;
         private string selectedNombreApellido;
+
+        private void comboBoxMateria_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBoxMateria.SelectedItem != null)
+            {
+                string selectedMateria = comboBoxMateria.SelectedItem.ToString();
+                LoadSalas(selectedMateria);
+            }
+        }
+
     }
 
 }
