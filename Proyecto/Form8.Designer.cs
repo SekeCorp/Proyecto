@@ -42,11 +42,6 @@
             this.dtp_Fecha_P = new System.Windows.Forms.DateTimePicker();
             this.dtp_Fecha_D = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipoidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profesorrutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaprestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechadevolucionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prestamosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet6BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet6 = new Proyecto.ProyectoDataSet6();
@@ -62,12 +57,25 @@
             this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet6TableAdapters.ProfesorTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.proyectoDataSet12 = new Proyecto.ProyectoDataSet12();
+            this.proyectoDataSet12BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamosTableAdapter1 = new Proyecto.ProyectoDataSet12TableAdapters.PrestamosTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaprestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechadevolucionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorrutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diasprestadosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,46 +193,15 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.equipoidDataGridViewTextBoxColumn,
-            this.profesorrutDataGridViewTextBoxColumn,
             this.fechaprestamoDataGridViewTextBoxColumn,
-            this.fechadevolucionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.prestamosBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(63, 201);
+            this.fechadevolucionDataGridViewTextBoxColumn,
+            this.profesorrutDataGridViewTextBoxColumn,
+            this.diasprestadosDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.prestamosBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(148, 201);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(856, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 347);
             this.dataGridView1.TabIndex = 24;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // equipoidDataGridViewTextBoxColumn
-            // 
-            this.equipoidDataGridViewTextBoxColumn.DataPropertyName = "equipo_id";
-            this.equipoidDataGridViewTextBoxColumn.HeaderText = "equipo_id";
-            this.equipoidDataGridViewTextBoxColumn.Name = "equipoidDataGridViewTextBoxColumn";
-            // 
-            // profesorrutDataGridViewTextBoxColumn
-            // 
-            this.profesorrutDataGridViewTextBoxColumn.DataPropertyName = "profesor_rut";
-            this.profesorrutDataGridViewTextBoxColumn.HeaderText = "profesor_rut";
-            this.profesorrutDataGridViewTextBoxColumn.Name = "profesorrutDataGridViewTextBoxColumn";
-            // 
-            // fechaprestamoDataGridViewTextBoxColumn
-            // 
-            this.fechaprestamoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fechaprestamoDataGridViewTextBoxColumn.DataPropertyName = "fecha_prestamo";
-            this.fechaprestamoDataGridViewTextBoxColumn.HeaderText = "fecha_prestamo";
-            this.fechaprestamoDataGridViewTextBoxColumn.Name = "fechaprestamoDataGridViewTextBoxColumn";
-            // 
-            // fechadevolucionDataGridViewTextBoxColumn
-            // 
-            this.fechadevolucionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fechadevolucionDataGridViewTextBoxColumn.DataPropertyName = "fecha_devolucion";
-            this.fechadevolucionDataGridViewTextBoxColumn.HeaderText = "fecha_devolucion";
-            this.fechadevolucionDataGridViewTextBoxColumn.Name = "fechadevolucionDataGridViewTextBoxColumn";
             // 
             // prestamosBindingSource
             // 
@@ -344,6 +321,62 @@
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
+            // proyectoDataSet12
+            // 
+            this.proyectoDataSet12.DataSetName = "ProyectoDataSet12";
+            this.proyectoDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // proyectoDataSet12BindingSource
+            // 
+            this.proyectoDataSet12BindingSource.DataSource = this.proyectoDataSet12;
+            this.proyectoDataSet12BindingSource.Position = 0;
+            // 
+            // prestamosBindingSource1
+            // 
+            this.prestamosBindingSource1.DataMember = "Prestamos";
+            this.prestamosBindingSource1.DataSource = this.proyectoDataSet12BindingSource;
+            // 
+            // prestamosTableAdapter1
+            // 
+            this.prestamosTableAdapter1.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // equipoidDataGridViewTextBoxColumn
+            // 
+            this.equipoidDataGridViewTextBoxColumn.DataPropertyName = "equipo_id";
+            this.equipoidDataGridViewTextBoxColumn.HeaderText = "equipo_id";
+            this.equipoidDataGridViewTextBoxColumn.Name = "equipoidDataGridViewTextBoxColumn";
+            // 
+            // fechaprestamoDataGridViewTextBoxColumn
+            // 
+            this.fechaprestamoDataGridViewTextBoxColumn.DataPropertyName = "fecha_prestamo";
+            this.fechaprestamoDataGridViewTextBoxColumn.HeaderText = "fecha_prestamo";
+            this.fechaprestamoDataGridViewTextBoxColumn.Name = "fechaprestamoDataGridViewTextBoxColumn";
+            // 
+            // fechadevolucionDataGridViewTextBoxColumn
+            // 
+            this.fechadevolucionDataGridViewTextBoxColumn.DataPropertyName = "fecha_devolucion";
+            this.fechadevolucionDataGridViewTextBoxColumn.HeaderText = "fecha_devolucion";
+            this.fechadevolucionDataGridViewTextBoxColumn.Name = "fechadevolucionDataGridViewTextBoxColumn";
+            // 
+            // profesorrutDataGridViewTextBoxColumn
+            // 
+            this.profesorrutDataGridViewTextBoxColumn.DataPropertyName = "profesor_rut";
+            this.profesorrutDataGridViewTextBoxColumn.HeaderText = "profesor_rut";
+            this.profesorrutDataGridViewTextBoxColumn.Name = "profesorrutDataGridViewTextBoxColumn";
+            // 
+            // diasprestadosDataGridViewTextBoxColumn
+            // 
+            this.diasprestadosDataGridViewTextBoxColumn.DataPropertyName = "dias_prestados";
+            this.diasprestadosDataGridViewTextBoxColumn.HeaderText = "dias_prestados";
+            this.diasprestadosDataGridViewTextBoxColumn.Name = "diasprestadosDataGridViewTextBoxColumn";
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +416,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamosBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,14 +449,19 @@
         private ProyectoDataSet6 proyectoDataSet6;
         private System.Windows.Forms.BindingSource prestamosBindingSource;
         private ProyectoDataSet6TableAdapters.PrestamosTableAdapter prestamosTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipoidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn profesorrutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaprestamoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechadevolucionDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBox_RUT;
         private System.Windows.Forms.BindingSource profesorBindingSource;
         private ProyectoDataSet6TableAdapters.ProfesorTableAdapter profesorTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.BindingSource proyectoDataSet12BindingSource;
+        private ProyectoDataSet12 proyectoDataSet12;
+        private System.Windows.Forms.BindingSource prestamosBindingSource1;
+        private ProyectoDataSet12TableAdapters.PrestamosTableAdapter prestamosTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipoidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaprestamoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechadevolucionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profesorrutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diasprestadosDataGridViewTextBoxColumn;
     }
 }

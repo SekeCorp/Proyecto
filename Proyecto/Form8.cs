@@ -50,8 +50,14 @@ namespace Proyecto
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
             SqlConnection con = new SqlConnection(path);
             con.Open();
-            String Consulta = "select * from Profesor where rut= "+comboBox_RUT.Text+"";
-            SqlCommand comando = new SqlCommand(Consulta,con);
+
+            // Usar parámetros en la consulta para evitar problemas de inyección de SQL
+            string consulta = "SELECT * FROM Profesor WHERE rut = @rut";
+            SqlCommand comando = new SqlCommand(consulta, con);
+
+            // Asignar el valor del RUT al parámetro
+            comando.Parameters.AddWithValue("@rut", comboBox_RUT.Text);
+
             SqlDataReader leer;
             leer = comando.ExecuteReader();
             if (leer.Read())
@@ -59,32 +65,39 @@ namespace Proyecto
                 textBox2.Text = leer["nombre"].ToString();
                 textBox3.Text = leer["apellido"].ToString();
             }
-            con.Close();   
-
-
+            con.Close();
         }
+
         private void Form8_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet12.Prestamos' Puede moverla o quitarla según sea necesario.
+            this.prestamosTableAdapter1.Fill(this.proyectoDataSet12.Prestamos);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet6.Profesor' Puede moverla o quitarla según sea necesario.
             this.profesorTableAdapter.Fill(this.proyectoDataSet6.Profesor);
+
+            // Limpiar los elementos del ComboBox antes de cargar los nuevos datos
+            comboID_Equipos.Items.Clear();
 
             string path;
             DataTable dt = new DataTable();
             path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
             SqlConnection con = new SqlConnection(path);
             con.Open();
-            String Consulta = "select id from Equipos"; 
+            String Consulta = "select id from Equipos";
             SqlCommand comando = new SqlCommand(Consulta, con);
             SqlDataReader reg;
             reg = comando.ExecuteReader();
             while (reg.Read())
             {
                 comboID_Equipos.Items.Add(reg["id"].ToString());
-
             }
+
+            con.Close();
         }
+
         List<string> idsPrestados = new List<string>();
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -92,12 +105,14 @@ namespace Proyecto
                 string path, query, profesor_rut;
                 string equipo_id = comboID_Equipos.Text;
                 DateTime fecha_p, fecha_d;
+                int diasPrestados;
                 DataTable dt = new DataTable();
                 path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
                 profesor_rut = comboBox_RUT.Text;
                 equipo_id = comboID_Equipos.Text;
                 fecha_p = dtp_Fecha_P.Value;
                 fecha_d = dtp_Fecha_D.Value;
+                diasPrestados = int.Parse(txtDias_P.Text);
 
                 if (idsPrestados.Contains(equipo_id))
                 {
@@ -109,26 +124,32 @@ namespace Proyecto
                     {
                         con.Open();
 
-                        query = "INSERT INTO Prestamos (equipo_id, profesor_rut, fecha_prestamo, fecha_devolucion) VALUES (@equipo_id, @profesor_rut, @fecha_prestamo, @fecha_devolucion)";
+                        // Insertar los datos en la tabla "Prestamos" con el valor de "Días Prestados"
+                        query = "INSERT INTO Prestamos (equipo_id, profesor_rut, fecha_prestamo, fecha_devolucion, dias_prestados) " +
+                                "VALUES (@equipo_id, @profesor_rut, @fecha_prestamo, @fecha_devolucion, @dias_prestados)";
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
                             cmd.Parameters.AddWithValue("@profesor_rut", profesor_rut);
                             cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_p);
                             cmd.Parameters.AddWithValue("@fecha_devolucion", fecha_d);
+                            cmd.Parameters.AddWithValue("@dias_prestados", diasPrestados);
 
                             cmd.ExecuteNonQuery();
 
                             idsPrestados.Add(equipo_id); // Agregar el ID prestado a la lista
 
-                            MessageBox.Show("Prestamo OK");
+                            MessageBox.Show("Préstamo OK");
                         }
                     }
+
+                    // Actualizar el DataGridView con los nuevos datos después de la inserción
+                    ActualizarDataGridView1();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar el registro: " + ex);
+                MessageBox.Show("Error al agregar el registro: " + ex.Message);
             }
         }
 
@@ -156,6 +177,7 @@ namespace Proyecto
                 dt.Columns.Add("profesor_rut");
                 dt.Columns.Add("fecha_prestamo");
                 dt.Columns.Add("fecha_devolucion");
+                dt.Columns.Add("dias_prestados");
                 con.Open();
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -166,21 +188,12 @@ namespace Proyecto
                     row["profesor_rut"] = dr["profesor_rut"];
                     row["fecha_prestamo"] = dr["fecha_prestamo"];
                     row["fecha_devolucion"] = dr["fecha_devolucion"];
+                    row["dias_prestados"] = dr["dias_prestados"];
                     dt.Rows.Add(row);
                 }
                 dataGridView1.DataSource = dt;
 
                 con.Close();
-
-                //// Cargar los IDs de equipos prestados en el comboBoxDevolucion
-                //DataTable dtEquiposPrestados = new DataTable();
-                //query = "SELECT DISTINCT equipo_id FROM Prestamos";
-                //SqlCommand cmdEquipos = new SqlCommand(query, con);
-                //con.Open();
-                //dtEquiposPrestados.Load(cmdEquipos.ExecuteReader());
-                //comboBoxDevolucion.DataSource = dtEquiposPrestados;
-                //comboBoxDevolucion.DisplayMember = "equipo_id";
-                //con.Close();
             }
             catch (Exception ex)
             {
@@ -188,16 +201,51 @@ namespace Proyecto
             }
         }
 
-       
+
 
         private void ActualizarDataGridView1()
         {
-            string query = "SELECT * FROM Prestamos";
-            SqlDataAdapter adapter = new SqlDataAdapter(query, path);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            try
+            {
+                string query = "SELECT * FROM Prestamos";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, path);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                // Eliminar la columna "Dias Prestados" si ya existe en el DataTable
+                if (dt.Columns.Contains("Dias Prestados"))
+                {
+                    dt.Columns.Remove("Dias Prestados");
+                }
+
+                // Agregar nuevamente la columna "Dias Prestados" al DataTable
+                dt.Columns.Add("Dias Prestados", typeof(int));
+
+                // Actualizar el valor de la columna "Dias Prestados" en el DataTable
+                foreach (DataRow row in dt.Rows)
+                {
+                    DateTime fechaPrestamo = Convert.ToDateTime(row["fecha_prestamo"]);
+                    DateTime fechaDevolucion = Convert.ToDateTime(row["fecha_devolucion"]);
+                    int diasPrestados = (fechaDevolucion - fechaPrestamo).Days + 1;
+                    row["Dias Prestados"] = diasPrestados;
+                }
+
+                // Antes de asignar el DataSource, agregamos la columna "Dias Prestados" al DataGridView
+                if (!dataGridView1.Columns.Contains("Dias Prestados"))
+                {
+                    dataGridView1.Columns.Add("Dias Prestados", "Dias Prestados");
+                }
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los registros: " + ex.Message);
+            }
         }
+
+
+
 
 
 

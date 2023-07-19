@@ -48,9 +48,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(246, 208);
+            this.dataGridView1.Location = new System.Drawing.Point(261, 194);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(446, 234);
             this.dataGridView1.TabIndex = 1;
             // 
             // comboBoxDevolucion

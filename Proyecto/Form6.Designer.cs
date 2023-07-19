@@ -28,35 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.id_txt = new System.Windows.Forms.TextBox();
-            this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Buscar_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // equiposBindingSource
-            // 
-            this.equiposBindingSource.DataMember = "Equipos";
-            this.equiposBindingSource.DataSource = this.proyectoDataSet3;
-            // 
-            // proyectoDataSet3
-            // 
-            this.proyectoDataSet3.DataSetName = "ProyectoDataSet3";
-            this.proyectoDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(291, 93);
+            this.label1.Location = new System.Drawing.Point(297, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(332, 37);
             this.label1.TabIndex = 1;
@@ -66,7 +52,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(370, 217);
+            this.label2.Location = new System.Drawing.Point(358, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 24);
             this.label2.TabIndex = 2;
@@ -75,14 +61,10 @@
             // id_txt
             // 
             this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txt.Location = new System.Drawing.Point(405, 258);
+            this.id_txt.Location = new System.Drawing.Point(392, 148);
             this.id_txt.Name = "id_txt";
             this.id_txt.Size = new System.Drawing.Size(115, 29);
             this.id_txt.TabIndex = 3;
-            // 
-            // equiposTableAdapter
-            // 
-            this.equiposTableAdapter.ClearBeforeFill = true;
             // 
             // pictureBox1
             // 
@@ -100,7 +82,7 @@
             // 
             this.Buscar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buscar_btn.Image = global::Proyecto.Properties.Resources.lupa;
-            this.Buscar_btn.Location = new System.Drawing.Point(418, 307);
+            this.Buscar_btn.Location = new System.Drawing.Point(405, 197);
             this.Buscar_btn.Name = "Buscar_btn";
             this.Buscar_btn.Size = new System.Drawing.Size(89, 28);
             this.Buscar_btn.TabIndex = 4;
@@ -109,12 +91,21 @@
             this.Buscar_btn.UseVisualStyleBackColor = true;
             this.Buscar_btn.Click += new System.EventHandler(this.Buscar_btn_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(331, 246);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(238, 150);
+            this.dataGridView1.TabIndex = 37;
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Buscar_btn);
             this.Controls.Add(this.id_txt);
@@ -125,9 +116,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "|||";
             this.Load += new System.EventHandler(this.Form6_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,9 +128,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.Button Buscar_btn;
-        private ProyectoDataSet3 proyectoDataSet3;
-        private System.Windows.Forms.BindingSource equiposBindingSource;
-        private ProyectoDataSet3TableAdapters.EquiposTableAdapter equiposTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

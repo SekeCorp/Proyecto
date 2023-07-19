@@ -34,5 +34,10 @@ namespace Proyecto
             print.Print();
         }
         private string selectedNombreApellido;
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

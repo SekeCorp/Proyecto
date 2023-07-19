@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +22,13 @@ namespace Proyecto
         {
             InitializeComponent();
         }
+
         private void Form11_Load(object sender, EventArgs e)
         {
             LoadRuts();
             LoadCursos();
         }
+
         private void LoadRuts()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -52,8 +53,8 @@ namespace Proyecto
         private void comboBoxRut_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
-            LoadDisponibilidad(selectedRut); // Aquí se pasa el valor del rut al método
-            LoadMaterias(selectedRut); // Aquí se pasa el valor del rut al método
+            LoadDisponibilidad(selectedRut);
+            LoadMaterias(selectedRut);
         }
 
         private void LoadDisponibilidad(string rut)
@@ -228,13 +229,11 @@ namespace Proyecto
             string curso = comboBoxCurso.SelectedItem?.ToString() ?? "";
 
             // Verificar si los valores son válidos
-            // Verificar si los valores son válidos
             if (string.IsNullOrEmpty(selectedRut) || string.IsNullOrEmpty(materia) || string.IsNullOrEmpty(sala) || string.IsNullOrEmpty(periodo) || string.IsNullOrEmpty(dia) || string.IsNullOrEmpty(curso))
             {
                 MessageBox.Show("Por favor, seleccione todos los campos antes de añadir los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
 
             // Verificar si el período ya se utilizó para algún curso
             foreach (var cursosPeriodos in cursosPeriodosUtilizados)
@@ -291,9 +290,6 @@ namespace Proyecto
                 command.ExecuteNonQuery();
             }
             // Limpiar los campos seleccionados
-            comboBoxRut.SelectedIndex = -1;
-            comboBoxMateria.SelectedIndex = -1;
-            comboBoxSala.SelectedIndex = -1;
             comboBoxPeriodo.SelectedIndex = -1;
             comboBoxDia.SelectedIndex = -1;
             comboBoxCurso.SelectedIndex = -1;
@@ -305,44 +301,16 @@ namespace Proyecto
             dataGridView2.Rows.Add(selectedRut, materia, sala, periodo, dia, curso);
         }
 
-
-
-
-        private List<string> GetDiasDisponibles(string rut)
-        {
-            List<string> diasDisponibles = new List<string>();
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-
-                string query = "SELECT dias FROM Disponible WHERE profesor_rut = @rut";
-                SqlCommand command = new SqlCommand(query, con);
-                command.Parameters.AddWithValue("@rut", rut);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string dias = reader["dias"].ToString();
-                    diasDisponibles.Add(dias);
-                }
-
-                reader.Close();
-            }
-
-            return diasDisponibles;
-        }
-
         private void comboBoxDia_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedDia = comboBoxDia.SelectedItem?.ToString();
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
             LoadPeriodos(selectedDia, selectedRut);
         }
+
         private void LoadPeriodos(string dia, string rut)
         {
-            if (string.IsNullOrEmpty(rut))
+            if (string.IsNullOrEmpty(dia) || string.IsNullOrEmpty(rut))
             {
                 // Mostrar un mensaje de error o realizar alguna acción apropiada
                 return;
@@ -371,6 +339,7 @@ namespace Proyecto
             }
         }
 
+
         private void comboBoxRut_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string selectedRut = comboBoxRut.SelectedItem?.ToString();
@@ -380,6 +349,7 @@ namespace Proyecto
             string selectedMateria = GetSelectedMateria();
             LoadDiasDisponibles(selectedRut);
         }
+
         private void LoadDiasDisponibles(string rut)
         {
             if (string.IsNullOrEmpty(rut))
@@ -409,6 +379,7 @@ namespace Proyecto
                 reader.Close();
             }
         }
+
         private string GetSelectedMateria()
         {
             if (comboBoxMateria.SelectedItem != null)
@@ -420,8 +391,8 @@ namespace Proyecto
                 return string.Empty;
             }
         }
-        //----------------------------------------------------------------------------------------------
 
+        //----------------------------------------------------------------------------------------------
 
         private void btnImprimir_Click_1(object sender, EventArgs e)
         {
@@ -431,6 +402,7 @@ namespace Proyecto
             print.ReportFooter = "Docente: " + selectedNombreApellido;
             print.Print();
         }
+
         private string GetNombreApellido(string rut)
         {
             if (string.IsNullOrEmpty(rut))
@@ -463,7 +435,6 @@ namespace Proyecto
             }
         }
 
-        private string selectedRut;
         private string selectedNombreApellido;
 
         private void comboBoxMateria_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -476,5 +447,4 @@ namespace Proyecto
         }
 
     }
-
 }

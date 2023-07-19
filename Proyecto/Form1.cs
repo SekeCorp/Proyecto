@@ -170,7 +170,7 @@ namespace Proyecto
                     menuStrip1.Enabled = true;
 
                 }
-                catch (InvalidCastException exc)
+                catch (InvalidCastException)
                 {
 
                 }
@@ -195,6 +195,26 @@ namespace Proyecto
             ingresarToolStripMenuItem.Enabled = false;
 
             f13.Show();
+        }
+
+        private void modificarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form14 f14 = new Form14();
+            f14.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f14.Show();
+        }
+
+        private void editarHorarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form15 f15 = new Form15();
+            f15.MdiParent = this; //This se refiere al Formulario 1 
+
+            ingresarToolStripMenuItem.Enabled = false;
+
+            f15.Show();
         }
     }
 }

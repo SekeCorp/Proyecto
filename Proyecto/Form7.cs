@@ -49,11 +49,8 @@ namespace Proyecto
                 row["id"] = dr["id"];
                 row["nombre"] = dr["nombre"];
                 row["numero_serie"] = dr["numero_serie"];
-                row["en_prestamo"] = dr["en_prestamo"];
                 dt.Rows.Add(row);
-                //String fila;
-                //fila = dr.GetString(1).ToString();
-                //MessageBox.Show(fila);
+
             }
             dataGridView1.DataSource = dt;
             con.Close();

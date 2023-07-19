@@ -58,6 +58,26 @@ namespace Proyecto
                 MessageBox.Show("Error al cargar los equipos prestados: " + ex.Message);
             }
         }
+        private DateTime? GetFechaDevolucionEquipo(string equipo_id, SqlConnection con)
+        {
+            string query = "SELECT fecha_devolucion FROM Prestamos WHERE equipo_id = @equipo_id";
+
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
+                object result = cmd.ExecuteScalar();
+
+                if (result is DateTime)
+                {
+                    DateTime fechaDevuelto = (DateTime)result;
+                    return fechaDevuelto;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
         private void CargarDevoluciones()
         {
@@ -68,48 +88,15 @@ namespace Proyecto
                 {
                     con.Open();
 
-                    string selectQuery = "SELECT equipo_id, nombre, numero_serie, fecha_devuelto FROM Devoluciones";
+                    string selectQuery = "SELECT Devoluciones.equipo_id, Equipos.nombre, Equipos.numero_serie, Devoluciones.fecha_devuelto " +
+                                         "FROM Devoluciones " +
+                                         "INNER JOIN Equipos ON Devoluciones.equipo_id = Equipos.id";
 
                     using (SqlCommand cmdSelect = new SqlCommand(selectQuery, con))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(cmdSelect);
                         DataTable dtDevoluciones = new DataTable();
                         adapter.Fill(dtDevoluciones);
-
-                        // Añadir una columna "Estado" al DataTable si no existe
-                        if (!dtDevoluciones.Columns.Contains("Estado"))
-                            dtDevoluciones.Columns.Add("Estado", typeof(string));
-
-                        // Añadir una columna "profesor_rut" al DataTable si no existe
-                        if (!dtDevoluciones.Columns.Contains("profesor_rut"))
-                            dtDevoluciones.Columns.Add("profesor_rut", typeof(string));
-
-                        foreach (DataRow row in dtDevoluciones.Rows)
-                        {
-                            DateTime? fechaDevuelto = row.Field<DateTime?>("fecha_devuelto");
-                            int equipo_id = Convert.ToInt32(row["equipo_id"]); // Convertir a int aquí
-
-                            // Verificar si la fecha_devuelto es NULL y establecer "Pendiente" como Estado
-                            if (fechaDevuelto == null || fechaDevuelto == DateTime.MinValue)
-                            {
-                                row["Estado"] = "Pendiente";
-                            }
-                            else
-                            {
-                                DateTime fechaLimite = GetFechaDevolucionEquipo(equipo_id.ToString(), con).Value;
-                                string estado = (fechaDevuelto <= fechaLimite.Date) ? "Correcto" : "Retrasado";
-                                row["Estado"] = estado;
-                            }
-
-                            // Obtener el profesor_rut del equipo devuelto de la tabla "Prestamos"
-                            string profesor_rut = GetProfesorRutEquipo(equipo_id, con);
-
-                            // Verificar si el profesor_rut obtenido no es nulo o vacío antes de asignarlo
-                            if (!string.IsNullOrEmpty(profesor_rut))
-                            {
-                                row["profesor_rut"] = profesor_rut;
-                            }
-                        }
 
                         // Actualizar el DataGridView con los nuevos datos
                         dataGridView1.DataSource = dtDevoluciones;
@@ -121,10 +108,6 @@ namespace Proyecto
                 MessageBox.Show("Error al cargar las devoluciones: " + ex.Message);
             }
         }
-
-
-
-
 
 
 
@@ -141,9 +124,6 @@ namespace Proyecto
                     using (SqlConnection con = new SqlConnection(path))
                     {
                         con.Open();
-
-                        // Antes de eliminar el préstamo, obtener la fecha de devolución del equipo
-                        SqlDateTime fechaDevuelto = GetFechaDevolucionEquipo(equipo_id.ToString(), con);
 
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
@@ -169,50 +149,31 @@ namespace Proyecto
                                 readerEquipo.Close();
                             }
 
-                            // Determinar el estado de devolución
-                            string estado = "Pendiente";
-                            if (fechaDevuelto != SqlDateTime.MinValue)
-                            {
-                                DateTime fechaLimite = fechaDevuelto.Value;
-                                DateTime fechaActual = DateTime.Today;
-                                estado = (fechaActual <= fechaLimite) ? "Correcto" : "Retrasado";
-                            }
+                            // Obtener la fecha_devolucion del equipo prestado de la tabla "Prestamos"
+                            DateTime? fechaPrestamo = GetFechaDevolucionEquipo(equipo_id.ToString(), con);
 
-                            // Obtener el RUT del equipo devuelto de la tabla "Prestamos"
-                            string profesor_rut = GetProfesorRutEquipo(equipo_id, con);
+                            // Insertar los datos en la tabla "Devoluciones" y determinar el estado de devolución
+                            DateTime fechaDevuelto = DateTime.Now.Date;
+                            DateTime? fechaLimite = fechaPrestamo;
 
-                            // Verificar si el RUT existe en la tabla "Profesor"
-                            string queryProfesor = "SELECT COUNT(*) FROM Profesor WHERE rut = @profesor_rut";
-                            using (SqlCommand cmdProfesor = new SqlCommand(queryProfesor, con))
-                            {
-                                cmdProfesor.Parameters.AddWithValue("@profesor_rut", profesor_rut);
-                                int count = Convert.ToInt32(cmdProfesor.ExecuteScalar());
-
-                                if (count == 0)
-                                {
-                                    // El RUT no existe en la tabla "Profesor", mostrar mensaje de error y no realizar la inserción
-                                    MessageBox.Show("El RUT del profesor asociado al equipo no existe en la base de datos.");
-                                    return;
-                                }
-                            }
 
                             // Insertar los datos en la tabla "Devoluciones" con el estado adecuado
-                            string insertQuery = "INSERT INTO Devoluciones (equipo_id, nombre, numero_serie, fecha_devuelto, estado, profesor_rut) " +
-                                                 "VALUES (@equipo_id, @nombre, @numero_serie, @fecha_devuelto, @estado, @profesor_rut)";
+                            string insertQuery = "INSERT INTO Devoluciones (equipo_id, nombre, numero_serie, fecha_devuelto) " +
+                                                 "VALUES (@equipo_id, @nombre, @numero_serie, @fecha_devuelto)";
                             using (SqlCommand cmdInsert = new SqlCommand(insertQuery, con))
                             {
                                 cmdInsert.Parameters.AddWithValue("@equipo_id", equipo_id);
                                 cmdInsert.Parameters.AddWithValue("@nombre", equipoNombre);
                                 cmdInsert.Parameters.AddWithValue("@numero_serie", equipoNumeroSerie);
                                 cmdInsert.Parameters.AddWithValue("@fecha_devuelto", fechaDevuelto);
-                                cmdInsert.Parameters.AddWithValue("@estado", estado);
-                                cmdInsert.Parameters.AddWithValue("@profesor_rut", profesor_rut);
-
                                 cmdInsert.ExecuteNonQuery();
                             }
 
                             // Actualizar los datos en el DataGridView
                             CargarDevoluciones();
+
+                            // Actualizar el ComboBox con los equipos prestados después de eliminar el equipo devuelto
+                            CargarEquiposPrestados();
                         }
                     }
                 }
@@ -226,6 +187,9 @@ namespace Proyecto
                 MessageBox.Show("Error al realizar la devolución: " + ex.Message);
             }
         }
+
+
+
 
 
 
@@ -255,30 +219,6 @@ namespace Proyecto
 
 
 
-        private string GetProfesorRutEquipo(int equipo_id, SqlConnection con)
-        {
-            string query = "SELECT profesor_rut FROM Prestamos WHERE equipo_id = @equipo_id";
-
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-                cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
-                object result = cmd.ExecuteScalar();
-
-                if (result != null && result != DBNull.Value)
-                {
-                    string profesor_rut = result.ToString();
-                    // Agregar mensaje de depuración para verificar el valor del RUT obtenido
-                    Console.WriteLine($"Equipo ID: {equipo_id}, Profesor RUT: {profesor_rut}");
-                    return profesor_rut;
-                }
-                else
-                {
-                    // El profesor_rut no se encontró en la tabla "Prestamos" para el equipo dado.
-                    return string.Empty;
-                }
-            }
-        }
-
         private string GetNumeroSerieEquipo(string equipo_id, SqlConnection con)
         {
             string query = "SELECT numero_serie FROM Equipos WHERE id = @equipo_id";
@@ -291,25 +231,5 @@ namespace Proyecto
             }
         }
 
-        private SqlDateTime GetFechaDevolucionEquipo(string equipo_id, SqlConnection con)
-        {
-            string query = "SELECT fecha_devolucion FROM Prestamos WHERE equipo_id = @equipo_id";
-
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-                cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
-                object result = cmd.ExecuteScalar();
-
-                if (result is DateTime)
-                {
-                    DateTime fechaDevuelto = (DateTime)result;
-                    return new SqlDateTime(fechaDevuelto);
-                }
-                else
-                {
-                    return SqlDateTime.MinValue;
-                }
-            }
-        }
     }
 }

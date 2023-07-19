@@ -40,11 +40,12 @@
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devolucionEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devolucionEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroDevolucionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,8 @@
             this.eliminarToolStripMenuItem,
             this.generarToolStripMenuItem,
             this.disponibilidadToolStripMenuItem,
-            this.horariosToolStripMenuItem});
+            this.horariosToolStripMenuItem,
+            this.editarHorarioToolStripMenuItem});
             this.horarioToolStripMenuItem.Enabled = false;
             this.horarioToolStripMenuItem.Image = global::Proyecto.Properties.Resources.calendario;
             this.horarioToolStripMenuItem.Name = "horarioToolStripMenuItem";
@@ -151,25 +153,41 @@
             // 
             this.prestamoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.prestamoToolStripMenuItem.Text = "Buscar Equipo";
             this.prestamoToolStripMenuItem.Click += new System.EventHandler(this.prestamoToolStripMenuItem_Click);
             // 
             // agregarEquipoToolStripMenuItem
             // 
+            this.agregarEquipoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarEquipoToolStripMenuItem});
             this.agregarEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.anadir;
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.agregarEquipoToolStripMenuItem.Text = "Agregar Equipo";
             this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
+            // 
+            // modificarEquipoToolStripMenuItem
+            // 
+            this.modificarEquipoToolStripMenuItem.Name = "modificarEquipoToolStripMenuItem";
+            this.modificarEquipoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.modificarEquipoToolStripMenuItem.Text = "Modificar Equipo";
+            this.modificarEquipoToolStripMenuItem.Click += new System.EventHandler(this.modificarEquipoToolStripMenuItem_Click);
             // 
             // prestamoEquipoToolStripMenuItem
             // 
             this.prestamoEquipoToolStripMenuItem.Image = global::Proyecto.Properties.Resources.obtener_dinero;
             this.prestamoEquipoToolStripMenuItem.Name = "prestamoEquipoToolStripMenuItem";
-            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.prestamoEquipoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.prestamoEquipoToolStripMenuItem.Text = "Prestamo Equipo";
             this.prestamoEquipoToolStripMenuItem.Click += new System.EventHandler(this.prestamoEquipoToolStripMenuItem_Click);
+            // 
+            // devolucionEquipoToolStripMenuItem
+            // 
+            this.devolucionEquipoToolStripMenuItem.Name = "devolucionEquipoToolStripMenuItem";
+            this.devolucionEquipoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.devolucionEquipoToolStripMenuItem.Text = "Devolucion Equipo";
+            this.devolucionEquipoToolStripMenuItem.Click += new System.EventHandler(this.devolucionEquipoToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -190,20 +208,12 @@
             this.controlToolStripMenuItem.Text = "Control";
             this.controlToolStripMenuItem.Click += new System.EventHandler(this.controlToolStripMenuItem_Click);
             // 
-            // devolucionEquipoToolStripMenuItem
+            // editarHorarioToolStripMenuItem
             // 
-            this.devolucionEquipoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroDevolucionesToolStripMenuItem});
-            this.devolucionEquipoToolStripMenuItem.Name = "devolucionEquipoToolStripMenuItem";
-            this.devolucionEquipoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.devolucionEquipoToolStripMenuItem.Text = "Devolucion Equipo";
-            this.devolucionEquipoToolStripMenuItem.Click += new System.EventHandler(this.devolucionEquipoToolStripMenuItem_Click);
-            // 
-            // registroDevolucionesToolStripMenuItem
-            // 
-            this.registroDevolucionesToolStripMenuItem.Name = "registroDevolucionesToolStripMenuItem";
-            this.registroDevolucionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.registroDevolucionesToolStripMenuItem.Text = "Registro Devoluciones";
+            this.editarHorarioToolStripMenuItem.Name = "editarHorarioToolStripMenuItem";
+            this.editarHorarioToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.editarHorarioToolStripMenuItem.Text = "Editar Horario";
+            this.editarHorarioToolStripMenuItem.Click += new System.EventHandler(this.editarHorarioToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -242,7 +252,8 @@
         private System.Windows.Forms.ToolStripMenuItem disponibilidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucionEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDevolucionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarHorarioToolStripMenuItem;
     }
 }
 

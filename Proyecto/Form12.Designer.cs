@@ -41,6 +41,7 @@
             this.proyectoDataSet9 = new Proyecto.ProyectoDataSet9();
             this.horarioClasesTableAdapter = new Proyecto.ProyectoDataSet9TableAdapters.HorarioClasesTableAdapter();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioClasesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet9)).BeginInit();
@@ -59,7 +60,7 @@
             this.diasDataGridViewTextBoxColumn,
             this.cursoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.horarioClasesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(92, 93);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(726, 375);
             this.dataGridView1.TabIndex = 0;
@@ -123,7 +124,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(358, 403);
+            this.btnImprimir.Location = new System.Drawing.Point(415, 474);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 1;
@@ -131,20 +132,35 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(296, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 39);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Registro Horarios";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form12
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(951, 554);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form12";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form12";
             this.Load += new System.EventHandler(this.Form12_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioClasesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet9)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,5 +178,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cursoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label label1;
     }
 }

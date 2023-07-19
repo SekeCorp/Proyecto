@@ -9,6 +9,8 @@ namespace Proyecto
 {
     public partial class Form6 : Form
     {
+        private string path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
+
         public Form6()
         {
             InitializeComponent();
@@ -29,33 +31,41 @@ namespace Proyecto
                 id_txt.BorderStyle = BorderStyle.FixedSingle;
                 id_txt.Focus();
 
-                string path, query, id;
-                DataTable dt = new DataTable();
-                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True"; //SEBA
-                //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True"; //VIXO
-                id = id_txt.Text;
+                string id = id_txt.Text;
                 using (SqlConnection con = new SqlConnection(path))
                 {
                     con.Open();
 
-                    query = "SELECT * FROM Equipos WHERE id = @id";
+                    string query = "SELECT nombre, numero_serie FROM Equipos WHERE id = @id";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        SqlCommand command = new SqlCommand(query, con);
-                        command.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@id", id);
 
-                        SqlDataReader reader = command.ExecuteReader();
+                        SqlDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
-                            string nombre = reader.GetString(1);
-                            string numeroSerie = reader.GetString(2);
-                           
+                            string nombre = reader.GetString(0);
+                            string numeroSerie = reader.GetString(1);
 
-                            MessageBox.Show($"Item encontrado: Nombre: {nombre}, Número de serie: {numeroSerie}");
+                            // Crear un nuevo DataTable y agregar las columnas necesarias
+                            DataTable dt = new DataTable();
+                            dt.Columns.Add("Nombre");
+                            dt.Columns.Add("Número de Serie");
+
+                            // Agregar una nueva fila con los datos encontrados
+                            DataRow row = dt.NewRow();
+                            row["Nombre"] = nombre;
+                            row["Número de Serie"] = numeroSerie;
+                            dt.Rows.Add(row);
+
+                            // Asignar el DataTable al DataGridView
+                            dataGridView1.DataSource = dt;
                         }
                         else
                         {
+                            // Limpiar el DataGridView si no se encontraron resultados
+                            dataGridView1.DataSource = null;
                             MessageBox.Show("No se encontró ningún item con el ID especificado.");
                         }
                     }
@@ -65,9 +75,7 @@ namespace Proyecto
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet3.Equipos' Puede moverla o quitarla según sea necesario.
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet4.Equipos' Puede moverla o quitarla según sea necesario.
-            //this.equiposTableAdapter.Fill(this.proyectoDataSet4.Equipos);
+
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtRutElimin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,18 +43,17 @@
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.proyectoDataSet12 = new Proyecto.ProyectoDataSet12();
+            this.txtRutElimin = new System.Windows.Forms.TextBox();
+            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorTableAdapter1 = new Proyecto.ProyectoDataSet12TableAdapters.ProfesorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtRutElimin
-            // 
-            this.txtRutElimin.Location = new System.Drawing.Point(125, 258);
-            this.txtRutElimin.Name = "txtRutElimin";
-            this.txtRutElimin.Size = new System.Drawing.Size(100, 20);
-            this.txtRutElimin.TabIndex = 8;
             // 
             // label2
             // 
@@ -76,6 +74,7 @@
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 6;
             this.label1.Text = "Eliminar Profesor";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 
@@ -88,7 +87,7 @@
             this.apellidoDataGridViewTextBoxColumn,
             this.materiaDataGridViewTextBoxColumn,
             this.horasDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.profesorBindingSource;
+            this.dataGridView1.DataSource = this.profesorBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(350, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(544, 316);
@@ -172,6 +171,27 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // proyectoDataSet12
+            // 
+            this.proyectoDataSet12.DataSetName = "ProyectoDataSet12";
+            this.proyectoDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtRutElimin
+            // 
+            this.txtRutElimin.Location = new System.Drawing.Point(125, 258);
+            this.txtRutElimin.Name = "txtRutElimin";
+            this.txtRutElimin.Size = new System.Drawing.Size(100, 20);
+            this.txtRutElimin.TabIndex = 8;
+            // 
+            // profesorBindingSource1
+            // 
+            this.profesorBindingSource1.DataMember = "Profesor";
+            this.profesorBindingSource1.DataSource = this.proyectoDataSet12;
+            // 
+            // profesorTableAdapter1
+            // 
+            this.profesorTableAdapter1.ClearBeforeFill = true;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +214,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,7 +224,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtRutElimin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -216,5 +237,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn materiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ProyectoDataSet12 proyectoDataSet12;
+        private System.Windows.Forms.TextBox txtRutElimin;
+        private System.Windows.Forms.BindingSource profesorBindingSource1;
+        private ProyectoDataSet12TableAdapters.ProfesorTableAdapter profesorTableAdapter1;
     }
 }
