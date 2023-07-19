@@ -259,7 +259,7 @@
             // comboBoxRut
             // 
             this.comboBoxRut.FormattingEnabled = true;
-            this.comboBoxRut.Location = new System.Drawing.Point(161, 147);
+            this.comboBoxRut.Location = new System.Drawing.Point(161, 151);
             this.comboBoxRut.Name = "comboBoxRut";
             this.comboBoxRut.Size = new System.Drawing.Size(134, 21);
             this.comboBoxRut.TabIndex = 38;
