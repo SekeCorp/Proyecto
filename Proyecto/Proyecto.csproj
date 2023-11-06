@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\pelao\OneDrive\Documentos\TRABAJO\Ges-TIC-on.0.1\</PublishUrl>
+    <PublishUrl>C:\Users\pelao\OneDrive\Documentos\TRABAJO\Ges-TIC-on.0.4\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -80,6 +80,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CURSOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CURSOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataGridViewPrinter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -171,10 +176,36 @@
     <Compile Include="Form9.Designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHorario.Designer.cs">
+      <DependentUpon>FormHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="MateriaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MATERIAS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MATERIAS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PROFESOR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PROFESOR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profesor1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesorMateria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfesorMateria.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,6 +238,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet18.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProyectoDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -293,6 +349,9 @@
     <EmbeddedResource Include="Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHorario.resx">
+      <DependentUpon>FormHorario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -303,6 +362,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CURSOS.xsc">
+      <DependentUpon>CURSOS.xsd</DependentUpon>
+    </None>
+    <None Include="CURSOS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CURSOS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CURSOS.xss">
+      <DependentUpon>CURSOS.xsd</DependentUpon>
+    </None>
     <None Include="MateriaDataSet.xsc">
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
     </None>
@@ -314,7 +384,51 @@
     <None Include="MateriaDataSet.xss">
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MATERIAS.xsc">
+      <DependentUpon>MATERIAS.xsd</DependentUpon>
+    </None>
+    <None Include="MATERIAS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MATERIAS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MATERIAS.xss">
+      <DependentUpon>MATERIAS.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="PROFESOR.xsc">
+      <DependentUpon>PROFESOR.xsd</DependentUpon>
+    </None>
+    <None Include="PROFESOR.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PROFESOR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PROFESOR.xss">
+      <DependentUpon>PROFESOR.xsd</DependentUpon>
+    </None>
+    <None Include="Profesor1.xsc">
+      <DependentUpon>Profesor1.xsd</DependentUpon>
+    </None>
+    <None Include="Profesor1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Profesor1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Profesor1.xss">
+      <DependentUpon>Profesor1.xsd</DependentUpon>
+    </None>
+    <None Include="ProfesorMateria.xsc">
+      <DependentUpon>ProfesorMateria.xsd</DependentUpon>
+    </None>
+    <None Include="ProfesorMateria.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProfesorMateria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProfesorMateria.xss">
+      <DependentUpon>ProfesorMateria.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -389,6 +503,61 @@
     </None>
     <None Include="ProyectoDataSet13.xss">
       <DependentUpon>ProyectoDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet14.xsc">
+      <DependentUpon>ProyectoDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet14.xss">
+      <DependentUpon>ProyectoDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet15.xsc">
+      <DependentUpon>ProyectoDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet15.xss">
+      <DependentUpon>ProyectoDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet16.xsc">
+      <DependentUpon>ProyectoDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet16.xss">
+      <DependentUpon>ProyectoDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet17.xsc">
+      <DependentUpon>ProyectoDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet17.xss">
+      <DependentUpon>ProyectoDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet18.xsc">
+      <DependentUpon>ProyectoDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet18.xss">
+      <DependentUpon>ProyectoDataSet18.xsd</DependentUpon>
     </None>
     <None Include="ProyectoDataSet2.xsc">
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>

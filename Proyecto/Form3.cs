@@ -22,84 +22,89 @@ namespace Proyecto
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet7.Materias' Puede moverla o quitarla según sea necesario.
-            this.materiasTableAdapter.Fill(this.proyectoDataSet7.Materias);
-
+            // TODO: esta línea de código carga datos en la tabla 'cURSOS.Curso' Puede moverla o quitarla según sea necesario.
+            this.cursoTableAdapter.Fill(this.cURSOS.Curso);
+            // TODO: esta línea de código carga datos en la tabla 'mATERIAS.Materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter.Fill(this.mATERIAS.Materias);
 
         }
+
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             try
             {
-                string path, query, nombre, horas, rut, apellido, materia;
-                DataTable dt = new DataTable();
-                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-                //path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
-                rut = txtRut.Text;
-                nombre = txtNombreIngPro.Text;
-                horas = numericUpDown1.Text;
-                apellido = txtApellidoPro.Text;
-                materia = comboBox1.Text;
+                string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                string rut = txtRut.Text;
+                string nombre = txtNombreIngPro.Text;
+                string apellido = txtApellidoPro.Text;
 
-                using (SqlConnection con = new SqlConnection(path))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-
-                    query = "INSERT INTO Profesor (rut, nombre, materia, horas, apellido) VALUES (@rut, @nombre, @materia, @horas, @apellido)";
-                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    // Iniciar una transacción SQL
+                    using (SqlTransaction transaction = con.BeginTransaction())
                     {
-                        cmd.Parameters.AddWithValue("@rut", rut);
-                        cmd.Parameters.AddWithValue("@nombre", nombre);
-                        cmd.Parameters.AddWithValue("@materia", materia);
-                        cmd.Parameters.AddWithValue("@horas", horas);
-                        cmd.Parameters.AddWithValue("@apellido", apellido);
+                        try
+                        {
+                            // Insertar en Profesor
+                            string queryProfesor = "INSERT INTO Profesor (rut, nombre, apellido) VALUES (@rut, @nombre, @apellido)";
+                            using (SqlCommand cmdProfesor = new SqlCommand(queryProfesor, con, transaction))
+                            {
+                                cmdProfesor.Parameters.AddWithValue("@rut", rut);
+                                cmdProfesor.Parameters.AddWithValue("@nombre", nombre);
+                                cmdProfesor.Parameters.AddWithValue("@apellido", apellido);
 
-                        cmd.ExecuteNonQuery();
+                                cmdProfesor.ExecuteNonQuery();
+                            }
 
-                        MessageBox.Show("Agregado correctamente");
+                            // Insertar en ProfesorMateria
+                            foreach (string materia in listMateria.SelectedItems)
+                            {
+                                string queryProfesorMateria = "INSERT INTO ProfesorMateria (rut, idMateria) VALUES (@rut, @idMateria)";
+                                using (SqlCommand cmdProfesorMateria = new SqlCommand(queryProfesorMateria, con, transaction))
+                                {
+                                    cmdProfesorMateria.Parameters.AddWithValue("@rut", rut);
+                                    cmdProfesorMateria.Parameters.AddWithValue("@nombreMateria", materia); // Directamente el nombre de la materia
+
+                                    cmdProfesorMateria.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Insertar en ProfesorCurso
+                            foreach (string curso in listCurso.SelectedItems)
+                            {
+                                string queryProfesorCurso = "INSERT INTO ProfesorCurso (rut, idCurso) VALUES (@rut, @idCurso)";
+                                using (SqlCommand cmdProfesorCurso = new SqlCommand(queryProfesorCurso, con, transaction))
+                                {
+                                    cmdProfesorCurso.Parameters.AddWithValue("@rut", rut);
+                                    cmdProfesorCurso.Parameters.AddWithValue("@idCurso", curso); // Directamente el nombre del curso
+
+                                    cmdProfesorCurso.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Si todo va bien, commit de la transacción
+                            transaction.Commit();
+                            MessageBox.Show("Profesor y sus materias y cursos agregados correctamente");
+                        }
+                        catch (Exception ex)
+                        {
+                            // Si algo sale mal, rollback de la transacción
+                            transaction.Rollback();
+                            MessageBox.Show("Error al agregar el registro: " + ex.ToString());
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar el registro: " + ex.Message);
+                MessageBox.Show("Error al agregar el registro: " + ex.ToString());
             }
-
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            String path, query;
-            DataTable dt = new DataTable();
-            path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            SqlDataReader dr;
-            SqlConnection con = new SqlConnection(path);
-            query = "Select*from Profesor";
-            SqlCommand cmd = new SqlCommand(query, con);
-            dt.Columns.Add("rut");
-            dt.Columns.Add("nombre");
-            dt.Columns.Add("materia");
-            dt.Columns.Add("horas");
-            dt.Columns.Add("apellido");
-            con.Open();
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-
-                DataRow row = dt.NewRow();
-                row["rut"] = dr["rut"];
-                row["nombre"] = dr["nombre"];
-                row["materia"] = dr["materia"];
-                row["horas"] = dr["horas"];
-                row["apellido"] = dr["apellido"];
-                dt.Rows.Add(row);
-            }
-            dataGridView1.DataSource = dt;
-            con.Close();
-            txtRut.Clear();
-            txtNombreIngPro.Clear();
-            txtApellidoPro.Clear();
 
         }
     }

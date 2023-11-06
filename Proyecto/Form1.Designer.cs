@@ -37,6 +37,7 @@
             this.generarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disponibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.devolucionEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             // 
             this.ingresarToolStripMenuItem1.Image = global::Proyecto.Properties.Resources.anadir;
             this.ingresarToolStripMenuItem1.Name = "ingresarToolStripMenuItem1";
-            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(184, 26);
+            this.ingresarToolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
             this.ingresarToolStripMenuItem1.Text = "Ingresar";
             this.ingresarToolStripMenuItem1.Click += new System.EventHandler(this.ingresarToolStripMenuItem1_Click);
             // 
@@ -101,7 +101,7 @@
             // 
             this.modificarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.boton_actualizar;
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             // 
             this.eliminarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.borrar;
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
@@ -117,7 +117,7 @@
             // 
             this.generarToolStripMenuItem.Image = global::Proyecto.Properties.Resources.calendario;
             this.generarToolStripMenuItem.Name = "generarToolStripMenuItem";
-            this.generarToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.generarToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.generarToolStripMenuItem.Text = "Generar";
             this.generarToolStripMenuItem.Click += new System.EventHandler(this.generarToolStripMenuItem_Click);
             // 
@@ -125,16 +125,25 @@
             // 
             this.disponibilidadToolStripMenuItem.Image = global::Proyecto.Properties.Resources.busqueda;
             this.disponibilidadToolStripMenuItem.Name = "disponibilidadToolStripMenuItem";
-            this.disponibilidadToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.disponibilidadToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.disponibilidadToolStripMenuItem.Text = "Disponibilidad";
             this.disponibilidadToolStripMenuItem.Click += new System.EventHandler(this.disponibilidadToolStripMenuItem_Click);
             // 
             // horariosToolStripMenuItem
             // 
+            this.horariosToolStripMenuItem.Image = global::Proyecto.Properties.Resources.calendario;
             this.horariosToolStripMenuItem.Name = "horariosToolStripMenuItem";
             this.horariosToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.horariosToolStripMenuItem.Text = "Horarios";
             this.horariosToolStripMenuItem.Click += new System.EventHandler(this.horariosToolStripMenuItem_Click);
+            // 
+            // editarHorarioToolStripMenuItem
+            // 
+            this.editarHorarioToolStripMenuItem.Image = global::Proyecto.Properties.Resources.boton_actualizar;
+            this.editarHorarioToolStripMenuItem.Name = "editarHorarioToolStripMenuItem";
+            this.editarHorarioToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.editarHorarioToolStripMenuItem.Text = "Editar Horario";
+            this.editarHorarioToolStripMenuItem.Click += new System.EventHandler(this.editarHorarioToolStripMenuItem_Click);
             // 
             // equiposToolStripMenuItem
             // 
@@ -208,13 +217,6 @@
             this.controlToolStripMenuItem.Text = "Control";
             this.controlToolStripMenuItem.Click += new System.EventHandler(this.controlToolStripMenuItem_Click);
             // 
-            // editarHorarioToolStripMenuItem
-            // 
-            this.editarHorarioToolStripMenuItem.Name = "editarHorarioToolStripMenuItem";
-            this.editarHorarioToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.editarHorarioToolStripMenuItem.Text = "Editar Horario";
-            this.editarHorarioToolStripMenuItem.Click += new System.EventHandler(this.editarHorarioToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,8 +254,8 @@
         private System.Windows.Forms.ToolStripMenuItem disponibilidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucionEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarHorarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarEquipoToolStripMenuItem;
     }
 }
 

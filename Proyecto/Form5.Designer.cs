@@ -37,22 +37,22 @@
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet12 = new Proyecto.ProyectoDataSet12();
             this.profesorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet4 = new Proyecto.ProyectoDataSet4();
             this.btnConfirmarElim = new System.Windows.Forms.Button();
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet4TableAdapters.ProfesorTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.proyectoDataSet12 = new Proyecto.ProyectoDataSet12();
-            this.txtRutElimin = new System.Windows.Forms.TextBox();
-            this.profesorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.profesorTableAdapter1 = new Proyecto.ProyectoDataSet12TableAdapters.ProfesorTableAdapter();
+            this.comboBoxRut = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -123,6 +123,16 @@
             this.horasDataGridViewTextBoxColumn.HeaderText = "horas";
             this.horasDataGridViewTextBoxColumn.Name = "horasDataGridViewTextBoxColumn";
             // 
+            // profesorBindingSource1
+            // 
+            this.profesorBindingSource1.DataMember = "Profesor";
+            this.profesorBindingSource1.DataSource = this.proyectoDataSet12;
+            // 
+            // proyectoDataSet12
+            // 
+            this.proyectoDataSet12.DataSetName = "ProyectoDataSet12";
+            this.proyectoDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // profesorBindingSource
             // 
             this.profesorBindingSource.DataMember = "Profesor";
@@ -171,26 +181,17 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // proyectoDataSet12
-            // 
-            this.proyectoDataSet12.DataSetName = "ProyectoDataSet12";
-            this.proyectoDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtRutElimin
-            // 
-            this.txtRutElimin.Location = new System.Drawing.Point(125, 258);
-            this.txtRutElimin.Name = "txtRutElimin";
-            this.txtRutElimin.Size = new System.Drawing.Size(100, 20);
-            this.txtRutElimin.TabIndex = 8;
-            // 
-            // profesorBindingSource1
-            // 
-            this.profesorBindingSource1.DataMember = "Profesor";
-            this.profesorBindingSource1.DataSource = this.proyectoDataSet12;
-            // 
             // profesorTableAdapter1
             // 
             this.profesorTableAdapter1.ClearBeforeFill = true;
+            // 
+            // comboBoxRut
+            // 
+            this.comboBoxRut.FormattingEnabled = true;
+            this.comboBoxRut.Location = new System.Drawing.Point(114, 260);
+            this.comboBoxRut.Name = "comboBoxRut";
+            this.comboBoxRut.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRut.TabIndex = 55;
             // 
             // Form5
             // 
@@ -198,10 +199,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.comboBoxRut);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConfirmarElim);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.txtRutElimin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -211,11 +212,11 @@
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,8 +239,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ProyectoDataSet12 proyectoDataSet12;
-        private System.Windows.Forms.TextBox txtRutElimin;
         private System.Windows.Forms.BindingSource profesorBindingSource1;
         private ProyectoDataSet12TableAdapters.ProfesorTableAdapter profesorTableAdapter1;
+        private System.Windows.Forms.ComboBox comboBoxRut;
     }
 }

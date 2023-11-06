@@ -14,52 +14,48 @@ namespace Proyecto
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet13.Materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter.Fill(this.proyectoDataSet13.Materias);
             // Agregar un mensaje de instrucción en el ComboBox
-            comboBoxRut.Items.Insert(0, "Seleccione un RUT");
 
             // Limpiar la selección actual del ComboBox
             comboBoxRut.SelectedIndex = -1;
+            CargarDatosComboBoxRut();
         }
 
-        //private void CargarDatosProfesor(string rut)
-        //{
-        //    try
-        //    {
-        //        string path, query;
-        //        path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+        private void CargarDatosComboBoxRut()
+        {
+            try
+            {
+                string path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                string query = "SELECT rut FROM Profesor";
 
-        //        using (SqlConnection con = new SqlConnection(path))
-        //        {
-        //            con.Open();
+                using (SqlConnection con = new SqlConnection(path))
+                {
+                    con.Open();
 
-        //            query = "SELECT * FROM Profesor WHERE rut = @rut";
-        //            using (SqlCommand cmd = new SqlCommand(query, con))
-        //            {
-        //                cmd.Parameters.AddWithValue("@rut", rut);
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        SqlDataReader dr = cmd.ExecuteReader();
 
-        //                SqlDataReader dr = cmd.ExecuteReader();
-        //                if (dr.Read())
-        //                {
-        //                    txtNombreModPro.Text = dr["nombre"].ToString();
-        //                    comboboxmateria.Text = dr["materia"].ToString();
-        //                    txtApellidoProMod.Text = dr["apellido"].ToString();
-        //                }
-        //                else
-        //                {
-        //                    // Si el rut no existe, limpiar los campos
-        //                    txtNombreModPro.Clear();
-        //                    comboboxmateria.Text = "";
-        //                    txtApellidoProMod.Clear();
-        //                }
-        //                dr.Close();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al cargar los datos del profesor: " + ex.Message);
-        //    }
-        //}
+                        // Limpiar el ComboBox antes de cargar los datos
+                        comboBoxRut.Items.Clear();
+
+                        // Agregar los "rut" al ComboBox
+                        while (dr.Read())
+                        {
+                            comboBoxRut.Items.Add(dr["rut"].ToString());
+                        }
+
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del ComboBox: " + ex.Message);
+            }
+        }
 
         private void btnModConfirmar_Click(object sender, EventArgs e)
         {
@@ -146,6 +142,61 @@ namespace Proyecto
 
         }
 
+        private void comboBoxRut_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                // Obtener el "rut" seleccionado
+                string selectedRut = comboBoxRut.SelectedItem?.ToString();
+
+                // Verificar que se ha seleccionado un "rut" válido
+                if (!string.IsNullOrEmpty(selectedRut))
+                {
+                    CargarDatosProfesor(selectedRut);
+                }
+                else
+                {
+                    // Si no hay un "rut" válido seleccionado, limpiar los campos
+                    txtNombreModPro.Clear();
+                    txtApellidoProMod.Clear();
+                }
+            }
+        private void CargarDatosProfesor(string rut)
+        {
+            try
+            {
+                string path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+
+                using (SqlConnection con = new SqlConnection(path))
+                {
+                    con.Open();
+
+                    string query = "SELECT nombre, apellido FROM Profesor WHERE rut = @rut";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@rut", rut);
+
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            txtNombreModPro.Text = dr["nombre"].ToString();
+                            txtApellidoProMod.Text = dr["apellido"].ToString();
+                        }
+                        else
+                        {
+                            // Si el "rut" no existe, limpiar los campos
+                            txtNombreModPro.Clear();
+                            txtApellidoProMod.Clear();
+                        }
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del profesor: " + ex.Message);
+            }
+        }
+
+
 
 
         //private void comboBoxRut_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -170,7 +221,6 @@ namespace Proyecto
         //            txtApellidoProMod.Clear();
         //        }
         //    }
-        }
+    }
 
     }
-}

@@ -60,6 +60,7 @@
             this.Clave_txt.Size = new System.Drawing.Size(100, 20);
             this.Clave_txt.TabIndex = 27;
             this.Clave_txt.TextChanged += new System.EventHandler(this.Clave_txt_TextChanged);
+            this.Clave_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clave_txt_KeyDown);
             // 
             // Usuario_txt
             // 
@@ -68,6 +69,7 @@
             this.Usuario_txt.Size = new System.Drawing.Size(100, 20);
             this.Usuario_txt.TabIndex = 26;
             this.Usuario_txt.TextChanged += new System.EventHandler(this.Usuario_txt_TextChanged_1);
+            this.Usuario_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Usuario_txt_KeyDown);
             // 
             // label2
             // 
@@ -141,6 +143,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

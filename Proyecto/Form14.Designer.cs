@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboboxRut = new System.Windows.Forms.ComboBox();
+            this.comboBoxEquipo = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtApellidoProMod = new System.Windows.Forms.TextBox();
             this.lblModApellido = new System.Windows.Forms.Label();
@@ -37,40 +37,38 @@
             this.btnModConfirmar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblModificarEquipo = new System.Windows.Forms.Label();
-            this.lblModNombre = new System.Windows.Forms.Label();
-            this.lblModRut = new System.Windows.Forms.Label();
-            this.proyectoDataSet12 = new Proyecto.ProyectoDataSet12();
-            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equiposTableAdapter = new Proyecto.ProyectoDataSet12TableAdapters.EquiposTableAdapter();
-            this.proyectoDataSet13 = new Proyecto.ProyectoDataSet13();
-            this.proyectoDataSet13BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equiposBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.equiposTableAdapter1 = new Proyecto.ProyectoDataSet13TableAdapters.EquiposTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroserieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equiposBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proyectoDataSet13 = new Proyecto.ProyectoDataSet13();
+            this.lblModificarEquipo = new System.Windows.Forms.Label();
+            this.lblModNombre = new System.Windows.Forms.Label();
+            this.lblModRut = new System.Windows.Forms.Label();
+            this.equiposTableAdapter = new Proyecto.ProyectoDataSet13TableAdapters.EquiposTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboboxRut
+            // comboBoxEquipo
             // 
-            this.comboboxRut.DataSource = this.equiposBindingSource2;
-            this.comboboxRut.DisplayMember = "id";
-            this.comboboxRut.FormattingEnabled = true;
-            this.comboboxRut.Location = new System.Drawing.Point(167, 148);
-            this.comboboxRut.Name = "comboboxRut";
-            this.comboboxRut.Size = new System.Drawing.Size(134, 21);
-            this.comboboxRut.TabIndex = 53;
-            this.comboboxRut.ValueMember = "id";
+            this.comboBoxEquipo.DisplayMember = "id";
+            this.comboBoxEquipo.FormattingEnabled = true;
+            this.comboBoxEquipo.Location = new System.Drawing.Point(167, 148);
+            this.comboBoxEquipo.Name = "comboBoxEquipo";
+            this.comboBoxEquipo.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxEquipo.TabIndex = 53;
+            this.comboBoxEquipo.ValueMember = "id";
+            this.comboBoxEquipo.SelectedIndexChanged += new System.EventHandler(this.comboBoxEquipo_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -122,11 +120,11 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(119, 294);
+            this.btnModificar.Location = new System.Drawing.Point(120, 288);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(82, 29);
+            this.btnModificar.Size = new System.Drawing.Size(82, 40);
             this.btnModificar.TabIndex = 45;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Modificar y Generar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
@@ -139,11 +137,39 @@
             this.idDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.numeroserieDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.equiposBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(342, 98);
+            this.dataGridView1.DataSource = this.equiposBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(378, 98);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(344, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(346, 225);
             this.dataGridView1.TabIndex = 44;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // numeroserieDataGridViewTextBoxColumn
+            // 
+            this.numeroserieDataGridViewTextBoxColumn.DataPropertyName = "numero_serie";
+            this.numeroserieDataGridViewTextBoxColumn.HeaderText = "numero_serie";
+            this.numeroserieDataGridViewTextBoxColumn.Name = "numeroserieDataGridViewTextBoxColumn";
+            // 
+            // equiposBindingSource
+            // 
+            this.equiposBindingSource.DataMember = "Equipos";
+            this.equiposBindingSource.DataSource = this.proyectoDataSet13;
+            // 
+            // proyectoDataSet13
+            // 
+            this.proyectoDataSet13.DataSetName = "ProyectoDataSet13";
+            this.proyectoDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblModificarEquipo
             // 
@@ -175,68 +201,58 @@
             this.lblModRut.TabIndex = 39;
             this.lblModRut.Text = "ID";
             // 
-            // proyectoDataSet12
-            // 
-            this.proyectoDataSet12.DataSetName = "ProyectoDataSet12";
-            this.proyectoDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // equiposBindingSource
-            // 
-            this.equiposBindingSource.DataMember = "Equipos";
-            this.equiposBindingSource.DataSource = this.proyectoDataSet12;
-            // 
             // equiposTableAdapter
             // 
             this.equiposTableAdapter.ClearBeforeFill = true;
             // 
-            // proyectoDataSet13
+            // button1
             // 
-            this.proyectoDataSet13.DataSetName = "ProyectoDataSet13";
-            this.proyectoDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.button1.Location = new System.Drawing.Point(454, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 23);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "Guadar Barra";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // proyectoDataSet13BindingSource
+            // pictureBox2
             // 
-            this.proyectoDataSet13BindingSource.DataSource = this.proyectoDataSet13;
-            this.proyectoDataSet13BindingSource.Position = 0;
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(331, 347);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(451, 134);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 55;
+            this.pictureBox2.TabStop = false;
             // 
-            // equiposBindingSource1
+            // button2
             // 
-            this.equiposBindingSource1.DataMember = "Equipos";
-            this.equiposBindingSource1.DataSource = this.proyectoDataSet13BindingSource;
+            this.button2.Location = new System.Drawing.Point(557, 487);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.TabIndex = 56;
+            this.button2.Text = "Imprimir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // equiposTableAdapter1
+            // printDialog1
             // 
-            this.equiposTableAdapter1.ClearBeforeFill = true;
+            this.printDialog1.UseEXDialog = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // printDocument1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // numeroserieDataGridViewTextBoxColumn
-            // 
-            this.numeroserieDataGridViewTextBoxColumn.DataPropertyName = "numero_serie";
-            this.numeroserieDataGridViewTextBoxColumn.HeaderText = "numero_serie";
-            this.numeroserieDataGridViewTextBoxColumn.Name = "numeroserieDataGridViewTextBoxColumn";
-            // 
-            // equiposBindingSource2
-            // 
-            this.equiposBindingSource2.DataMember = "Equipos";
-            this.equiposBindingSource2.DataSource = this.proyectoDataSet13BindingSource;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // Form14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 554);
-            this.Controls.Add(this.comboboxRut);
+            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBoxEquipo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtApellidoProMod);
             this.Controls.Add(this.lblModApellido);
@@ -254,12 +270,9 @@
             this.Load += new System.EventHandler(this.Form14_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,7 +280,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboboxRut;
+        private System.Windows.Forms.ComboBox comboBoxEquipo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtApellidoProMod;
         private System.Windows.Forms.Label lblModApellido;
@@ -278,16 +291,17 @@
         private System.Windows.Forms.Label lblModificarEquipo;
         private System.Windows.Forms.Label lblModNombre;
         private System.Windows.Forms.Label lblModRut;
-        private ProyectoDataSet12 proyectoDataSet12;
-        private System.Windows.Forms.BindingSource equiposBindingSource;
-        private ProyectoDataSet12TableAdapters.EquiposTableAdapter equiposTableAdapter;
-        private System.Windows.Forms.BindingSource proyectoDataSet13BindingSource;
         private ProyectoDataSet13 proyectoDataSet13;
-        private System.Windows.Forms.BindingSource equiposBindingSource1;
-        private ProyectoDataSet13TableAdapters.EquiposTableAdapter equiposTableAdapter1;
+        private System.Windows.Forms.BindingSource equiposBindingSource;
+        private ProyectoDataSet13TableAdapters.EquiposTableAdapter equiposTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroserieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource equiposBindingSource2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

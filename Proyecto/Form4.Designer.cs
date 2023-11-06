@@ -53,12 +53,15 @@
             this.comboboxmateria = new System.Windows.Forms.ComboBox();
             this.profesorTableAdapter = new Proyecto.ProyectoDataSet13TableAdapters.ProfesorTableAdapter();
             this.comboBoxRut = new System.Windows.Forms.ComboBox();
+            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiasTableAdapter = new Proyecto.ProyectoDataSet13TableAdapters.MateriasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profesorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasNup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreModPro
@@ -246,11 +249,14 @@
             // 
             // comboboxmateria
             // 
+            this.comboboxmateria.DataSource = this.materiasBindingSource;
+            this.comboboxmateria.DisplayMember = "nombre";
             this.comboboxmateria.FormattingEnabled = true;
             this.comboboxmateria.Location = new System.Drawing.Point(161, 283);
             this.comboboxmateria.Name = "comboboxmateria";
             this.comboboxmateria.Size = new System.Drawing.Size(134, 21);
             this.comboboxmateria.TabIndex = 37;
+            this.comboboxmateria.ValueMember = "nombre";
             // 
             // profesorTableAdapter
             // 
@@ -263,6 +269,16 @@
             this.comboBoxRut.Name = "comboBoxRut";
             this.comboBoxRut.Size = new System.Drawing.Size(134, 21);
             this.comboBoxRut.TabIndex = 38;
+            this.comboBoxRut.SelectedIndexChanged += new System.EventHandler(this.comboBoxRut_SelectedIndexChanged);
+            // 
+            // materiasBindingSource
+            // 
+            this.materiasBindingSource.DataMember = "Materias";
+            this.materiasBindingSource.DataSource = this.proyectoDataSet13BindingSource;
+            // 
+            // materiasTableAdapter
+            // 
+            this.materiasTableAdapter.ClearBeforeFill = true;
             // 
             // Form4
             // 
@@ -296,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasNup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +343,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn horasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBoxRut;
+        private System.Windows.Forms.BindingSource materiasBindingSource;
+        private ProyectoDataSet13TableAdapters.MateriasTableAdapter materiasTableAdapter;
     }
 }

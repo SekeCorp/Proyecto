@@ -1,14 +1,17 @@
-﻿using System;
+﻿using DGV2Printer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zen.Barcode;
 
 namespace Proyecto
 {
@@ -21,7 +24,7 @@ namespace Proyecto
 
         private void Form7_Load(object sender, EventArgs e)
         {
-
+            CargarIdsEquipos();
 
         }
 
@@ -54,9 +57,11 @@ namespace Proyecto
             }
             dataGridView1.DataSource = dt;
             con.Close();
-            id_txt.Clear();
             nomEquipo_txt.Clear();
             numSerie_txt.Clear();
+
+            // Actualizar el ComboBox cbx_id con los nuevos ids
+            CargarIdsEquipos();
         }
 
 
@@ -82,7 +87,6 @@ namespace Proyecto
                     DataTable dt = new DataTable();
                     path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
                     // path = "Data Source=DESKTOP-R338P94\\SQLEXPRESS;Initial Catalog=Proyecto;Integrated Security=True";
-                    id = id_txt.Text;
                     nombre = nomEquipo_txt.Text;
                     serie = numSerie_txt.Text;
 
@@ -90,10 +94,9 @@ namespace Proyecto
                     {
                         con.Open();
 
-                        query = "INSERT INTO Equipos (id, nombre, numero_serie) VALUES (@id, @nombre, @numero_serie)";
+                        query = "INSERT INTO Equipos (nombre, numero_serie) VALUES (@nombre, @numero_serie)";
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
-                            cmd.Parameters.AddWithValue("@id", id);
                             cmd.Parameters.AddWithValue("@nombre", nombre);
                             cmd.Parameters.AddWithValue("@numero_serie", serie);
 
@@ -103,9 +106,7 @@ namespace Proyecto
                         }
                     }
 
-                    // Generar código de barras
-                    Zen.Barcode.Code128BarcodeDraw codigodebarra = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                    imgBarra.Image = codigodebarra.Draw(id, 40);
+
                 }
                 catch (Exception a)
                 {
@@ -115,6 +116,72 @@ namespace Proyecto
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                printDocument1.PrinterSettings = printDialog1.PrinterSettings;
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(imgBarra.Image, 100, 600, imgBarra.Width, imgBarra.Height);
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            if (cbx_id.SelectedItem != null)
+            {
+                int id = Convert.ToInt32(cbx_id.SelectedItem);
+                // Generar código de barras
+                Code128BarcodeDraw codigodebarra = BarcodeDrawFactory.Code128WithChecksum;
+                imgBarra.Image = codigodebarra.Draw(id.ToString(), 40);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un id de equipo para generar el código de barras.");
+            }
+        }
+        private void CargarIdsEquipos()
+        {
+            try
+            {
+                string cadenaConexion = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+
+                // Consulta SQL para obtener los ids de Equipos desde la tabla Equipos
+                string consultaSql = "SELECT id FROM Equipos";
+
+                // Crear la conexión y el comando
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                using (SqlCommand comando = new SqlCommand(consultaSql, conexion))
+                {
+                    // Abrir la conexión
+                    conexion.Open();
+
+                    // Ejecutar la consulta y obtener un lector de datos
+                    SqlDataReader lector = comando.ExecuteReader();
+
+                    // Limpiar los items actuales del ComboBox
+                    cbx_id.Items.Clear();
+
+                    // Agregar los ids de Equipos al ComboBox
+                    while (lector.Read())
+                    {
+                        int idEquipo = Convert.ToInt32(lector["id"]);
+                        cbx_id.Items.Add(idEquipo);
+                    }
+
+                    // Cerrar el lector de datos
+                    lector.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los ids de Equipos: " + ex.Message);
+            }
+        }
     }
 }
 

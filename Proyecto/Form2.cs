@@ -107,13 +107,38 @@ namespace Proyecto
                 MessageBox.Show("Demasiados intentos");//Mensaje que diga que no tiene mas intentos
                 this.Close(); //Se cierra el programa
             }
-            
+
         }
 
         private void Cancelar_btn_Click_1(object sender, EventArgs e)
         {
             mievento(this, null); //null = enviar algún parametro // 
             this.Close();
+        }
+
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Clave_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la tecla presionada es la tecla deseada (por ejemplo, la tecla Enter)
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Realizar la acción asociada al botón (por ejemplo, llamar al método btnDevolucion_Click)
+                Validar_btn_Click_1(sender, e);
+            }
+        }
+
+        private void Usuario_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificar si la tecla presionada es la tecla deseada (por ejemplo, la tecla Enter)
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Realizar la acción asociada al botón (por ejemplo, llamar al método btnDevolucion_Click)
+                Validar_btn_Click_1(sender, e);
+            }
         }
     }
 }

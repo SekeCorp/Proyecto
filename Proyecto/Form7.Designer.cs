@@ -37,8 +37,6 @@
             this.equiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proyectoDataSet3 = new Proyecto.ProyectoDataSet3();
             this.equiposTableAdapter = new Proyecto.ProyectoDataSet3TableAdapters.EquiposTableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
-            this.id_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.nomEquipo_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +48,11 @@
             this.imgBarra = new System.Windows.Forms.PictureBox();
             this.btnGuardarQr = new System.Windows.Forms.Button();
             this.Actualizar_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.cbx_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoDataSet3)).BeginInit();
@@ -61,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 39);
+            this.label1.Location = new System.Drawing.Point(91, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 25);
             this.label1.TabIndex = 0;
@@ -113,23 +116,6 @@
             // equiposTableAdapter
             // 
             this.equiposTableAdapter.ClearBeforeFill = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Ingrese ID";
-            // 
-            // id_txt
-            // 
-            this.id_txt.Location = new System.Drawing.Point(190, 102);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(100, 20);
-            this.id_txt.TabIndex = 4;
-            this.id_txt.Tag = "";
             // 
             // label3
             // 
@@ -188,11 +174,11 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::Proyecto.Properties.Resources.agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(126, 263);
+            this.btnAgregar.Location = new System.Drawing.Point(190, 296);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(119, 39);
+            this.btnAgregar.Size = new System.Drawing.Size(100, 39);
             this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar y Generar";
+            this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -210,7 +196,7 @@
             // btnGuardarQr
             // 
             this.btnGuardarQr.Image = global::Proyecto.Properties.Resources.salvar;
-            this.btnGuardarQr.Location = new System.Drawing.Point(518, 522);
+            this.btnGuardarQr.Location = new System.Drawing.Point(441, 522);
             this.btnGuardarQr.Name = "btnGuardarQr";
             this.btnGuardarQr.Size = new System.Drawing.Size(100, 27);
             this.btnGuardarQr.TabIndex = 2;
@@ -231,12 +217,51 @@
             this.Actualizar_btn.UseVisualStyleBackColor = true;
             this.Actualizar_btn.Click += new System.EventHandler(this.Actualizar_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(547, 522);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 27);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Imprimir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.Location = new System.Drawing.Point(190, 436);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(100, 23);
+            this.btnGenerar.TabIndex = 38;
+            this.btnGenerar.Text = "Generar";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // cbx_id
+            // 
+            this.cbx_id.FormattingEnabled = true;
+            this.cbx_id.Location = new System.Drawing.Point(190, 409);
+            this.cbx_id.Name = "cbx_id";
+            this.cbx_id.Size = new System.Drawing.Size(100, 21);
+            this.cbx_id.TabIndex = 39;
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.cbx_id);
+            this.Controls.Add(this.btnGenerar);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAgregar);
@@ -247,8 +272,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nomEquipo_txt);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.id_txt);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -273,8 +296,6 @@
         private ProyectoDataSet3 proyectoDataSet3;
         private System.Windows.Forms.BindingSource equiposBindingSource;
         private ProyectoDataSet3TableAdapters.EquiposTableAdapter equiposTableAdapter;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nomEquipo_txt;
         private System.Windows.Forms.Label label4;
@@ -289,5 +310,10 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.ComboBox cbx_id;
     }
 }

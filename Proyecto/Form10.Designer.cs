@@ -28,21 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btn_RegistrarHuella = new System.Windows.Forms.Button();
+            this.btn_VerificarHuella = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_VerificarHuella);
+            this.Controls.Add(this.btn_RegistrarHuella);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form10";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form10";
+            this.Load += new System.EventHandler(this.Form10_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_RegistrarHuella;
+        private System.Windows.Forms.Button btn_VerificarHuella;
     }
 }

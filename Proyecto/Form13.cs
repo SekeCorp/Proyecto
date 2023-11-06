@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DGV2Printer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,8 @@ namespace Proyecto
             CargarDevoluciones();
         }
 
+        private Dictionary<int, string> equiposPrestadosDict = new Dictionary<int, string>();
+
         private void CargarEquiposPrestados()
         {
             try
@@ -36,19 +39,25 @@ namespace Proyecto
                 {
                     con.Open();
 
-                    string query = "SELECT Prestamos.equipo_id, Prestamos.profesor_rut, Equipos.nombre, Equipos.numero_serie " +
+                    string query = "SELECT Prestamos.equipo_id, Prestamos.profesor_rut " +
                                    "FROM Prestamos " +
                                    "INNER JOIN Equipos ON Prestamos.equipo_id = Equipos.id";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    DataTable dtEquiposPrestados = new DataTable();
-                    dtEquiposPrestados.Load(reader);
+                    equiposPrestadosDict.Clear(); // Limpiamos el diccionario antes de llenarlo nuevamente
 
-                    comboBoxDevolucion.DisplayMember = "equipo_id";
-                    comboBoxDevolucion.ValueMember = "equipo_id";
-                    comboBoxDevolucion.DataSource = dtEquiposPrestados;
+                    while (reader.Read())
+                    {
+                        int equipoId = Convert.ToInt32(reader["equipo_id"]);
+                        string profesorRut = reader["profesor_rut"].ToString();
+                        equiposPrestadosDict[equipoId] = profesorRut; // Agregar el equipo_id como clave y el profesor_rut como valor al diccionario
+                    }
+
+                    comboBoxDevolucion.DisplayMember = "equipo_id"; // Muestra solo el equipo_id en el ComboBox
+                    comboBoxDevolucion.ValueMember = "equipo_id"; // Asigna el equipo_id como valor seleccionado en el ComboBox
+                    comboBoxDevolucion.DataSource = equiposPrestadosDict.Keys.ToList();
 
                     reader.Close();
                 }
@@ -81,16 +90,13 @@ namespace Proyecto
 
         private void CargarDevoluciones()
         {
-            dataGridView1.Columns.Clear();
             try
             {
                 using (SqlConnection con = new SqlConnection(path))
                 {
                     con.Open();
 
-                    string selectQuery = "SELECT Devoluciones.equipo_id, Equipos.nombre, Equipos.numero_serie, Devoluciones.fecha_devuelto " +
-                                         "FROM Devoluciones " +
-                                         "INNER JOIN Equipos ON Devoluciones.equipo_id = Equipos.id";
+                    string selectQuery = "SELECT * FROM Devoluciones";
 
                     using (SqlCommand cmdSelect = new SqlCommand(selectQuery, con))
                     {
@@ -100,6 +106,9 @@ namespace Proyecto
 
                         // Actualizar el DataGridView con los nuevos datos
                         dataGridView1.DataSource = dtDevoluciones;
+
+                        // Asignar la tabla a una variable global para poder actualizarla en el botón de devolución
+                        dt = dtDevoluciones;
                     }
                 }
             }
@@ -111,26 +120,31 @@ namespace Proyecto
 
 
 
+
         private void btnDevolucion_Click(object sender, EventArgs e)
         {
             try
             {
                 if (comboBoxDevolucion.SelectedItem != null)
                 {
-                    DataRowView selectedRow = (DataRowView)comboBoxDevolucion.SelectedItem;
-                    int equipo_id = Convert.ToInt32(selectedRow["equipo_id"]);
-                    string query = "DELETE FROM Prestamos WHERE equipo_id = @equipo_id";
+                    int equipo_id = Convert.ToInt32(comboBoxDevolucion.SelectedItem);
 
                     using (SqlConnection con = new SqlConnection(path))
                     {
                         con.Open();
 
+                        // Realizar la devolución del equipo actualizando la tabla "Prestamos"
+                        string query = "DELETE FROM Prestamos WHERE equipo_id = @equipo_id";
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@equipo_id", equipo_id);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Devolución realizada con éxito.");
+                        }
 
+                        // Obtener el profesor_rut del diccionario según el equipo_id seleccionado en el ComboBox
+                        string profesorRut;
+                        if (equiposPrestadosDict.TryGetValue(equipo_id, out profesorRut))
+                        {
                             // Obtener los datos del equipo devuelto de la tabla "Equipos"
                             string queryEquipo = "SELECT nombre, numero_serie FROM Equipos WHERE id = @equipo_id";
                             string equipoNombre = string.Empty;
@@ -149,23 +163,20 @@ namespace Proyecto
                                 readerEquipo.Close();
                             }
 
-                            // Obtener la fecha_devolucion del equipo prestado de la tabla "Prestamos"
-                            DateTime? fechaPrestamo = GetFechaDevolucionEquipo(equipo_id.ToString(), con);
-
                             // Insertar los datos en la tabla "Devoluciones" y determinar el estado de devolución
                             DateTime fechaDevuelto = DateTime.Now.Date;
-                            DateTime? fechaLimite = fechaPrestamo;
-
 
                             // Insertar los datos en la tabla "Devoluciones" con el estado adecuado
-                            string insertQuery = "INSERT INTO Devoluciones (equipo_id, nombre, numero_serie, fecha_devuelto) " +
-                                                 "VALUES (@equipo_id, @nombre, @numero_serie, @fecha_devuelto)";
+                            string insertQuery = "INSERT INTO Devoluciones (equipo_id, nombre, numero_serie, fecha_devuelto, profesor_rut) " +
+                                                 "VALUES (@equipo_id, @nombre, @numero_serie, @fecha_devuelto, @profesor_rut)";
                             using (SqlCommand cmdInsert = new SqlCommand(insertQuery, con))
                             {
                                 cmdInsert.Parameters.AddWithValue("@equipo_id", equipo_id);
                                 cmdInsert.Parameters.AddWithValue("@nombre", equipoNombre);
                                 cmdInsert.Parameters.AddWithValue("@numero_serie", equipoNumeroSerie);
                                 cmdInsert.Parameters.AddWithValue("@fecha_devuelto", fechaDevuelto);
+                                cmdInsert.Parameters.AddWithValue("@profesor_rut", profesorRut); // Utilizamos el profesor_rut obtenido del diccionario
+
                                 cmdInsert.ExecuteNonQuery();
                             }
 
@@ -175,23 +186,38 @@ namespace Proyecto
                             // Actualizar el ComboBox con los equipos prestados después de eliminar el equipo devuelto
                             CargarEquiposPrestados();
                         }
+                        else
+                        {
+                            MessageBox.Show("No se encontró el equipo seleccionado en la base de datos.");
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("No se ha seleccionado ningún equipo para devolver.");
                 }
+                if (comboBoxDevolucion.SelectedItem != null)
+                {
+                    int equipo_id = Convert.ToInt32(comboBoxDevolucion.SelectedItem);
+
+                    // Resto del código para realizar la devolución...
+                    // Limpiar el ítem seleccionado en el comboBoxDevolucion
+                    comboBoxDevolucion.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado ningún equipo para devolver.");
+                }
+                textBox_rut.Clear();
+                textBox_apellido.Clear();
+                textBox_nombre.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al realizar la devolución: " + ex.Message);
             }
+
         }
-
-
-
-
-
 
         private void ActualizarDataGridView()
         {
@@ -231,5 +257,61 @@ namespace Proyecto
             }
         }
 
+        private void comboBoxDevolucion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxDevolucion.SelectedItem != null)
+            {
+                int equipo_id = Convert.ToInt32(comboBoxDevolucion.SelectedItem);
+                CargarDatosProfesor(equipo_id.ToString());
+            }
+        }
+        private void CargarDatosProfesor(string equipo_id)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(path))
+                {
+                    con.Open();
+
+                    string selectQuery = "SELECT Profesor.rut, Profesor.nombre, Profesor.apellido " +
+                                         "FROM Prestamos " +
+                                         "INNER JOIN Profesor ON Prestamos.profesor_rut = Profesor.rut " +
+                                         "WHERE Prestamos.equipo_id = @equipo_id";
+
+                    using (SqlCommand cmdSelect = new SqlCommand(selectQuery, con))
+                    {
+                        cmdSelect.Parameters.AddWithValue("@equipo_id", equipo_id);
+                        SqlDataReader reader = cmdSelect.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            textBox_rut.Text = reader["rut"].ToString();
+                            textBox_nombre.Text = reader["nombre"].ToString();
+                            textBox_apellido.Text = reader["apellido"].ToString();
+                        }
+                        else
+                        {
+                            textBox_rut.Text = string.Empty;
+                            textBox_nombre.Text = string.Empty;
+                            textBox_apellido.Text = string.Empty;
+                        }
+
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del profesor: " + ex.Message);
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            PrintDataGridView print = new PrintDataGridView(dataGridView1);
+            print.isRightToLeft = false;
+            print.ReportHeader = "Devoluciones";
+            print.Print();
+        }
     }
 }

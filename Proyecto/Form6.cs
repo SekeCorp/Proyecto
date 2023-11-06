@@ -18,20 +18,18 @@ namespace Proyecto
 
         private void Buscar_btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(id_txt.Text))
+            if (string.IsNullOrWhiteSpace(comboBoxEquipo.Text))
             {
-                id_txt.BackColor = Color.LightPink;
-                id_txt.BorderStyle = BorderStyle.FixedSingle;
-                id_txt.Focus();
+                comboBoxEquipo.BackColor = Color.LightPink;
+                comboBoxEquipo.Focus();
                 return;
             }
             else
             {
-                id_txt.BackColor = Color.White;
-                id_txt.BorderStyle = BorderStyle.FixedSingle;
-                id_txt.Focus();
+                comboBoxEquipo.BackColor = Color.White;
+                comboBoxEquipo.Focus();
 
-                string id = id_txt.Text;
+                string id = comboBoxEquipo.Text;
                 using (SqlConnection con = new SqlConnection(path))
                 {
                     con.Open();
@@ -75,7 +73,39 @@ namespace Proyecto
 
         private void Form6_Load(object sender, EventArgs e)
         {
+            CargarDatosComboBoxEquipos();
+        }
+        private void CargarDatosComboBoxEquipos()
+        {
+            try
+            {
+                string path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                string query = "SELECT id FROM Equipos";
 
+                using (SqlConnection con = new SqlConnection(path))
+                {
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        SqlDataReader dr = cmd.ExecuteReader();
+
+                        // No es necesario limpiar el ComboBox cuando está vinculado con DataSource
+                        // comboBoxEquipo.Items.Clear();
+
+                        while (dr.Read())
+                        {
+                            comboBoxEquipo.Items.Add(dr["id"].ToString());
+                        }
+
+                        dr.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del ComboBox: " + ex.Message);
+            }
         }
     }
 }

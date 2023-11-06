@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.id_txt = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Buscar_btn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBoxEquipo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,14 +57,6 @@
             this.label2.Size = new System.Drawing.Size(192, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ingrese ID del Equipo";
-            // 
-            // id_txt
-            // 
-            this.id_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_txt.Location = new System.Drawing.Point(392, 148);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(115, 29);
-            this.id_txt.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -99,16 +91,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(238, 150);
             this.dataGridView1.TabIndex = 37;
             // 
+            // comboBoxEquipo
+            // 
+            this.comboBoxEquipo.FormattingEnabled = true;
+            this.comboBoxEquipo.Location = new System.Drawing.Point(390, 149);
+            this.comboBoxEquipo.Name = "comboBoxEquipo";
+            this.comboBoxEquipo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEquipo.TabIndex = 38;
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.comboBoxEquipo);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Buscar_btn);
-            this.Controls.Add(this.id_txt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -126,9 +126,9 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.Button Buscar_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBoxEquipo;
     }
 }
