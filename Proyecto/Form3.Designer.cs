@@ -43,22 +43,23 @@
             this.lblModRut = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listCurso = new System.Windows.Forms.ListBox();
+            this.cursoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cURSOS = new Proyecto.CURSOS();
             this.listMateria = new System.Windows.Forms.ListBox();
+            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mATERIAS = new Proyecto.MATERIAS();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.mATERIAS = new Proyecto.MATERIAS();
-            this.materiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materiasTableAdapter = new Proyecto.MATERIASTableAdapters.MateriasTableAdapter();
-            this.cURSOS = new Proyecto.CURSOS();
-            this.cursoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cursoTableAdapter = new Proyecto.CURSOSTableAdapters.CursoTableAdapter();
             this.cURSOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCrear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mATERIAS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cURSOS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cURSOS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mATERIAS)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cURSOSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,6 +189,16 @@
             this.listCurso.TabIndex = 37;
             this.listCurso.ValueMember = "curso";
             // 
+            // cursoBindingSource
+            // 
+            this.cursoBindingSource.DataMember = "Curso";
+            this.cursoBindingSource.DataSource = this.cURSOS;
+            // 
+            // cURSOS
+            // 
+            this.cURSOS.DataSetName = "CURSOS";
+            this.cURSOS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // listMateria
             // 
             this.listMateria.DataSource = this.materiasBindingSource;
@@ -199,6 +210,16 @@
             this.listMateria.Size = new System.Drawing.Size(120, 69);
             this.listMateria.TabIndex = 38;
             this.listMateria.ValueMember = "nombre";
+            // 
+            // materiasBindingSource
+            // 
+            this.materiasBindingSource.DataMember = "Materias";
+            this.materiasBindingSource.DataSource = this.mATERIAS;
+            // 
+            // mATERIAS
+            // 
+            this.mATERIAS.DataSetName = "MATERIAS";
+            this.mATERIAS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -217,29 +238,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = resources.GetString("label1.Text");
             // 
-            // mATERIAS
-            // 
-            this.mATERIAS.DataSetName = "MATERIAS";
-            this.mATERIAS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // materiasBindingSource
-            // 
-            this.materiasBindingSource.DataMember = "Materias";
-            this.materiasBindingSource.DataSource = this.mATERIAS;
-            // 
             // materiasTableAdapter
             // 
             this.materiasTableAdapter.ClearBeforeFill = true;
-            // 
-            // cURSOS
-            // 
-            this.cURSOS.DataSetName = "CURSOS";
-            this.cURSOS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cursoBindingSource
-            // 
-            this.cursoBindingSource.DataMember = "Curso";
-            this.cursoBindingSource.DataSource = this.cURSOS;
             // 
             // cursoTableAdapter
             // 
@@ -250,12 +251,23 @@
             this.cURSOSBindingSource.DataSource = this.cURSOS;
             this.cURSOSBindingSource.Position = 0;
             // 
+            // btnCrear
+            // 
+            this.btnCrear.Location = new System.Drawing.Point(295, 410);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(75, 23);
+            this.btnCrear.TabIndex = 40;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(967, 593);
+            this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listMateria);
             this.Controls.Add(this.listCurso);
@@ -277,12 +289,12 @@
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cURSOS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mATERIAS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mATERIAS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materiasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cURSOS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cURSOSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -313,5 +325,6 @@
         private System.Windows.Forms.BindingSource cursoBindingSource;
         private CURSOSTableAdapters.CursoTableAdapter cursoTableAdapter;
         private System.Windows.Forms.BindingSource cURSOSBindingSource;
+        private System.Windows.Forms.Button btnCrear;
     }
 }

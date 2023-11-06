@@ -30,7 +30,12 @@ namespace Proyecto
         }
 
 
-        private void btnInsertar_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
         {
             try
             {
@@ -101,11 +106,6 @@ namespace Proyecto
             {
                 MessageBox.Show("Error al agregar el registro: " + ex.ToString());
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
