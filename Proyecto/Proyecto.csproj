@@ -80,117 +80,131 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Curso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Curso.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CURSOS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CURSOS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Cursos1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cursos1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataGridViewPrinter.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="1Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="1Inicio.Designer.cs">
+      <DependentUpon>1Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form10.cs">
+    <Compile Include="11GenerarHorario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form10.Designer.cs">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <Compile Include="11GenerarHorario.Designer.cs">
+      <DependentUpon>11GenerarHorario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form11.cs">
+    <Compile Include="12RegistroHorarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form11.Designer.cs">
-      <DependentUpon>Form11.cs</DependentUpon>
+    <Compile Include="12RegistroHorarios.Designer.cs">
+      <DependentUpon>12RegistroHorarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form12.cs">
+    <Compile Include="13DevolucionEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form12.Designer.cs">
-      <DependentUpon>Form12.cs</DependentUpon>
+    <Compile Include="13DevolucionEquipo.Designer.cs">
+      <DependentUpon>13DevolucionEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form13.cs">
+    <Compile Include="14ModificarEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form13.Designer.cs">
-      <DependentUpon>Form13.cs</DependentUpon>
+    <Compile Include="14ModificarEquipo.Designer.cs">
+      <DependentUpon>14ModificarEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form14.cs">
+    <Compile Include="15EditarHorario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form14.Designer.cs">
-      <DependentUpon>Form14.cs</DependentUpon>
+    <Compile Include="15EditarHorario.Designer.cs">
+      <DependentUpon>15EditarHorario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form15.cs">
+    <Compile Include="16VincularMatCurso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form15.Designer.cs">
-      <DependentUpon>Form15.cs</DependentUpon>
+    <Compile Include="16VincularMatCurso.Designer.cs">
+      <DependentUpon>16VincularMatCurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="2Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="2Login.Designer.cs">
+      <DependentUpon>2Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="3IngresoProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="3IngresoProfesor.Designer.cs">
+      <DependentUpon>3IngresoProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="4ModificarProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="4ModificarProfesor.Designer.cs">
+      <DependentUpon>4ModificarProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="6EliminarProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="6EliminarProfesor.Designer.cs">
+      <DependentUpon>6EliminarProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="5BusquedaEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="5BusquedaEquipo.Designer.cs">
+      <DependentUpon>5BusquedaEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="7IngresarEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <Compile Include="7IngresarEquipo.Designer.cs">
+      <DependentUpon>7IngresarEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form8.cs">
+    <Compile Include="8PrestamoEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <Compile Include="8PrestamoEquipo.Designer.cs">
+      <DependentUpon>8PrestamoEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form9.cs">
+    <Compile Include="9DesignarDisponibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form9.Designer.cs">
-      <DependentUpon>Form9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHorario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHorario.Designer.cs">
-      <DependentUpon>FormHorario.cs</DependentUpon>
+    <Compile Include="9DesignarDisponibilidad.Designer.cs">
+      <DependentUpon>9DesignarDisponibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Materiaid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Materiaid.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MATERIAS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MATERIAS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Materias1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Materias1.xsd</DependentUpon>
     </Compile>
     <Compile Include="PROFESOR.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -201,6 +215,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Profesor1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profesores.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProfesorMateria.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -264,10 +283,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet18.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet19.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet23.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet23.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProyectoDataSet31.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -304,53 +348,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet9.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="1Inicio.resx">
+      <DependentUpon>1Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form10.resx">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <EmbeddedResource Include="11GenerarHorario.resx">
+      <DependentUpon>11GenerarHorario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form11.resx">
-      <DependentUpon>Form11.cs</DependentUpon>
+    <EmbeddedResource Include="12RegistroHorarios.resx">
+      <DependentUpon>12RegistroHorarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form12.resx">
-      <DependentUpon>Form12.cs</DependentUpon>
+    <EmbeddedResource Include="13DevolucionEquipo.resx">
+      <DependentUpon>13DevolucionEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form13.resx">
-      <DependentUpon>Form13.cs</DependentUpon>
+    <EmbeddedResource Include="14ModificarEquipo.resx">
+      <DependentUpon>14ModificarEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form14.resx">
-      <DependentUpon>Form14.cs</DependentUpon>
+    <EmbeddedResource Include="15EditarHorario.resx">
+      <DependentUpon>15EditarHorario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form15.resx">
-      <DependentUpon>Form15.cs</DependentUpon>
+    <EmbeddedResource Include="16VincularMatCurso.resx">
+      <DependentUpon>16VincularMatCurso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="2Login.resx">
+      <DependentUpon>2Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="3IngresoProfesor.resx">
+      <DependentUpon>3IngresoProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="4ModificarProfesor.resx">
+      <DependentUpon>4ModificarProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="6EliminarProfesor.resx">
+      <DependentUpon>6EliminarProfesor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="5BusquedaEquipo.resx">
+      <DependentUpon>5BusquedaEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <EmbeddedResource Include="7IngresarEquipo.resx">
+      <DependentUpon>7IngresarEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <EmbeddedResource Include="8PrestamoEquipo.resx">
+      <DependentUpon>8PrestamoEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
-      <DependentUpon>Form9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHorario.resx">
-      <DependentUpon>FormHorario.cs</DependentUpon>
+    <EmbeddedResource Include="9DesignarDisponibilidad.resx">
+      <DependentUpon>9DesignarDisponibilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -362,6 +403,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Curso.xsc">
+      <DependentUpon>Curso.xsd</DependentUpon>
+    </None>
+    <None Include="Curso.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Curso.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Curso.xss">
+      <DependentUpon>Curso.xsd</DependentUpon>
+    </None>
     <None Include="CURSOS.xsc">
       <DependentUpon>CURSOS.xsd</DependentUpon>
     </None>
@@ -372,6 +424,17 @@
     </None>
     <None Include="CURSOS.xss">
       <DependentUpon>CURSOS.xsd</DependentUpon>
+    </None>
+    <None Include="Cursos1.xsc">
+      <DependentUpon>Cursos1.xsd</DependentUpon>
+    </None>
+    <None Include="Cursos1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cursos1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cursos1.xss">
+      <DependentUpon>Cursos1.xsd</DependentUpon>
     </None>
     <None Include="MateriaDataSet.xsc">
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
@@ -384,6 +447,17 @@
     <None Include="MateriaDataSet.xss">
       <DependentUpon>MateriaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Materiaid.xsc">
+      <DependentUpon>Materiaid.xsd</DependentUpon>
+    </None>
+    <None Include="Materiaid.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Materiaid.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Materiaid.xss">
+      <DependentUpon>Materiaid.xsd</DependentUpon>
+    </None>
     <None Include="MATERIAS.xsc">
       <DependentUpon>MATERIAS.xsd</DependentUpon>
     </None>
@@ -394,6 +468,17 @@
     </None>
     <None Include="MATERIAS.xss">
       <DependentUpon>MATERIAS.xsd</DependentUpon>
+    </None>
+    <None Include="Materias1.xsc">
+      <DependentUpon>Materias1.xsd</DependentUpon>
+    </None>
+    <None Include="Materias1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Materias1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Materias1.xss">
+      <DependentUpon>Materias1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="PROFESOR.xsc">
@@ -417,6 +502,17 @@
     </None>
     <None Include="Profesor1.xss">
       <DependentUpon>Profesor1.xsd</DependentUpon>
+    </None>
+    <None Include="Profesores.xsc">
+      <DependentUpon>Profesores.xsd</DependentUpon>
+    </None>
+    <None Include="Profesores.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Profesores.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Profesores.xss">
+      <DependentUpon>Profesores.xsd</DependentUpon>
     </None>
     <None Include="ProfesorMateria.xsc">
       <DependentUpon>ProfesorMateria.xsd</DependentUpon>
@@ -559,6 +655,17 @@
     <None Include="ProyectoDataSet18.xss">
       <DependentUpon>ProyectoDataSet18.xsd</DependentUpon>
     </None>
+    <None Include="ProyectoDataSet19.xsc">
+      <DependentUpon>ProyectoDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet19.xss">
+      <DependentUpon>ProyectoDataSet19.xsd</DependentUpon>
+    </None>
     <None Include="ProyectoDataSet2.xsc">
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
     </None>
@@ -569,6 +676,50 @@
     </None>
     <None Include="ProyectoDataSet2.xss">
       <DependentUpon>ProyectoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet20.xsc">
+      <DependentUpon>ProyectoDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet20.xss">
+      <DependentUpon>ProyectoDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet21.xsc">
+      <DependentUpon>ProyectoDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet21.xss">
+      <DependentUpon>ProyectoDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet22.xsc">
+      <DependentUpon>ProyectoDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet22.xss">
+      <DependentUpon>ProyectoDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet23.xsc">
+      <DependentUpon>ProyectoDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet23.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet23.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet23.xss">
+      <DependentUpon>ProyectoDataSet23.xsd</DependentUpon>
     </None>
     <None Include="ProyectoDataSet31.xsc">
       <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
@@ -707,6 +858,7 @@
     <None Include="Resources\usuario.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logoxd.png" />
     <None Include="Resources\1550324.png" />
     <Content Include="Resources\descargar.jpg" />
     <None Include="Resources\obtener-dinero.png" />
