@@ -47,18 +47,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 22);
+            this.label1.Location = new System.Drawing.Point(157, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(90, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "RUT Profesor";
             // 
             // comboBoxRut
             // 
             this.comboBoxRut.FormattingEnabled = true;
-            this.comboBoxRut.Location = new System.Drawing.Point(196, 19);
+            this.comboBoxRut.Location = new System.Drawing.Point(261, 23);
+            this.comboBoxRut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxRut.Name = "comboBoxRut";
-            this.comboBoxRut.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRut.Size = new System.Drawing.Size(160, 24);
             this.comboBoxRut.TabIndex = 2;
             // 
             // groupBox1
@@ -68,9 +70,11 @@
             this.groupBox1.Controls.Add(this.btnImprimir);
             this.groupBox1.Controls.Add(this.btnAñadir);
             this.groupBox1.Controls.Add(this.dataDatos);
-            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Location = new System.Drawing.Point(16, 111);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(941, 478);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1255, 588);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -78,9 +82,10 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Proyecto.Properties.Resources.impresora;
-            this.btnImprimir.Location = new System.Drawing.Point(429, 439);
+            this.btnImprimir.Location = new System.Drawing.Point(572, 540);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(98, 33);
+            this.btnImprimir.Size = new System.Drawing.Size(131, 41);
             this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -91,9 +96,10 @@
             // 
             this.btnAñadir.CausesValidation = false;
             this.btnAñadir.Image = global::Proyecto.Properties.Resources.agregar;
-            this.btnAñadir.Location = new System.Drawing.Point(344, 13);
+            this.btnAñadir.Location = new System.Drawing.Point(459, 16);
+            this.btnAñadir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(75, 31);
+            this.btnAñadir.Size = new System.Drawing.Size(100, 38);
             this.btnAñadir.TabIndex = 9;
             this.btnAñadir.Text = "Añadir";
             this.btnAñadir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -107,10 +113,11 @@
             this.dataDatos.AllowUserToOrderColumns = true;
             this.dataDatos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataDatos.Location = new System.Drawing.Point(20, 82);
+            this.dataDatos.Location = new System.Drawing.Point(27, 101);
+            this.dataDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataDatos.Name = "dataDatos";
-            this.dataDatos.ReadOnly = true;
-            this.dataDatos.Size = new System.Drawing.Size(915, 351);
+            this.dataDatos.RowHeadersWidth = 51;
+            this.dataDatos.Size = new System.Drawing.Size(1220, 432);
             this.dataDatos.TabIndex = 0;
             // 
             // printPreviewDialog1
@@ -127,9 +134,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(392, 25);
+            this.label7.Location = new System.Drawing.Point(523, 31);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 25);
+            this.label7.Size = new System.Drawing.Size(202, 31);
             this.label7.TabIndex = 37;
             this.label7.Text = "Asignar Horario";
             // 
@@ -138,23 +146,25 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = global::Proyecto.Properties.Resources.logoxd;
-            this.pictureBox1.Location = new System.Drawing.Point(871, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1161, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 72);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 36;
             this.pictureBox1.TabStop = false;
             // 
             // Form11
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(967, 593);
+            this.ClientSize = new System.Drawing.Size(1289, 730);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form11";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form11";

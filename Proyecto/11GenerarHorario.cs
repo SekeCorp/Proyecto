@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using DGV2Printer;
+using System.Security.Cryptography;
 
 namespace Proyecto
 {
@@ -17,6 +18,7 @@ namespace Proyecto
     {
 
         private string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+
 
         public Form11()
         {
@@ -62,6 +64,11 @@ namespace Proyecto
                 return;
             }
 
+            // BPD - 2023-12-01 - Limpiar el datagridview antes de cargar la informacion
+            dataDatos.Rows.Clear();
+            dataDatos.Columns.Clear();
+            SetupDataGridView();
+
             string selectedRut = comboBoxRut.SelectedItem.ToString();
             LlenarPeriodosOcupados(selectedRut); // Asegúrate de que esta función rellena el diccionario con todos los días que se usarán
             DistribuirMaterias(selectedRut);
@@ -97,30 +104,6 @@ namespace Proyecto
                 }
             }
         }
-        //private void CargarAsignacionesPorProfesor(string rutProfesor)
-        //{
-        //    string query = @"
-        //SELECT idAsignacion, [rutProfesor], Cursos.nombreCurso, Materias.nombreMateria, dias, [periodo], Salas.nombresalas
-        //FROM AsignacionesHorarios
-        //JOIN Cursos ON AsignacionesHorarios.idCurso = Cursos.idCurso
-        //JOIN Materias ON AsignacionesHorarios.idMateria = Materias.idMateria
-        //JOIN Salas ON AsignacionesHorarios.idSala = Salas.idsalas
-        //WHERE rutProfesor = @rutProfesor
-        //ORDER BY rutProfesor, Materias.idMateria, dias, periodo, Salas.idsalas";
-
-        //    using (SqlConnection con = new SqlConnection(connectionString))
-        //    {
-        //        SqlCommand command = new SqlCommand(query, con);
-        //        command.Parameters.AddWithValue("@rutProfesor", rutProfesor);
-
-        //        SqlDataAdapter da = new SqlDataAdapter(command);
-        //        DataTable dt = new DataTable();
-        //        da.Fill(dt);
-
-        //        dataDatos.DataSource = dt;
-        //    }
-        //}
-
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
@@ -139,35 +122,48 @@ namespace Proyecto
             public string Id { get; set; }
             public string Nombre { get; set; }
             public bool Asignada { get; set; }
+
+            // BPD - 2023-12-01 - Agregar campos de acuerdo a la consulta de materias por profesor
+            public string NombreCurso { get; set; }
+            public string NombreSala { get; set; }
+            public string Dia { get; set; }
         }
 
         class Disponibilidad
         {
             public string Dia { get; set; }
             public List<string> Periodos { get; set; }
+
+            // BPD - 2023-11-29 - Agregar campos de acuerdo a la tabla Disponibilidad de la BD
+            public string Periodo { get; set; }
+            public int Id_Disponibilidad { get; set; }
+            public string Profesor_Rut { get; set; }
         }
 
         private void SetupDataGridView()
         {
-            // Asegúrate de que esta configuración se llame en el constructor de tu formulario o en el método Load
-            dataDatos.Columns.Add("idAsignacion", "ID Asignación");
+
             dataDatos.Columns.Add("rutProfesor", "RUT Profesor");
-            dataDatos.Columns.Add("nombreCurso", "Nombre Curso");
-            dataDatos.Columns.Add("nombreMateria", "Nombre Materia");
-            dataDatos.Columns.Add("dias", "Día");
             dataDatos.Columns.Add("periodo", "Período");
+            dataDatos.Columns.Add("nombreCurso", "Nombre Curso");
             dataDatos.Columns.Add("nombresalas", "Nombre Sala");
+            dataDatos.Columns.Add("dias", "Lunes");
+            dataDatos.Columns.Add("dias", "Martes");
+            dataDatos.Columns.Add("dias", "Miércoles");
+            dataDatos.Columns.Add("dias", "Jueves");
+            dataDatos.Columns.Add("dias", "Viernes");
+
         }
 
         private void InicializarPeriodosOcupados()
         {
 
-                string[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
-                foreach (var dia in dias)
-                {
-                    periodosOcupados[dia] = new HashSet<string>();
-                }
-            
+            string[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
+            foreach (var dia in dias)
+            {
+                periodosOcupados[dia] = new HashSet<string>();
+            }
+
         }
 
         private void DistribuirMaterias(string rutProfesor)
@@ -183,34 +179,83 @@ namespace Proyecto
                 int bloquesAsignadosHoy = 0;
                 string ultimoPeriodoAsignado = null;
 
+                int bloquesAsignadoPorDia = 1;
+                string diaAnterior = "";
+
                 foreach (var periodo in dia.Periodos)
                 {
+                    //int bloquesAsignadoPorDia = 1;
                     // Verifica si el período ya está ocupado para ese día
                     if (periodosOcupados[dia.Dia].Contains(periodo))
                     {
-                        continue; // El período ya está ocupado, así que continúa con el siguiente
+                        //continue; // El período ya está ocupado, así que continúa con el siguiente
                     }
 
                     if (bloquesAsignadosHoy >= 2 || (ultimoPeriodoAsignado != null && GetNextPeriodo(ultimoPeriodoAsignado) != periodo))
                     {
                         // Si ya se asignaron 2 bloques hoy o el periodo actual no es consecutivo, pasar al siguiente día
-                        break;
+                        //break;                        
                     }
+
 
                     var materiaParaAsignar = materias.FirstOrDefault(m => !m.Asignada); // Obtén la primera materia no asignada
 
                     if (materiaParaAsignar != null)
                     {
+                        // BPD - 2023-12-04 - Consulta para asignar valor del dia a variable y sumar al contador para su validacion
+                        if (diaAnterior != materiaParaAsignar.Dia)
+                        {
+                            diaAnterior = materiaParaAsignar.Dia;
+                            bloquesAsignadoPorDia = 1;
+                        }
+                        else
+                        {
+                            bloquesAsignadoPorDia++;
+                        }
+
+                        //BPD - 2023 - 12 - 04 - Validacion de bloques por dia
+                        if (bloquesAsignadoPorDia == 3)
+                        {
+                            MessageBox.Show("Este profesor ya tiene 2 bloques asignados por día ", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            bloquesAsignadoPorDia = 1;
+                            break;
+                            return;
+                        }
+
                         int rowIndex = dataDatos.Rows.Add();
-                        dataDatos.Rows[rowIndex].SetValues(null, rutProfesor, "Curso de ejemplo", materiaParaAsignar.Nombre, dia.Dia, periodo, "Sala de ejemplo");
+
 
                         // Marca la materia como asignada para este bloque de tiempo
                         materiaParaAsignar.Asignada = true;
-                        bloquesAsignadosHoy++;
+                        //bloquesAsignadosHoy++;
                         ultimoPeriodoAsignado = periodo;
 
                         // Marca el período como ocupado
                         periodosOcupados[dia.Dia].Add(periodo);
+
+                        // BPD - 2023-12-03 - Validacion de horarios y grabacion en la BD
+                        if (ExisteHorarioAsignado(materiaParaAsignar.NombreCurso, materiaParaAsignar.Nombre, materiaParaAsignar.Dia, periodo))
+                        {
+                            MessageBox.Show("Ya existe un horario asignado para el curso: " + materiaParaAsignar.NombreCurso + " Materia: " + materiaParaAsignar.Nombre
+                                + " Dia: " + materiaParaAsignar.Dia + " Periodo: " + periodo, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                            //if (bloquesAsignadoPorDia > 1)
+                            //{
+                            //    bloquesAsignadoPorDia--;
+                            //}
+                            bloquesAsignadoPorDia = 0;
+
+                            continue;
+                        }
+
+                        GuardarHorarioClases(rutProfesor, materiaParaAsignar.Nombre, periodo, materiaParaAsignar.Dia, materiaParaAsignar.NombreCurso);
+
+                        dataDatos.Rows[rowIndex].SetValues(rutProfesor, periodo, materiaParaAsignar.NombreCurso, materiaParaAsignar.NombreSala, materiaParaAsignar.Dia == "Lunes" ? materiaParaAsignar.Nombre : "", materiaParaAsignar.Dia == "Martes" ? materiaParaAsignar.Nombre : "",
+                            materiaParaAsignar.Dia == "Miércoles" ? materiaParaAsignar.Nombre : "", materiaParaAsignar.Dia == "Jueves" ? materiaParaAsignar.Nombre : "", materiaParaAsignar.Dia == "Viernes" ? materiaParaAsignar.Nombre : "");
+
+                        bloquesAsignadosHoy++;
+
+
                     }
                 }
             }
@@ -238,42 +283,39 @@ namespace Proyecto
         }
         private List<Disponibilidad> ObtenerDisponibilidad(string rutProfesor)
         {
-            // Obtén la disponibilidad del profesor de la base de datos
-            // Simulamos datos aquí. Debes ajustar la lógica según la disponibilidad real del profesor.
-            return new List<Disponibilidad>
-        {
-                new Disponibilidad { Dia = "Lunes", Periodos = new List<string> {
-                "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
-                "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
-                "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
-                "18:40 - 19:25"
-                } },
-                new Disponibilidad { Dia = "Martes", Periodos = new List<string> {
-                "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
-                "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
-                "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
-                "18:40 - 19:25"
-                } },
-                new Disponibilidad { Dia = "Miércoles", Periodos = new List<string> {
-                "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
-                "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
-                "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
-                "18:40 - 19:25"
-                } },
-                new Disponibilidad { Dia = "Jueves", Periodos = new List<string> {
-                "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
-                "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
-                "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
-                "18:40 - 19:25"
-                } },
-                new Disponibilidad { Dia = "Viernes", Periodos = new List<string> {
-                "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
-                "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
-                "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
-                "18:40 - 19:25"
-                } },
-        // Repetir para cada día de la semana según sea necesario.
-                                    };
+            List<Disponibilidad> lstDisp = new List<Disponibilidad>();
+            Disponibilidad disponibilidad;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = @"SELECT dias, periodo, profesor_rut FROM Disponibilidad WHERE profesor_rut = @rutProfesor ORDER BY dias;";
+
+                SqlCommand command = new SqlCommand(query, con);
+                command.Parameters.AddWithValue("@rutProfesor", rutProfesor);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    disponibilidad = new Disponibilidad();
+                    disponibilidad.Dia = reader["dias"].ToString();
+                    disponibilidad.Periodo = reader["periodo"].ToString();
+                    disponibilidad.Profesor_Rut = reader["profesor_rut"].ToString();
+                    disponibilidad.Periodos = new List<string> {
+                        "08:30 - 9:15", "09:15 - 10:00", "10:20 - 11:05", "11:05 - 11:50",
+                        "12:00 - 12:45", "12:45 - 13:30", "13:40 - 14:25", "14:25 - 15:10",
+                        "15:20 - 16:05", "16:05 - 16:50", "17:00 - 17:45", "17:45 - 18:30",
+                        "18:40 - 19:25"
+                    };
+
+                    lstDisp.Add(disponibilidad);
+                }
+
+                reader.Close();
+            }
+
+            return lstDisp;
         }
         private List<Materia> ObtenerAsignacionesMaterias(string rutProfesor)
         {
@@ -281,11 +323,33 @@ namespace Proyecto
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
+
+                // BPD - 2023-12-01 - Se modifica la consulta para obtener los campos que faltan en el datagridview
+                //string query = @"
+                //SELECT m.nombreMateria
+                //FROM Materias m
+                //INNER JOIN AsignacionesHorarios ah ON m.idMateria = CAST(ah.idMateria AS int)
+                //WHERE ah.rutProfesor = @rutProfesor";
+
                 string query = @"
-                SELECT m.nombreMateria
-                FROM Materias m
-                INNER JOIN AsignacionesHorarios ah ON m.idMateria = CAST(ah.idMateria AS int)
-                WHERE ah.rutProfesor = @rutProfesor";
+                                    SELECT
+                    pc.rutProfesor,
+                    c.nombreCurso,
+                    m.nombreMateria, 
+                    d.dias,
+                    d.periodo,
+                    s.nombresalas AS idSala
+                FROM
+                    ProfesorCurso pc
+                JOIN Profesores pfs ON pc.rutProfesor = pfs.rut
+                JOIN ProfesorMateria pm ON pfs.rut = pm.rutProfesor
+                JOIN Materias m ON pm.idMateria = m.idMateria
+                JOIN Cursos c ON pc.idCurso = c.idCurso
+                JOIN Disponibilidad d ON pc.rutProfesor = d.profesor_rut
+                JOIN Salas s ON m.idsala = s.idsalas
+                WHERE
+                    pc.rutProfesor = @rutProfesor
+                    ORDER BY dias;";
                 SqlCommand command = new SqlCommand(query, con);
                 command.Parameters.AddWithValue("@rutProfesor", rutProfesor);
 
@@ -297,12 +361,66 @@ namespace Proyecto
                         {
                             // Asumiendo que tienes un campo Id, aunque no lo usas aquí
                             Nombre = reader["nombreMateria"].ToString(),
-                            Asignada = false // Inicialmente, ninguna materia está asignada
+                            Asignada = false, // Inicialmente, ninguna materia está asignada
+
+                            // BPD - 2023-12-01 - Agregar campos de acuerdo a la consulta de materias por profesor
+                            NombreCurso = reader["nombreCurso"].ToString(),
+                            NombreSala = reader["idSala"].ToString(),
+                            Dia = reader["dias"].ToString()
                         });
                     }
                 }
             }
             return materiasAsignadas;
+        }
+        // BPD - 2023-12-03 - Método para consultar si existe el horario ingresado para un curso, dia y periodo cargado en el Datagridview
+        private bool ExisteHorarioAsignado(string Curso, string Materia, string Dias, string Periodo)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                string query = @"
+                SELECT idHorario 
+                FROM HorarioClases
+                WHERE Curso = @Curso                
+                AND Dias = @Dias
+                AND Materia = @Materia
+                AND Periodo = @Periodo";
+                SqlCommand command = new SqlCommand(query, con);
+                command.Parameters.AddWithValue("@Curso", Curso);
+                command.Parameters.AddWithValue("@Dias", Dias);
+                command.Parameters.AddWithValue("@Materia", Materia);
+                command.Parameters.AddWithValue("@Periodo", Periodo);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                        return true;
+                    else
+                        return false;
+                }
+            }
+        }
+
+        // BPD - 2023-12-03 - Método para guardar el horario de clases
+        private void GuardarHorarioClases(string rutProfesor, string Materia, string Periodo, string Dias, string Curso)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                using (SqlCommand command = new SqlCommand("INSERT INTO HorarioClases (RUT, Materia, Periodo, Dias, Curso)" +
+                    " VALUES (@rutProfesor, @Materia, @Periodo, @Dias, @Curso)", con))
+                {
+                    command.Parameters.AddWithValue("@rutProfesor", rutProfesor);
+                    command.Parameters.AddWithValue("@Materia", Materia);
+                    command.Parameters.AddWithValue("@Periodo", Periodo);
+                    command.Parameters.AddWithValue("@Dias", Dias);
+                    command.Parameters.AddWithValue("@Curso", Curso);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

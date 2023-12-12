@@ -16,8 +16,7 @@ namespace Proyecto
         {
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet23.Profesores' Puede moverla o quitarla según sea necesario.
             this.profesoresTableAdapter.Fill(this.proyectoDataSet23.Profesores);
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet13.Materias' Puede moverla o quitarla según sea necesario.
-            this.materiasTableAdapter.Fill(this.proyectoDataSet13.Materias);
+
             // Agregar un mensaje de instrucción en el ComboBox
 
             // Limpiar la selección actual del ComboBox

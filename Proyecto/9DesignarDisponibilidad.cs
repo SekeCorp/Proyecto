@@ -32,7 +32,7 @@ namespace Proyecto
                 con.Open();
             }
         }
-       
+
         private void SaveDisponibilidadHoras(System.Windows.Forms.ComboBox comboBox)
         {
             string[] nombresDias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
@@ -49,15 +49,16 @@ namespace Proyecto
                     return; // Salir del método si el RUT no es válido
                 }
 
-
                 using (SqlCommand command = new SqlCommand("DELETE FROM Disponibilidad WHERE profesor_rut = @rut", con))
                 {
                     command.Parameters.AddWithValue("@rut", rut);
                     command.ExecuteNonQuery();
                 }
 
-                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, dias, periodo) VALUES (@profesor_rut, @dias, @periodo)", con))
+                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, dias, periodo, ordenDia) VALUES (@profesor_rut, @dias, @periodo, @ordenDia)", con))
                 {
+                    List<string> diasOrdenados = new List<string> { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
+
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
                         for (int j = 2; j < dataGridView1.Columns.Count; j++)
@@ -66,13 +67,18 @@ namespace Proyecto
 
                             if (isChecked)
                             {
-                                string periodo = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                                string periodo = dataGridView1.Rows[i].Cells[1].Value.ToString();
                                 string dia = nombresDias[j - 2];
+
+                                // Obtén el índice del día en la lista ordenada
+                                int ordenDia = diasOrdenados.IndexOf(dia);
 
                                 command.Parameters.Clear();
                                 command.Parameters.AddWithValue("@profesor_rut", rut);
                                 command.Parameters.AddWithValue("@dias", dia);
                                 command.Parameters.AddWithValue("@periodo", periodo);
+                                command.Parameters.AddWithValue("@ordenDia", ordenDia); // Agrega el índice del día a la inserción
+
                                 command.ExecuteNonQuery();
                             }
                         }
