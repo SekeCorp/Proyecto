@@ -33,7 +33,7 @@ namespace Proyecto
             }
         }
 
-        private void SaveDisponibilidadHoras(System.Windows.Forms.ComboBox comboBox)
+        private void SaveDisponibilidadHoras(System.Windows.Forms.ComboBox comboBox2)
         {
             string[] nombresDias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
 
@@ -55,28 +55,29 @@ namespace Proyecto
                     command.ExecuteNonQuery();
                 }
 
-                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (profesor_rut, dias, periodo, ordenDia) VALUES (@profesor_rut, @dias, @periodo, @ordenDia)", con))
+                using (SqlCommand command = new SqlCommand("INSERT INTO Disponibilidad (dias, periodo, profesor_rut, ordenDia) VALUES (@dias, @periodo, @profesor_rut, @ordenDia)", con))
                 {
                     List<string> diasOrdenados = new List<string> { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" };
 
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    for (int j = 2; j < dataGridView1.Columns.Count; j++)
                     {
-                        for (int j = 2; j < dataGridView1.Columns.Count; j++)
+                        string dia = nombresDias[j - 2];
+
+                        for (int i = 0; i < dataGridView1.Rows.Count; i++)
                         {
                             bool isChecked = (bool)dataGridView1.Rows[i].Cells[j].Value;
 
                             if (isChecked)
                             {
                                 string periodo = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                                string dia = nombresDias[j - 2];
 
                                 // Obtén el índice del día en la lista ordenada
                                 int ordenDia = diasOrdenados.IndexOf(dia);
 
                                 command.Parameters.Clear();
-                                command.Parameters.AddWithValue("@profesor_rut", rut);
                                 command.Parameters.AddWithValue("@dias", dia);
                                 command.Parameters.AddWithValue("@periodo", periodo);
+                                command.Parameters.AddWithValue("@profesor_rut", rut);
                                 command.Parameters.AddWithValue("@ordenDia", ordenDia); // Agrega el índice del día a la inserción
 
                                 command.ExecuteNonQuery();
@@ -89,6 +90,8 @@ namespace Proyecto
 
         private void Form9_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'profesores._Profesores' Puede moverla o quitarla según sea necesario.
+            this.profesoresTableAdapter.Fill(this.profesores._Profesores);
             // TODO: esta línea de código carga datos en la tabla 'profesores._Profesores' Puede moverla o quitarla según sea necesario.
             this.profesoresTableAdapter.Fill(this.profesores._Profesores);
             // TODO: Código que carga datos en la tabla
@@ -196,33 +199,6 @@ namespace Proyecto
             }
         }
 
-        private bool CheckIndividualLimit(int rowIndex)
-        {
-            // Implementación de la lógica para CheckIndividualLimit
-            int sumaHoras = 0;
-            for (int i = 2; i < dataGridView1.Columns.Count; i++)
-            {
-                if ((bool)dataGridView1.Rows[rowIndex].Cells[i].Value)
-                {
-                    sumaHoras += VALOR_NUMERICO;
-                }
-            }
-            return sumaHoras > MAX_SUMA_POR_DIA;
-        }
-
-        private bool CheckDailyLimit(int columnIndex)
-        {
-            // Implementación de la lógica para CheckDailyLimit
-            int sumaHoras = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                if ((bool)dataGridView1.Rows[i].Cells[columnIndex].Value)
-                {
-                    sumaHoras += VALOR_NUMERICO;
-                }
-            }
-            return sumaHoras > MAX_SUMA_SEMANAL;
-        }
 
         private int CalcularHorasSeleccionadas()
         {
