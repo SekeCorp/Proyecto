@@ -1,18 +1,15 @@
 ﻿using DGV2Printer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto
 {
     public partial class Form12 : Form
     {
+        private DataTable dataTable;
         public Form12()
         {
             InitializeComponent();
@@ -20,10 +17,11 @@ namespace Proyecto
 
         private void Form12_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet22.AsignacionesHorarios' Puede moverla o quitarla según sea necesario.
-            this.asignacionesHorariosTableAdapter.Fill(this.proyectoDataSet22.AsignacionesHorarios);
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet25.HorarioClases' Puede moverla o quitarla según sea necesario.
+            this.horarioClasesTableAdapter.Fill(this.proyectoDataSet25.HorarioClases);
 
-
+            // Obtener el DataTable asociado al BindingSource
+            dataTable = ((DataView)horarioClasesBindingSource.List).Table;
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -33,11 +31,14 @@ namespace Proyecto
             print.ReportHeader = "Horario de Clases";
             print.Print();
         }
-        private string selectedNombreApellido;
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnOrdenar_Click(object sender, EventArgs e)
         {
+            // Ordenar por PERIODO y DIAS
+            dataTable.DefaultView.Sort = "RUT, Periodo, Dias";
 
+            // Actualizar el DataGridView
+            dataGridView1.DataSource = dataTable.DefaultView.ToTable();
         }
     }
 }

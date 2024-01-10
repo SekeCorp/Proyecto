@@ -2,6 +2,8 @@
 using System.Data;
 using System.Windows.Forms;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Proyecto
 {
@@ -14,6 +16,11 @@ namespace Proyecto
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet24.Materias' Puede moverla o quitarla según sea necesario.
+            this.materiasTableAdapter2.Fill(this.proyectoDataSet24.Materias);
+
+            // TODO: esta línea de código carga datos en la tabla 'cursos._Cursos' Puede moverla o quitarla según sea necesario.
+            this.cursosTableAdapter.Fill(this.cursos._Cursos);
             // TODO: esta línea de código carga datos en la tabla 'proyectoDataSet23.Profesores' Puede moverla o quitarla según sea necesario.
             this.profesoresTableAdapter.Fill(this.proyectoDataSet23.Profesores);
 
@@ -59,76 +66,136 @@ namespace Proyecto
             }
         }
 
+
         private void btnModConfirmar_Click(object sender, EventArgs e)
         {
-            string path, query;
-            path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
-            SqlDataReader dr;
-            SqlConnection con = new SqlConnection(path);
-            query = "Select * from Profesor";
-            SqlCommand cmd = new SqlCommand(query, con);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("rut");
-            dt.Columns.Add("nombre");
-            dt.Columns.Add("apellido");
-            con.Open();
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                DataRow row = dt.NewRow();
-                row["rut"] = dr["rut"];
-                row["nombre"] = dr["nombre"];
-                row["apellido"] = dr["apellido"];
-                dt.Rows.Add(row);
-            }
-            dataGridView1.DataSource = dt;
-            con.Close();
-            txtNombreModPro.Clear();
-            txtApellidoProMod.Clear();
+            LoadProfesorData();
         }
+        
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                string path, query, nombre, materia, horas, rut, apellido;
-                DataTable dt = new DataTable();
+                string rut, nombre, apellido;
+                List<string> selectedMaterias = listMateria.SelectedItems.Cast<DataRowView>()
+                                           .Select(item => item["nombreMateria"].ToString())
+                                           .ToList();
 
-                path = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+                // Capturar los elementos seleccionados de listCurso
+                List<string> selectedCursos = listCurso.SelectedItems.Cast<DataRowView>()
+                                          .Select(item => item["nombreCurso"].ToString())
+                                          .ToList();
                 rut = comboBoxRut.Text;
                 nombre = txtNombreModPro.Text;
                 apellido = txtApellidoProMod.Text;
 
-                using (SqlConnection con = new SqlConnection(path))
+                // Eliminar registros antiguos en ProfesorMateria y ProfesorCurso
+                DeleteProfesorData(rut);
+
+                // Crear y mostrar Form17 pasando los elementos seleccionados de materias y cursos
+                Form17 f17 = new Form17(selectedMaterias, selectedCursos, rut, nombre, apellido);
+                f17.Show();
+
+                // Insertar nuevos registros en ProfesorMateria y ProfesorCurso
+                //InsertProfesorData(rut, selectedMaterias, selectedCursos);
+
+                // Refrescar la vista de los datos
+                LoadProfesorData();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error al modificar los registros: " + ex.Message);
+            }
+
+        }
+        private void DeleteProfesorData(string rut)
+        {
+            try
+            {
+                string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
 
-                    query = "UPDATE Profesor SET nombre = @nombre, materia = @materia, horas = @horas, apellido = @apellido WHERE rut = @rut";
-                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    // Eliminar registros en ProfesorMateria
+                    string queryDeleteProfesorMateria = "DELETE FROM ProfesorMateria WHERE rutProfesor = @rut";
+                    using (SqlCommand cmdDeleteProfesorMateria = new SqlCommand(queryDeleteProfesorMateria, con))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", nombre);
-                        cmd.Parameters.AddWithValue("@rut", rut);
-                        cmd.Parameters.AddWithValue("@apellido", apellido);
+                        cmdDeleteProfesorMateria.Parameters.AddWithValue("@rut", rut);
+                        cmdDeleteProfesorMateria.ExecuteNonQuery();
+                    }
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                    string queryDeleteMateriaCurso = "DELETE FROM MateriaCurso WHERE rutProfesor = @rut";
+                    // Elimina las filas relacionadas en MateriaCurso
+                    using (SqlCommand commandDeleteMateriaCurso = new SqlCommand(queryDeleteMateriaCurso, con))
+                    {
+                        commandDeleteMateriaCurso.Parameters.AddWithValue("@rut", rut);
+                        commandDeleteMateriaCurso.ExecuteNonQuery();
+                    }
 
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Modificado correctamente");
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontró ningún registro para actualizar");
-                        }
+                    // Eliminar registros en ProfesorCurso
+                    string queryDeleteProfesorCurso = "DELETE FROM ProfesorCurso WHERE rutProfesor = @rut";
+                    using (SqlCommand cmdDeleteProfesorCurso = new SqlCommand(queryDeleteProfesorCurso, con))
+                    {
+                        cmdDeleteProfesorCurso.Parameters.AddWithValue("@rut", rut);
+                        cmdDeleteProfesorCurso.ExecuteNonQuery();
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar el registro: ");
+                MessageBox.Show("Error al eliminar los registros antiguos: " + ex.Message);
             }
         }
 
+        //// Método para insertar nuevos registros
+        //private void InsertProfesorData(string rut, List<string> materias, List<string> cursos)
+        //{
+
+        //    try
+        //    {
+        //        string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+
+        //        using (SqlConnection con = new SqlConnection(connectionString))
+        //        {
+        //            con.Open();
+
+        //            // Insertar registros en ProfesorMateria
+        //            string queryInsertProfesorMateria = @"
+        //        INSERT INTO ProfesorMateria (rutProfesor, idMateria)
+        //        VALUES (@rut, (SELECT idMateria FROM Materias WHERE nombreMateria = @materia))";
+        //            foreach (string materia in materias)
+        //            {
+        //                using (SqlCommand cmdInsertProfesorMateria = new SqlCommand(queryInsertProfesorMateria, con))
+        //                {
+        //                    cmdInsertProfesorMateria.Parameters.AddWithValue("@rut", rut);
+        //                    cmdInsertProfesorMateria.Parameters.AddWithValue("@materia", materia);
+        //                    cmdInsertProfesorMateria.ExecuteNonQuery();
+        //                }
+        //            }
+
+        //            // Insertar registros en ProfesorCurso
+        //            string queryInsertProfesorCurso = @"
+        //        INSERT INTO ProfesorCurso (rutProfesor, idCurso)
+        //        VALUES (@rut, (SELECT idCurso FROM Cursos WHERE nombreCurso = @curso))";
+        //            foreach (string curso in cursos)
+        //            {
+        //                using (SqlCommand cmdInsertProfesorCurso = new SqlCommand(queryInsertProfesorCurso, con))
+        //                {
+        //                    cmdInsertProfesorCurso.Parameters.AddWithValue("@rut", rut);
+        //                    cmdInsertProfesorCurso.Parameters.AddWithValue("@curso", curso);
+        //                    cmdInsertProfesorCurso.ExecuteNonQuery();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al insertar los nuevos registros: " + ex.Message);
+        //    }
+        //}
 
 
         private void Form4_Shown(object sender, EventArgs e)
@@ -163,7 +230,7 @@ namespace Proyecto
                 {
                     con.Open();
 
-                    string query = "SELECT nombre, apellido FROM Profesor WHERE rut = @rut";
+                    string query = "SELECT nombre, apellido FROM Profesores WHERE rut = @rut";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@rut", rut);
@@ -190,9 +257,49 @@ namespace Proyecto
             }
         }
 
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            LoadProfesorData();
+        }
+        private void LoadProfesorData()
+        {
+            string connectionString = "Data Source=LAPTOP-HP6EH3TV\\SQLEXPRESS01;Initial Catalog=Proyecto;Integrated Security=True";
+            string query = @"
+        SELECT 
+            Profesores.rut, 
+            Profesores.nombre + ' ' + Profesores.apellido AS 'NombreCompleto', 
+            Materias.nombreMateria, 
+            Cursos.nombreCurso 
+        FROM 
+            Profesores 
+        INNER JOIN 
+            ProfesorMateria ON Profesores.rut = ProfesorMateria.rutProfesor 
+        INNER JOIN 
+            Materias ON ProfesorMateria.idMateria = Materias.idMateria 
+        INNER JOIN 
+            ProfesorCurso ON Profesores.rut = ProfesorCurso.rutProfesor 
+        INNER JOIN 
+            Cursos ON ProfesorCurso.idCurso = Cursos.idCurso";
 
-
-
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt; // Asegúrate de que tu DataGridView se llame dataGridView1.
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                }
+            }
+        }
     }
 
     }

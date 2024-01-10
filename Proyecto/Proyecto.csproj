@@ -186,6 +186,12 @@
     <Compile Include="9DesignarDisponibilidad.Designer.cs">
       <DependentUpon>9DesignarDisponibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="17VincularMatCursoMOD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="17VincularMatCursoMOD.Designer.cs">
+      <DependentUpon>17VincularMatCursoMOD.cs</DependentUpon>
+    </Compile>
     <Compile Include="MateriaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -313,6 +319,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet23.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProyectoDataSet24.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet24.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProyectoDataSet25.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoDataSet25.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProyectoDataSet31.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -348,6 +364,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectoDataSet9.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="17VincularMatCursoMOD.resx">
+      <DependentUpon>17VincularMatCursoMOD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="1Inicio.resx">
       <DependentUpon>1Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -720,6 +739,28 @@
     </None>
     <None Include="ProyectoDataSet23.xss">
       <DependentUpon>ProyectoDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet24.xsc">
+      <DependentUpon>ProyectoDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet24.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet24.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet24.xss">
+      <DependentUpon>ProyectoDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet25.xsc">
+      <DependentUpon>ProyectoDataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoDataSet25.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoDataSet25.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoDataSet25.xss">
+      <DependentUpon>ProyectoDataSet25.xsd</DependentUpon>
     </None>
     <None Include="ProyectoDataSet31.xsc">
       <DependentUpon>ProyectoDataSet31.xsd</DependentUpon>
